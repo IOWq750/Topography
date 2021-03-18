@@ -1,23 +1,23 @@
 --- 
-title: "Картография: практикум в QGIS"
-author: "Карпачевский А.М."
+title: "Топография с основами геодезии"
+author: "Карпачевский А.М., Каргашин П.Е."
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-description: "Картография: практикум в QGIS"
+description: "Топография с основами геодезии"
 colorlinks: true
-github-repo: iowq750/cartography
+github-repo: iowq750/topography
 fontsize: 12pt
 mainfont: PT Serif
 toc_float:
   collapse: section
   smooth_scroll: true
-apple-touch-icon: images/apple-touch-icon.png
-apple-touch-icon-size: 120
-favicon: images/favicon.ico
+apple-touch-icon: images/favicon.png
+apple-touch-icon-size: 96
+favicon: images/favicon.png
 ---
 
 
