@@ -3,7 +3,7 @@ chapter_name: "Справка "
 output_dir: docs
 rmd_files:
     - "index.Rmd"
-    - "Ref01_Topo.Rmd"
+    - "Ref00_Interpretation.Rmd"
 delete_merged_file: true
 language:
   label:
