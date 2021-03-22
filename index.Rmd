@@ -88,18 +88,7 @@ favicon: images/favicon.ico
 Дополнительную информацию по установке можно найти на [https://qgis.org/ru/site/forusers/download.html](https://qgis.org/ru/site/forusers/download.html){target="_blank"}.
 
 
-## Inkscape {-}
 
-Для некоторых операций оформления карты невозможно обойтись только геоинформационным ПО. Открытый графический пакет **Inkscape** доступен для скачивания на [официальном сайте](https://inkscape.org/ru/){target="_blank"}.
-
-![](images/Index0/inkscape.png)
-
-Выберите дистрибутив для вашей операционной системы.
-
-Если вы устанавливаете Inkscape на Windows, выберите разрядность вашей системы
-
-
-![](images/Index0/inkscape3.png)
 
 
 Для скачивания необходимо выбрать **Windows Installer Package** (формат файла MSI).
