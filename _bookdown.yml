@@ -4,7 +4,9 @@ output_dir: docs
 rmd_files:
     - "index.Rmd"
     - "Ref00_Interpretation.Rmd"
+    - "Ref00_Stereo.Rmd"
     - "Ref01_Georeference.Rmd"
+    - "Ref02_Topo.Rmd"
 delete_merged_file: true
 language:
   label:
