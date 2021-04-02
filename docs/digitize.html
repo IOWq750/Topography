@@ -101,10 +101,12 @@
 <li class="chapter" data-level="3.7" data-path="georeference.html"><a href="georeference.html#georeference-measure"><i class="fa fa-check"></i><b>3.7</b> Измерения по карте и снимку</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="digitize.html"><a href="digitize.html"><i class="fa fa-check"></i><b>4</b> Векторизация топографической карты</a><ul>
-<li class="chapter" data-level="4.1" data-path="digitize.html"><a href="digitize.html#digitize-database"><i class="fa fa-check"></i><b>4.1</b> Создание базы данных</a></li>
-<li class="chapter" data-level="4.2" data-path="digitize.html"><a href="digitize.html#digitize-vectorize"><i class="fa fa-check"></i><b>4.2</b> Векторизация</a></li>
-<li class="chapter" data-level="4.3" data-path="digitize.html"><a href="digitize.html#map-topo-symbols"><i class="fa fa-check"></i><b>4.3</b> Оформление в условных знаках</a></li>
-<li class="chapter" data-level="4.4" data-path="digitize.html"><a href="digitize.html#map-topo-layout"><i class="fa fa-check"></i><b>4.4</b> Оформление макета</a></li>
+<li class="chapter" data-level="4.1" data-path="digitize.html"><a href="digitize.html#digitize-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="4.2" data-path="digitize.html"><a href="digitize.html#digitize-task"><i class="fa fa-check"></i><b>4.2</b> Цель работы</a></li>
+<li class="chapter" data-level="4.3" data-path="digitize.html"><a href="digitize.html#digitize-database"><i class="fa fa-check"></i><b>4.3</b> Создание базы данных</a></li>
+<li class="chapter" data-level="4.4" data-path="digitize.html"><a href="digitize.html#digitize-vectorize"><i class="fa fa-check"></i><b>4.4</b> Векторизация</a></li>
+<li class="chapter" data-level="4.5" data-path="digitize.html"><a href="digitize.html#map-topo-symbols"><i class="fa fa-check"></i><b>4.5</b> Оформление в условных знаках</a></li>
+<li class="chapter" data-level="4.6" data-path="digitize.html"><a href="digitize.html#map-topo-layout"><i class="fa fa-check"></i><b>4.6</b> Оформление макета</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -128,8 +130,18 @@
             <section class="normal" id="section-">
 <div id="digitize" class="section level1">
 <h1><span class="header-section-number">Справка 4</span> Векторизация топографической карты</h1>
+<div id="digitize-initial" class="section level2">
+<h2><span class="header-section-number">4.1</span> Исходные данные</h2>
+<p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
+<p>Привязанная топографическая карта и аэрофотоснимок из предыдущего задания.</p>
+</div>
+<div id="digitize-task" class="section level2">
+<h2><span class="header-section-number">4.2</span> Цель работы</h2>
+<p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
+<p>Научиться создавать базу пространственных данных для картографирования, научиться проводить векторизацию объектов на топографической карте и снимке.</p>
+</div>
 <div id="digitize-database" class="section level2">
-<h2><span class="header-section-number">4.1</span> Создание базы данных</h2>
+<h2><span class="header-section-number">4.3</span> Создание базы данных</h2>
 <p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
 <p>QGIS поддерживает различные форматы пространственных данных. Среди них наиболее удобным для хранения и работы считается формат <strong>Geopackage</strong>. По сути это формат базы пространственных данных, внутри которой мы можем складывать различные классы объектов. Для создания базы данных формата <strong>Geopackage</strong> откройте окно Браузера внутри QGIS. Если его нет, включите его в выпадающем списке при щелчке правой кнопкой мыши по пустой панели. Найдите каталог, в котором вы хотите создать базу данных (лучше всего, чтобы путь к этой базы состоял из символов латинского алфавита, не содержал дефисов, пробелов и спецсимволов). Правой кнопкой мыши щелкните по каталогу, выберете <strong>Новые – Geopackage</strong>. Откроется окно, которое помимо самой базы данных предложит создать слой внутри неё. В поле Имя таблицы введите имя класса объектов латинскими символами, лучше, чтобы это был английский перевод соответствующего вида картографируемого объекта, а не транслитерация.</p>
 <div class="figure">
@@ -144,7 +156,7 @@
 <p><strong>Сохраните проект.</strong></p>
 </div>
 <div id="digitize-vectorize" class="section level2">
-<h2><span class="header-section-number">4.2</span> Векторизация</h2>
+<h2><span class="header-section-number">4.4</span> Векторизация</h2>
 <p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
 <p>Созданные классы объектов в базе данных можно добавить в перечень слоев проекта простым перетаскиванием. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт «Режим редактирования», либо выделить слой и найти на панели инструментов кнопку <img src="images/Vector/Edit.png" />. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для полигонального объекта появится кнопка <img src="images/Vector/New_polygon.png" />, с помощью которой можно создать новый полигон в слое. Для других типов геометрии иконка будет немного отличаться.</p>
 <p>Рисовка контура осуществляется с помощью левой кнопки мыши. Для завершения объекта нажмите правую кнопку мыши. Для редактирования отдельных вершин нажмите на кнопку <img src="images/Vector/Vertices.png" />. После этого у объекта кружочками выделятся вершины.</p>
@@ -172,7 +184,7 @@
 <p><strong>Сохраните проект.</strong></p>
 </div>
 <div id="map-topo-symbols" class="section level2">
-<h2><span class="header-section-number">4.3</span> Оформление в условных знаках</h2>
+<h2><span class="header-section-number">4.5</span> Оформление в условных знаках</h2>
 <p><a href="#map-topo">В начало справки ⇡</a></p>
 <p>Для работы с оформлением топографического плана скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>, а также <a href="https://yadi.sk/i/4EpTOHEhQdVq9g" target="_blank">условные обозначения</a>.</p>
 <p>Для оформления наших слоёв проекта в условных знаков необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует <strong>Стиль</strong>. Для точечного слоя по умолчанию будет выставлен <strong>Простой маркер</strong>.</p>
@@ -207,7 +219,7 @@
 <p><strong>Сохраните проект.</strong></p>
 </div>
 <div id="map-topo-layout" class="section level2">
-<h2><span class="header-section-number">4.4</span> Оформление макета</h2>
+<h2><span class="header-section-number">4.6</span> Оформление макета</h2>
 <p><a href="#map-topo">В начало справки ⇡</a></p>
 <p>Итоговое оформление карты/плана в ГИС-пакете QGIS осуществляется в режиме макета. Для этого надо найти пункт меню <strong>Проект – Создать макет</strong>. После ввода имени макета откроется отдельное окно, в котором нам предстоит скомпоновать наше картографическое изображение.</p>
 <div class="figure">
