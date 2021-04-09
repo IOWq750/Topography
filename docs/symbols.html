@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 2 Работа со стереопарой снимков | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 2 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <title>Справка 5 Оформление в условных знаках | Топография с основами геодезии</title>
+  <meta name="description" content="Справка 5 Оформление в условных знаках | Топография с основами геодезии" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 2 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:title" content="Справка 5 Оформление в условных знаках | Топография с основами геодезии" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 2 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:description" content="Справка 5 Оформление в условных знаках | Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 2 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Справка 5 Оформление в условных знаках | Топография с основами геодезии" />
   
-  <meta name="twitter:description" content="Справка 2 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Справка 5 Оформление в условных знаках | Топография с основами геодезии" />
   
 
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="96x96" href="apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="interpretation.html"/>
-<link rel="next" href="georeference.html"/>
+<link rel="prev" href="digitize.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -133,76 +133,99 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stereo" class="section level1">
-<h1><span class="header-section-number">Справка 2</span> Работа со стереопарой снимков</h1>
-<div id="stereo-theory" class="section level2">
-<h2><span class="header-section-number">2.1</span> Краткая теоретическая информация</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p><em>Стереоэффект</em> – пространственное восприятие объекта при рассматривании двух его плоских перспективных изображений.</p>
-<p><em>Стереопара</em> – снимки, полученные из разных точек пространства на одну и ту же территорию, либо объект.</p>
+<div id="symbols" class="section level1">
+<h1><span class="header-section-number">Справка 5</span> Оформление в условных знаках</h1>
+<div id="symbols-initial" class="section level2">
+<h2><span class="header-section-number">5.1</span> Исходные данные</h2>
+<p><a href="symbols.html#symbols">В начало справки ⇡</a></p>
+<p>Для работы с оформлением топографического плана или карты скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>.</p>
+</div>
+<div id="symbols-task" class="section level2">
+<h2><span class="header-section-number">5.2</span> Цель работы</h2>
+<p><a href="symbols.html#symbols">В начало справки ⇡</a></p>
+<p>Научиться оформлять векторные слои согласно принятым условным обозначениям в ПО QGIS.</p>
+</div>
+<div id="symbols-symbols" class="section level2">
+<h2><span class="header-section-number">5.3</span> Оформление в условных знаках</h2>
+<p><a href="symbols.html#symbols">В начало справки ⇡</a></p>
+<p>Для оформления наших слоёв проекта в условных знаков необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует <strong>Стиль</strong>. Для точечного слоя по умолчанию будет выставлен <strong>Простой маркер</strong>.</p>
 <div class="figure">
-<img src="images/Stereo/stereopair.png" alt="" />
-<p class="caption">Принципиальная схема стереоблюдений точек местности</p>
+<img src="images/Symbology/Symbol_style_svg.png" alt="" />
+<p class="caption">Простой маркер в символике слоя</p>
 </div>
-<p><em>Базис съёмки</em> (<span class="math inline">\(b\)</span>) – расстояние в масштабе снимков между точками съёмки (центрами их проекций).</p>
-<p><em>Продольный параллакс</em> (<span class="math inline">\(p\)</span>) – разность координат <span class="math inline">\(x\)</span> соответственных точек на двух снимках (<span class="math inline">\(x_л - x_п\)</span>).</p>
-<p><em>Поперечный параллакс</em> (<span class="math inline">\(q\)</span>) – разность координат <span class="math inline">\(y\)</span> соответственных точек на двух снимках (<span class="math inline">\(y_л - y_п\)</span>).</p>
-<p><em>Разность параллаксов</em> (<span class="math inline">\(\Delta p\)</span>) – разница в смещении координат соответственных точек, обусловленная разницей в их высоте (<span class="math inline">\(p_2 - p_1\)</span>).</p>
+<p>С ним особо ничего не сделаешь – можно поменять геометрическую фигуру, изменить размер или цвет. Для использования более разнообразной библиотеки символов нужно в типе слоя выбрать <strong>SVG-маркер</strong>.</p>
 <div class="figure">
-<img src="images/Stereo/parallax.png" alt="" />
-<p class="caption">Координаты соответственных точек на паре снимков</p>
+<img src="images/Symbology/Svg_selection.png" alt="" />
+<p class="caption">Выбор SVG-символа</p>
 </div>
-<p><em>Формула превышений</em> – приблизительная формула для вычисления превышений точек по стереопарам снимков через разность параллаксов двух точек <span class="math inline">\(\Delta p\)</span>.</p>
-<p><span class="math display">\[h = H\frac{\Delta p }{b + \Delta p}\]</span></p>
-</div>
-<div id="stereo-soft" class="section level2">
-<h2><span class="header-section-number">2.2</span> Установка программного обеспечения</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Для практической работы вам понадобится открытая учебная фотограмметрическая программа <strong>E-foto</strong>. Информацию о ней можно найти на домашнем сайте (<a href="http://www.efoto.eng.uerj.br/" target="_blank">http://www.efoto.eng.uerj.br/</a>), там же можно скачать себе дистрибутив программы. Для этого перейдите во вкладку <strong>DOWNLOAD – Latest Version</strong>.</p>
+<p>Переместите папку со скаченными символами в директорию, где находятся остальные SVG-символы. Например, на Windows 10 это, вероятно, будет следующий путь:</p>
+<p><strong>C:\Users\%USERNAME%\AppData\Roaming\QGIS\QGIS3\profiles\custom\svg</strong></p>
+<p>При выборе символа внизу появляется адрес к данному символу у вас на компьютере. Размер символа и его цвет вы можете настраивать в этом же окне.</p>
+<p>Для площадных объектов всё работает похоже, но немного сложнее. По умолчанию для таких слоёв даётся заливка цветом, которую можно менять. Дополнительно можно менять обводку. Для того чтобы заполнить наши площадные объекты штриховкой из специальных символов, например, газона, нужно выбрать <strong>Тип слоя – Заливка маркерами</strong>.</p>
 <div class="figure">
-<img src="images/Stereo/Download.png" alt="" />
-<p class="caption">Страница для загрузки программы и данных</p>
+<img src="images/Symbology/Polygon_filling.png" alt="" />
+<p class="caption">Заливка маркерами</p>
 </div>
-<p>Запустите скачанный пакет установщика и установите программу.</p>
-</div>
-<div id="stereo-initial" class="section level2">
-<h2><span class="header-section-number">2.3</span> Исходные данные</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>В работе будут использоваться данные аэрофотосъёмки на учебный полигон Сатино. Съёмка производилась с помощью камеры АФА-41/10.
-Примерная высота съёмки – 1500 м;</p>
-<p>Фокусное расстояние камеры – 96,78 мм;</p>
-<p>Базис съёмки между снимками 10182 и 10183 составляет 71 мм, между снимками 10183 и 10184 – 69 мм, между 10184 и 10185 – 69 мм.</p>
-<ol style="list-style-type: decimal">
-<li>Скачайте данные проекта, доступные по <a href="https://yadi.sk/d/3a5RAakJsZoAYg" target="_blank">ссылке</a>.</li>
-</ol>
-<p>Проект включает в себя собственно файл проекта с расширением *.epp и четыре аэрофотоснимка.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p><a href="https://yadi.sk/i/gX-dbnhTKGme_A" target="_blank">Топографическая карта масштаба 1:10 000</a></p></li>
-<li><p><a href="https://yadi.sk/d/dzFeiJ2zVdx_Hw" target="_blank">Аэрофотоснимки с нанесённой сеткой</a></p></li>
-<li><p><a href="https://yadi.sk/i/wJ_0jiAc-nkO6A" target="_blank">Бланк задания</a></p></li>
-</ol>
-</div>
-<div id="stereo-task" class="section level2">
-<h2><span class="header-section-number">2.4</span> Цель работы</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Научиться выполнять измерения по стереопаре аэрофотоснимков с использованием формулы превышений и специального программного обеспечения. Построить гипсометрический профиль по данным измерений двумя способами и топографической карты.</p>
-</div>
-<div id="stereo-stereoplotter" class="section level2">
-<h2><span class="header-section-number">2.5</span> Работа в стереокомпараторе</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Разместите папку с проектом у себя на компьютере так, чтобы путь к ней был без пробелов, кириллицы, дефисов и иных специальных символов. Запустите проект <strong>Stereo.epp</strong> с помощью программы <strong>E-foto</strong>.</p>
-<p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание.</p>
+<p>После этого иерархия структуры значка в верхнем окошке вырастет – там добавится простой маркер. Как заменить простой маркер на SVG-символ вы уже знаете. Для настройки шага (частоты) маркеров необходимо выделить <strong>Заливка маркерами</strong> в иерархии структуры стиля.</p>
 <div class="figure">
-<img src="images/Stereo/Project_Manager.png" alt="" />
-<p class="caption">Окно менеджера проекта</p>
+<img src="images/Symbology/Marker_shifting.png" alt="" />
+<p class="caption">Настройки заливки маркерами</p>
 </div>
-<p>В меню проекта выберите пункт <strong>Execute – Stereo Plotter</strong>. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки, однако в данной программе измерения можно проводить и без них.</p>
+<p>Обратите внимание, что здесь можно настроить смещение символов, чтобы маркеры располагались, например, в шахматном порядке.</p>
 <div class="figure">
-<img src="images/Stereo/Stereoplotter.png" alt="" />
-<p class="caption">Окно стереокомпаратора</p>
+<img src="images/Symbology/Chess_placement.png" alt="" />
+<p class="caption">Шахматный порядок маркеров</p>
 </div>
-<p>Если вы работаете в анаглифических очках и изображение на экране двоится, зажмите <strong>SHIFT</strong> и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение.</p>
-<p>Для измерения высоты в точке нужно добавить точку с помощью кнопки <img src="images/Stereo/Add_Point.png" />, далее необходимо выбрать кнопку <img src="images/Stereo/Measure.png" />. С помощью колеса мыши можно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках в маленьких окошках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс (положение точек не совпадает по оси y), необходимо зажать <strong>CTRL</strong> и крутить колесо мыши до тех пор, пока поперечный параллакс не пропадёт. Обратите внимание, что для измерения каждой новой точки необходимо предварительно добавить её с помощью <img src="images/Stereo/Add_Point.png" />. После снятия измерений результаты будут показаны на панели справа в виде координат X, Y, Z.</p>
+<p><strong>Детальные настройки символов сверяйте с Условными обозначениями, проверяйте, как они выглядят в режиме макета.</strong></p>
+<p><strong>Сохраните проект.</strong></p>
+</div>
+<div id="symbols-layout" class="section level2">
+<h2><span class="header-section-number">5.4</span> Оформление макета</h2>
+<p><a href="symbols.html#symbols">В начало справки ⇡</a></p>
+<p>Итоговое оформление карты/плана в ГИС-пакете QGIS осуществляется в режиме макета. Для этого надо найти пункт меню <strong>Проект – Создать макет</strong>. После ввода имени макета откроется отдельное окно, в котором нам предстоит скомпоновать наше картографическое изображение.</p>
+<div class="figure">
+<img src="images/Symbology/New_layout.png" alt="" />
+<p class="caption">Создание макета</p>
+</div>
+<p>На пустом листе необходимо разместить саму карту, текстовые элементы, масштабную линейку с помощью специальных кнопок слева.</p>
+<div class="figure">
+<img src="images/Symbology/Map_elements.png" alt="" />
+<p class="caption">Управление элементами карты</p>
+</div>
+<p>После добавления элементов карты их перечень появляется в окошке справа вверху.</p>
+<div class="figure">
+<img src="images/Symbology/Element_properties.png" alt="" />
+<p class="caption">Свойства элемента карты</p>
+</div>
+<p>Если выделить элемент, ниже открываются его свойства. Выделите элемент карты, запишите в его свойства масштаб. В разделе Сетки нажмите на плюсик, чтобы добавить сетку. Выделив сетку и нажав на кнопку <strong>Modify Grid</strong>, мы можем редактировать её отображение.</p>
+<div class="figure">
+<img src="images/Symbology/Grid_settings.png" alt="" />
+<p class="caption">Настройка сетки координат</p>
+</div>
+<p>В свойствах сетки выберите вид сетки – перекрестие, шаг сетки – 25 метров, цвет линии – зеленый.
+В разделе Рамки выберите <strong>exterior ticks</strong> для показа выходов сетки наружу рамки. Длину выходов установить 7 мм.</p>
+<p>В разделе <strong>Draw Coordinates</strong> сориентируйте боковые подписи выходов сетки вертикально вдоль рамки.</p>
+<div class="figure">
+<img src="images/Symbology/Draw_coordinates.png" alt="" />
+<p class="caption">Настройка отображения подписей координат</p>
+</div>
+<p>В свойствах карты включите опцию Рамка. Настройте её ширину в соответствии с требованиями.</p>
+<div class="figure">
+<img src="images/Symbology/Border.png" alt="" />
+<p class="caption">Настройка рамки</p>
+</div>
+<p>Расположите масштаб и стандартную информацию о листе топографического плана в текстовых элементах сверху и снизу рамки.</p>
+<p>Настройте размер и расстояние между условными знаками в соответствии с требованиям.</p>
+<p>Изменить размер листа можно щелчком правой кнопкой по листу. После этого справа откроются свойства элемента, где можно указать размеры листа.</p>
+<div class="figure">
+<img src="images/Symbology/Layout_size.png" alt="" />
+<p class="caption">Изменение размеров листа</p>
+</div>
+<p>Для экспорта растрового изображения выберите <strong>Макет – Экспорт в …</strong></p>
+<div class="figure">
+<img src="images/Symbology/Topo.jpg" alt="" />
+<p class="caption">Пример топографического плана. Съёмка – бригада в составе А. Веприцкого, Е. Макаровой, А. Мизиновой, Е. Епифановой, М. Рамих. Картограф-составитель – А. Мизинова, 2020.</p>
+</div>
 <table>
 <tbody>
 <tr class="odd">
@@ -218,8 +241,8 @@
           </div>
         </div>
       </div>
-<a href="interpretation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="georeference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="digitize.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
