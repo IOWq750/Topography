@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 3 Географическая привязка | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 3 Географическая привязка | Топография с основами геодезии" />
-  <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
+  <title>Справка 4 Географическая привязка | Топография с основами геодезии</title>
+  <meta name="description" content="Справка 4 Географическая привязка | Топография с основами геодезии" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 3 Географическая привязка | Топография с основами геодезии" />
+  <meta property="og:title" content="Справка 4 Географическая привязка | Топография с основами геодезии" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 3 Географическая привязка | Топография с основами геодезии" />
+  <meta property="og:description" content="Справка 4 Географическая привязка | Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 3 Географическая привязка | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Справка 4 Географическая привязка | Топография с основами геодезии" />
   
-  <meta name="twitter:description" content="Справка 3 Географическая привязка | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Справка 4 Географическая привязка | Топография с основами геодезии" />
   
 
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
 
 
-<meta name="date" content="2021-04-18" />
+<meta name="date" content="2022-02-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,8 @@
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="stereo.html"/>
 <link rel="next" href="digitize.html"/>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,8 +50,10 @@
 
 
 
-
 <script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
 
 
 
@@ -77,41 +80,47 @@
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i>Linux</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="interpretation.html"><a href="interpretation.html"><i class="fa fa-check"></i><b>1</b> Дешифрирование снимков</a><ul>
-<li class="chapter" data-level="1.1" data-path="interpretation.html"><a href="interpretation.html#interpretation-theory"><i class="fa fa-check"></i><b>1.1</b> Краткая теоретическая информация</a></li>
-<li class="chapter" data-level="1.2" data-path="interpretation.html"><a href="interpretation.html#interpretation-data"><i class="fa fa-check"></i><b>1.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="1.3" data-path="interpretation.html"><a href="interpretation.html#interpretation-task"><i class="fa fa-check"></i><b>1.3</b> Цель работы</a></li>
-<li class="chapter" data-level="1.4" data-path="interpretation.html"><a href="interpretation.html#interpretation-google"><i class="fa fa-check"></i><b>1.4</b> Работа с Google My Maps (Мои карты)</a></li>
-<li class="chapter" data-level="1.5" data-path="interpretation.html"><a href="interpretation.html#interpretation-blank"><i class="fa fa-check"></i><b>1.5</b> Заполнение бланка</a></li>
+<li class="chapter" data-level="1" data-path="coordinates.html"><a href="coordinates.html"><i class="fa fa-check"></i><b>1</b> Координаты на топографической карте</a><ul>
+<li class="chapter" data-level="1.1" data-path="coordinates.html"><a href="coordinates.html#coordinates-theory"><i class="fa fa-check"></i><b>1.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="1.2" data-path="coordinates.html"><a href="coordinates.html#coordinates-data"><i class="fa fa-check"></i><b>1.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="1.3" data-path="coordinates.html"><a href="coordinates.html#coordinates-task"><i class="fa fa-check"></i><b>1.3</b> Цель работы</a></li>
+<li class="chapter" data-level="1.4" data-path="coordinates.html"><a href="coordinates.html#coordinates-workflow"><i class="fa fa-check"></i><b>1.4</b> Выполнение работы в онлайн-вьюере</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>2</b> Работа со стереопарой снимков</a><ul>
-<li class="chapter" data-level="2.1" data-path="stereo.html"><a href="stereo.html#stereo-theory"><i class="fa fa-check"></i><b>2.1</b> Краткая теоретическая информация</a></li>
-<li class="chapter" data-level="2.2" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>2.2</b> Установка программного обеспечения</a></li>
-<li class="chapter" data-level="2.3" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>2.3</b> Исходные данные</a></li>
-<li class="chapter" data-level="2.4" data-path="stereo.html"><a href="stereo.html#stereo-task"><i class="fa fa-check"></i><b>2.4</b> Цель работы</a></li>
-<li class="chapter" data-level="2.5" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>2.5</b> Работа в стереокомпараторе</a></li>
+<li class="chapter" data-level="2" data-path="interpretation.html"><a href="interpretation.html"><i class="fa fa-check"></i><b>2</b> Дешифрирование снимков</a><ul>
+<li class="chapter" data-level="2.1" data-path="interpretation.html"><a href="interpretation.html#interpretation-theory"><i class="fa fa-check"></i><b>2.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="2.2" data-path="interpretation.html"><a href="interpretation.html#interpretation-data"><i class="fa fa-check"></i><b>2.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="2.3" data-path="interpretation.html"><a href="interpretation.html#interpretation-task"><i class="fa fa-check"></i><b>2.3</b> Цель работы</a></li>
+<li class="chapter" data-level="2.4" data-path="interpretation.html"><a href="interpretation.html#interpretation-google"><i class="fa fa-check"></i><b>2.4</b> Работа с Google My Maps (Мои карты)</a></li>
+<li class="chapter" data-level="2.5" data-path="interpretation.html"><a href="interpretation.html#interpretation-blank"><i class="fa fa-check"></i><b>2.5</b> Заполнение бланка</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>3</b> Географическая привязка</a><ul>
-<li class="chapter" data-level="3.1" data-path="georeference.html"><a href="georeference.html#georeference-theory"><i class="fa fa-check"></i><b>3.1</b> Краткая теоретическая информация</a></li>
-<li class="chapter" data-level="3.2" data-path="georeference.html"><a href="georeference.html#georeference-data"><i class="fa fa-check"></i><b>3.2</b> Исходные данные</a></li>
-<li class="chapter" data-level="3.3" data-path="georeference.html"><a href="georeference.html#georeference-task"><i class="fa fa-check"></i><b>3.3</b> Цель работы</a></li>
-<li class="chapter" data-level="3.4" data-path="georeference.html"><a href="georeference.html#coordinate-systems"><i class="fa fa-check"></i><b>3.4</b> Системы координат в QGIS</a></li>
-<li class="chapter" data-level="3.5" data-path="georeference.html"><a href="georeference.html#georeference-topo"><i class="fa fa-check"></i><b>3.5</b> Привязка топографической карты</a></li>
-<li class="chapter" data-level="3.6" data-path="georeference.html"><a href="georeference.html#georeference-aerial"><i class="fa fa-check"></i><b>3.6</b> Привязка аэрофотоснимков</a></li>
-<li class="chapter" data-level="3.7" data-path="georeference.html"><a href="georeference.html#georeference-measure"><i class="fa fa-check"></i><b>3.7</b> Измерения по карте и снимку</a></li>
+<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Работа со стереопарой снимков</a><ul>
+<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-theory"><i class="fa fa-check"></i><b>3.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.2</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.3</b> Исходные данные</a></li>
+<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-task"><i class="fa fa-check"></i><b>3.4</b> Цель работы</a></li>
+<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.5</b> Работа в стереокомпараторе</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="digitize.html"><a href="digitize.html"><i class="fa fa-check"></i><b>4</b> Векторизация топографической карты</a><ul>
-<li class="chapter" data-level="4.1" data-path="digitize.html"><a href="digitize.html#digitize-initial"><i class="fa fa-check"></i><b>4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="4.2" data-path="digitize.html"><a href="digitize.html#digitize-task"><i class="fa fa-check"></i><b>4.2</b> Цель работы</a></li>
-<li class="chapter" data-level="4.3" data-path="digitize.html"><a href="digitize.html#digitize-database"><i class="fa fa-check"></i><b>4.3</b> Создание базы пространственных данных</a></li>
-<li class="chapter" data-level="4.4" data-path="digitize.html"><a href="digitize.html#digitize-vectorize"><i class="fa fa-check"></i><b>4.4</b> Векторизация</a></li>
-<li class="chapter" data-level="4.5" data-path="digitize.html"><a href="digitize.html#digitize-attributes"><i class="fa fa-check"></i><b>4.5</b> Работа с атрибутами</a></li>
+<li class="chapter" data-level="4" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>4</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="4.1" data-path="georeference.html"><a href="georeference.html#georeference-theory"><i class="fa fa-check"></i><b>4.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="4.2" data-path="georeference.html"><a href="georeference.html#georeference-data"><i class="fa fa-check"></i><b>4.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="4.3" data-path="georeference.html"><a href="georeference.html#georeference-task"><i class="fa fa-check"></i><b>4.3</b> Цель работы</a></li>
+<li class="chapter" data-level="4.4" data-path="georeference.html"><a href="georeference.html#coordinate-systems"><i class="fa fa-check"></i><b>4.4</b> Системы координат в QGIS</a></li>
+<li class="chapter" data-level="4.5" data-path="georeference.html"><a href="georeference.html#georeference-topo"><i class="fa fa-check"></i><b>4.5</b> Привязка топографической карты</a></li>
+<li class="chapter" data-level="4.6" data-path="georeference.html"><a href="georeference.html#georeference-aerial"><i class="fa fa-check"></i><b>4.6</b> Привязка аэрофотоснимков</a></li>
+<li class="chapter" data-level="4.7" data-path="georeference.html"><a href="georeference.html#georeference-measure"><i class="fa fa-check"></i><b>4.7</b> Измерения по карте и снимку</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>5</b> Оформление в условных знаках</a><ul>
-<li class="chapter" data-level="5.1" data-path="symbols.html"><a href="symbols.html#symbols-initial"><i class="fa fa-check"></i><b>5.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="5.2" data-path="symbols.html"><a href="symbols.html#symbols-task"><i class="fa fa-check"></i><b>5.2</b> Цель работы</a></li>
-<li class="chapter" data-level="5.3" data-path="symbols.html"><a href="symbols.html#symbols-symbols"><i class="fa fa-check"></i><b>5.3</b> Оформление в условных знаках</a></li>
-<li class="chapter" data-level="5.4" data-path="symbols.html"><a href="symbols.html#symbols-layout"><i class="fa fa-check"></i><b>5.4</b> Оформление макета</a></li>
+<li class="chapter" data-level="5" data-path="digitize.html"><a href="digitize.html"><i class="fa fa-check"></i><b>5</b> Векторизация топографической карты</a><ul>
+<li class="chapter" data-level="5.1" data-path="digitize.html"><a href="digitize.html#digitize-initial"><i class="fa fa-check"></i><b>5.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.2" data-path="digitize.html"><a href="digitize.html#digitize-task"><i class="fa fa-check"></i><b>5.2</b> Цель работы</a></li>
+<li class="chapter" data-level="5.3" data-path="digitize.html"><a href="digitize.html#digitize-database"><i class="fa fa-check"></i><b>5.3</b> Создание базы пространственных данных</a></li>
+<li class="chapter" data-level="5.4" data-path="digitize.html"><a href="digitize.html#digitize-vectorize"><i class="fa fa-check"></i><b>5.4</b> Векторизация</a></li>
+<li class="chapter" data-level="5.5" data-path="digitize.html"><a href="digitize.html#digitize-attributes"><i class="fa fa-check"></i><b>5.5</b> Работа с атрибутами</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>6</b> Оформление в условных знаках</a><ul>
+<li class="chapter" data-level="6.1" data-path="symbols.html"><a href="symbols.html#symbols-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="symbols.html"><a href="symbols.html#symbols-task"><i class="fa fa-check"></i><b>6.2</b> Цель работы</a></li>
+<li class="chapter" data-level="6.3" data-path="symbols.html"><a href="symbols.html#symbols-symbols"><i class="fa fa-check"></i><b>6.3</b> Оформление в условных знаках</a></li>
+<li class="chapter" data-level="6.4" data-path="symbols.html"><a href="symbols.html#symbols-layout"><i class="fa fa-check"></i><b>6.4</b> Оформление макета</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -134,9 +143,9 @@
 
             <section class="normal" id="section-">
 <div id="georeference" class="section level1">
-<h1><span class="header-section-number">Справка 3</span> Географическая привязка</h1>
+<h1><span class="header-section-number">Справка 4</span> Географическая привязка</h1>
 <div id="georeference-theory" class="section level2">
-<h2><span class="header-section-number">3.1</span> Краткая теоретическая информация</h2>
+<h2><span class="header-section-number">4.1</span> Краткая теоретическая информация</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p><em>Эллипсоид</em> – математическая фигура,описывающая фигуру Земли и характеризующаяся параметрами малой и большой полуоси.</p>
 <p><em>Географическая (геодезическая) система координат</em> – система координат на эллипсоиде, задающая счёт широтам и долготам в градусах, а также положение эллипсоида внутри тела земли.</p>
@@ -145,7 +154,7 @@
 <p><em>Трансформация</em> – перевод данных из одной системы координат в другую.</p>
 </div>
 <div id="georeference-data" class="section level2">
-<h2><span class="header-section-number">3.2</span> Исходные данные</h2>
+<h2><span class="header-section-number">4.2</span> Исходные данные</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p><a href="https://yadi.sk/i/mvQ3lJJVNVJiuA" target="_blank">Учебная топографическая карта масштаба 1:25 000</a></p>
 <p><a href="https://yadi.sk/i/Zo4U3AuslrxwAg" target="_blank">Снимок №1</a></p>
@@ -154,12 +163,12 @@
 <p><a href="https://yadi.sk/i/WDWZgCLA2A539Q" target="_blank">Бланк задания</a></p>
 </div>
 <div id="georeference-task" class="section level2">
-<h2><span class="header-section-number">3.3</span> Цель работы</h2>
+<h2><span class="header-section-number">4.3</span> Цель работы</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Привязать топографическую карту, а затем к ней привязать аэрофотоснимок. Оценить точность привязки карты и снимка. Определить детализацию снимку и соответствующий ей масштаб. Обосновать выбор опорных точек для привязки снимка, указав на отличия ситуации, отражённой на карте и на снимке.</p>
 </div>
 <div id="coordinate-systems" class="section level2">
-<h2><span class="header-section-number">3.4</span> Системы координат в QGIS</h2>
+<h2><span class="header-section-number">4.4</span> Системы координат в QGIS</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Системы координат в QGIS задаются в свойствах проекта. Для этого нужно открыть пункт меню <strong>Проект – Свойства</strong>.</p>
 <div class="figure">
@@ -175,7 +184,7 @@
 </div>
 </div>
 <div id="georeference-topo" class="section level2">
-<h2><span class="header-section-number">3.5</span> Привязка топографической карты</h2>
+<h2><span class="header-section-number">4.5</span> Привязка топографической карты</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Добавьте топографическую карту в проект, нажав на кнопку <img src="images/Georeference/Open_raster.png" />.</p>
 <div class="figure">
@@ -213,7 +222,7 @@
 <p>После указания типа трансформации в таблице внизу должны появиться расчётные невязки. Убедитесь в том, что невязки имеют значение менее пикселя. Если невязка более пикселя, нужно удалить неправильную опорную точку, нажав на кнопку <img src="images/Georeference/Delete_point.png" /> и выбрав точку на карте. Для добавления новой точки выберите кнопку <img src="images/Georeference/Add_point.png" />. Когда точность трансформации станет удовлетворительной, запустите сам процесс трансформации, нажав на кнопку <img src="images/Georeference/Transformation_button.png" />. Закройте модуль привязки.</p>
 </div>
 <div id="georeference-aerial" class="section level2">
-<h2><span class="header-section-number">3.6</span> Привязка аэрофотоснимков</h2>
+<h2><span class="header-section-number">4.6</span> Привязка аэрофотоснимков</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Привязка материалов аэрофотосъёмки происходит аналогично, но в качестве опорных точек выступают соответственные точки на топографической карте. Для этого нужно сопоставить снимок с картой и найти эти точки. В модуле привязке выберите точку, но при появлении окна не вводите координаты, а выберите кнопку <strong>С карты</strong>.</p>
 <div class="figure">
@@ -223,7 +232,7 @@
 <p>Расставьте минимум 5 точек равномерно по всему снимку. В параметрах преобразования укажите тип трансформации – <strong>проективное</strong>. Именно такое преобразование используется для аэрофотоснимков.</p>
 </div>
 <div id="georeference-measure" class="section level2">
-<h2><span class="header-section-number">3.7</span> Измерения по карте и снимку</h2>
+<h2><span class="header-section-number">4.7</span> Измерения по карте и снимку</h2>
 <p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
 <p>Для измерений по карте или по снимку используется инструмент линейки <img src="images/Georeference/Measure.png" />, расположенный на панели атрибутов. Если у вас такой панели нет, её можно открыть, щёлкнув правой кнопкой мыши по пустому месту сверху.</p>
 <div class="figure">
@@ -233,7 +242,7 @@
 <table>
 <tbody>
 <tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2021.</td>
+<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2022.</td>
 </tr>
 </tbody>
 </table>
@@ -250,7 +259,6 @@
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -269,6 +277,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
@@ -289,6 +298,10 @@ gitbook.start({
 "text": null
 },
 "download": ["topography-course.pdf", "topography-course.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "subsection"
 }

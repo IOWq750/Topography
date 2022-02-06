@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 3 Работа со стереопарой снимков | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <title>Page not found | Топография с основами геодезии</title>
+  <meta name="description" content="Page not found | Топография с основами геодезии" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:title" content="Page not found | Топография с основами геодезии" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:description" content="Page not found | Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Page not found | Топография с основами геодезии" />
   
-  <meta name="twitter:description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Page not found | Топография с основами геодезии" />
   
 
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="96x96" href="apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="interpretation.html"/>
-<link rel="next" href="georeference.html"/>
+
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -142,93 +142,19 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stereo" class="section level1">
-<h1><span class="header-section-number">Справка 3</span> Работа со стереопарой снимков</h1>
-<div id="stereo-theory" class="section level2">
-<h2><span class="header-section-number">3.1</span> Краткая теоретическая информация</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p><em>Стереоэффект</em> – пространственное восприятие объекта при рассматривании двух его плоских перспективных изображений.</p>
-<p><em>Стереопара</em> – снимки, полученные из разных точек пространства на одну и ту же территорию, либо объект.</p>
-<div class="figure">
-<img src="images/Stereo/stereopair.png" alt="" />
-<p class="caption">Принципиальная схема стереоблюдений точек местности</p>
-</div>
-<p><em>Базис съёмки</em> (<span class="math inline">\(b\)</span>) – расстояние в масштабе снимков между точками съёмки (центрами их проекций).</p>
-<p><em>Продольный параллакс</em> (<span class="math inline">\(p\)</span>) – разность координат <span class="math inline">\(x\)</span> соответственных точек на снимках (<span class="math inline">\(x_л - x_п\)</span>).</p>
-<p><em>Поперечный параллакс</em> (<span class="math inline">\(q\)</span>) – разность координат <span class="math inline">\(y\)</span> соответственных точек на снимках (<span class="math inline">\(y_л - y_п\)</span>).</p>
-<p><em>Разность параллаксов</em> (<span class="math inline">\(\Delta p\)</span>) – разница в смещении координат соответственных точек, обусловленная разницей в их высоте (<span class="math inline">\(p_2 - p_1\)</span>).</p>
-<div class="figure">
-<img src="images/Stereo/parallax.png" alt="" />
-<p class="caption">Координаты соответственных точек на паре снимков</p>
-</div>
-<p><em>Формула превышений</em> – приблизительная формула для вычисления превышений точек по стереопарам снимков через разность параллаксов двух точек <span class="math inline">\(\Delta p\)</span>.</p>
-<p><span class="math display">\[h = H\frac{\Delta p }{b + \Delta p}\]</span></p>
-</div>
-<div id="stereo-soft" class="section level2">
-<h2><span class="header-section-number">3.2</span> Установка программного обеспечения</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Для практической работы вам понадобится открытая учебная фотограмметрическая программа <strong>E-foto</strong>. Информацию о ней можно найти на домашнем сайте (<a href="http://www.efoto.eng.uerj.br/" target="_blank">http://www.efoto.eng.uerj.br/</a>), там же можно скачать себе дистрибутив программы. Для этого перейдите во вкладку <strong>DOWNLOAD – Latest Version</strong>.</p>
-<div class="figure">
-<img src="images/Stereo/Download.png" alt="" />
-<p class="caption">Страница для загрузки программы и данных</p>
-</div>
-<p>Запустите скачанный пакет установщика и установите программу.</p>
-</div>
-<div id="stereo-initial" class="section level2">
-<h2><span class="header-section-number">3.3</span> Исходные данные</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>В работе будут использоваться данные аэрофотосъёмки на учебный полигон Сатино. Съёмка производилась с помощью камеры АФА-41/10.
-Примерная высота съёмки – 1500 м;</p>
-<p>Фокусное расстояние камеры – 96,78 мм;</p>
-<p>Базис съёмки между снимками 10182 и 10183 составляет 71 мм, между снимками 10183 и 10184 – 69 мм, между 10184 и 10185 – 69 мм.</p>
-<ol style="list-style-type: decimal">
-<li>Скачайте данные проекта, доступные по <a href="https://yadi.sk/d/3a5RAakJsZoAYg" target="_blank">ссылке</a>.</li>
-</ol>
-<p>Проект включает в себя собственно файл проекта с расширением *.epp и четыре аэрофотоснимка.</p>
-<ol start="2" style="list-style-type: decimal">
-<li><p><a href="https://yadi.sk/i/gX-dbnhTKGme_A" target="_blank">Топографическая карта масштаба 1:10 000</a></p></li>
-<li><p><a href="https://yadi.sk/d/dzFeiJ2zVdx_Hw" target="_blank">Аэрофотоснимки с нанесённой сеткой</a></p></li>
-<li><p><a href="https://yadi.sk/i/wJ_0jiAc-nkO6A" target="_blank">Бланк задания</a></p></li>
-</ol>
-</div>
-<div id="stereo-task" class="section level2">
-<h2><span class="header-section-number">3.4</span> Цель работы</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Научиться выполнять измерения по стереопаре аэрофотоснимков с использованием формулы превышений и специального программного обеспечения. Построить гипсометрический профиль по данным измерений двумя способами и топографической карты.</p>
-</div>
-<div id="stereo-stereoplotter" class="section level2">
-<h2><span class="header-section-number">3.5</span> Работа в стереокомпараторе</h2>
-<p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
-<p>Разместите папку с проектом у себя на компьютере так, чтобы путь к ней был без пробелов, кириллицы, дефисов и иных специальных символов. Запустите проект <strong>Stereo.epp</strong> с помощью программы <strong>E-foto</strong>.</p>
-<p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание.</p>
-<div class="figure">
-<img src="images/Stereo/Project_Manager.png" alt="" />
-<p class="caption">Окно менеджера проекта</p>
-</div>
-<p>В меню проекта выберите пункт <strong>Execute – Stereo Plotter</strong>. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки, однако в данной программе измерения можно проводить и без них.</p>
-<div class="figure">
-<img src="images/Stereo/Stereoplotter.png" alt="" />
-<p class="caption">Окно стереокомпаратора</p>
-</div>
-<p>Если вы работаете в анаглифических очках и изображение на экране двоится, зажмите <strong>SHIFT</strong> и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение.</p>
-<p>Для измерения высоты в точке нужно добавить точку с помощью кнопки <img src="images/Stereo/Add_Point.png" />, далее необходимо выбрать кнопку <img src="images/Stereo/Measure.png" />. С помощью колеса мыши можно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках в маленьких окошках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс (положение точек не совпадает по оси y), необходимо зажать <strong>CTRL</strong> и крутить колесо мыши до тех пор, пока поперечный параллакс не пропадёт. Обратите внимание, что для измерения каждой новой точки необходимо предварительно добавить её с помощью <img src="images/Stereo/Add_Point.png" />. После снятия измерений результаты будут показаны на панели справа в виде координат X, Y, Z.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2022.</td>
-</tr>
-</tbody>
-</table>
-
-</div>
+<div id="page-not-found" class="section level1">
+<h1>Page not found</h1>
+<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
+<p>You may want to try searching to find the page's new location, or use
+the table of contents to find the page you are looking for.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="interpretation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="georeference.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

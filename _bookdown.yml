@@ -3,6 +3,7 @@ chapter_name: "Справка "
 output_dir: docs
 rmd_files:
     - "index.Rmd"
+    - "Ref00_Coordinates.Rmd"
     - "Ref00_Interpretation.Rmd"
     - "Ref00_Stereo.Rmd"
     - "Ref01_Georeference.Rmd"
