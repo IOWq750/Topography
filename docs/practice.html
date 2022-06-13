@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии</title>
+  <meta name="description" content="Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии" />
+  <meta name="github-repo" content="iowq750/topography" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии" />
+  
+  <meta name="twitter:description" content="Справка 7 Использование QGIS во время полевой топографической практики | Топография с основами геодезии" />
+  
+
+<meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
+
+
+<meta name="date" content="2022-06-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="96x96" href="apple-touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="symbols.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Топография с основами геодезии</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение для работы</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#qgis"><i class="fa fa-check"></i>QGIS</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#windows"><i class="fa fa-check"></i>Windows</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#macos"><i class="fa fa-check"></i>macOS</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#linux"><i class="fa fa-check"></i>Linux</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="coordinates.html"><a href="coordinates.html"><i class="fa fa-check"></i><b>1</b> Координаты на топографической карте</a><ul>
+<li class="chapter" data-level="1.1" data-path="coordinates.html"><a href="coordinates.html#coordinates-theory"><i class="fa fa-check"></i><b>1.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="1.2" data-path="coordinates.html"><a href="coordinates.html#coordinates-data"><i class="fa fa-check"></i><b>1.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="1.3" data-path="coordinates.html"><a href="coordinates.html#coordinates-task"><i class="fa fa-check"></i><b>1.3</b> Цель работы</a></li>
+<li class="chapter" data-level="1.4" data-path="coordinates.html"><a href="coordinates.html#coordinates-workflow"><i class="fa fa-check"></i><b>1.4</b> Выполнение работы в онлайн-вьюере</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="interpretation.html"><a href="interpretation.html"><i class="fa fa-check"></i><b>2</b> Дешифрирование снимков</a><ul>
+<li class="chapter" data-level="2.1" data-path="interpretation.html"><a href="interpretation.html#interpretation-theory"><i class="fa fa-check"></i><b>2.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="2.2" data-path="interpretation.html"><a href="interpretation.html#interpretation-data"><i class="fa fa-check"></i><b>2.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="2.3" data-path="interpretation.html"><a href="interpretation.html#interpretation-task"><i class="fa fa-check"></i><b>2.3</b> Цель работы</a></li>
+<li class="chapter" data-level="2.4" data-path="interpretation.html"><a href="interpretation.html#interpretation-google"><i class="fa fa-check"></i><b>2.4</b> Работа с Google My Maps (Мои карты)</a></li>
+<li class="chapter" data-level="2.5" data-path="interpretation.html"><a href="interpretation.html#interpretation-blank"><i class="fa fa-check"></i><b>2.5</b> Заполнение бланка</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="stereo.html"><a href="stereo.html"><i class="fa fa-check"></i><b>3</b> Работа со стереопарой снимков</a><ul>
+<li class="chapter" data-level="3.1" data-path="stereo.html"><a href="stereo.html#stereo-theory"><i class="fa fa-check"></i><b>3.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="3.2" data-path="stereo.html"><a href="stereo.html#stereo-soft"><i class="fa fa-check"></i><b>3.2</b> Установка программного обеспечения</a></li>
+<li class="chapter" data-level="3.3" data-path="stereo.html"><a href="stereo.html#stereo-initial"><i class="fa fa-check"></i><b>3.3</b> Исходные данные</a></li>
+<li class="chapter" data-level="3.4" data-path="stereo.html"><a href="stereo.html#stereo-task"><i class="fa fa-check"></i><b>3.4</b> Цель работы</a></li>
+<li class="chapter" data-level="3.5" data-path="stereo.html"><a href="stereo.html#stereo-stereoplotter"><i class="fa fa-check"></i><b>3.5</b> Работа в стереокомпараторе</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="georeference.html"><a href="georeference.html"><i class="fa fa-check"></i><b>4</b> Географическая привязка</a><ul>
+<li class="chapter" data-level="4.1" data-path="georeference.html"><a href="georeference.html#georeference-theory"><i class="fa fa-check"></i><b>4.1</b> Краткая теоретическая информация</a></li>
+<li class="chapter" data-level="4.2" data-path="georeference.html"><a href="georeference.html#georeference-data"><i class="fa fa-check"></i><b>4.2</b> Исходные данные</a></li>
+<li class="chapter" data-level="4.3" data-path="georeference.html"><a href="georeference.html#georeference-task"><i class="fa fa-check"></i><b>4.3</b> Цель работы</a></li>
+<li class="chapter" data-level="4.4" data-path="georeference.html"><a href="georeference.html#coordinate-systems"><i class="fa fa-check"></i><b>4.4</b> Системы координат в QGIS</a></li>
+<li class="chapter" data-level="4.5" data-path="georeference.html"><a href="georeference.html#georeference-topo"><i class="fa fa-check"></i><b>4.5</b> Привязка топографической карты</a></li>
+<li class="chapter" data-level="4.6" data-path="georeference.html"><a href="georeference.html#georeference-aerial"><i class="fa fa-check"></i><b>4.6</b> Привязка аэрофотоснимков</a></li>
+<li class="chapter" data-level="4.7" data-path="georeference.html"><a href="georeference.html#georeference-measure"><i class="fa fa-check"></i><b>4.7</b> Измерения по карте и снимку</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="digitize.html"><a href="digitize.html"><i class="fa fa-check"></i><b>5</b> Векторизация топографической карты</a><ul>
+<li class="chapter" data-level="5.1" data-path="digitize.html"><a href="digitize.html#digitize-initial"><i class="fa fa-check"></i><b>5.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="5.2" data-path="digitize.html"><a href="digitize.html#digitize-task"><i class="fa fa-check"></i><b>5.2</b> Цель работы</a></li>
+<li class="chapter" data-level="5.3" data-path="digitize.html"><a href="digitize.html#digitize-database"><i class="fa fa-check"></i><b>5.3</b> Создание базы пространственных данных</a></li>
+<li class="chapter" data-level="5.4" data-path="digitize.html"><a href="digitize.html#digitize-vectorize"><i class="fa fa-check"></i><b>5.4</b> Векторизация</a></li>
+<li class="chapter" data-level="5.5" data-path="digitize.html"><a href="digitize.html#digitize-attributes"><i class="fa fa-check"></i><b>5.5</b> Работа с атрибутами</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="symbols.html"><a href="symbols.html"><i class="fa fa-check"></i><b>6</b> Оформление в условных знаках</a><ul>
+<li class="chapter" data-level="6.1" data-path="symbols.html"><a href="symbols.html#symbols-initial"><i class="fa fa-check"></i><b>6.1</b> Исходные данные</a></li>
+<li class="chapter" data-level="6.2" data-path="symbols.html"><a href="symbols.html#symbols-task"><i class="fa fa-check"></i><b>6.2</b> Цель работы</a></li>
+<li class="chapter" data-level="6.3" data-path="symbols.html"><a href="symbols.html#symbols-symbols"><i class="fa fa-check"></i><b>6.3</b> Оформление в условных знаках</a></li>
+<li class="chapter" data-level="6.4" data-path="symbols.html"><a href="symbols.html#symbols-layout"><i class="fa fa-check"></i><b>6.4</b> Оформление макета</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>7</b> Использование QGIS во время полевой топографической практики</a><ul>
+<li class="chapter" data-level="7.1" data-path="practice.html"><a href="practice.html#создание-топографического-плана"><i class="fa fa-check"></i><b>7.1</b> Создание топографического плана</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="practice.html"><a href="practice.html#practice-theod"><i class="fa fa-check"></i><b>7.1.1</b> Создание схемы теодолитного хода</a></li>
+<li class="chapter" data-level="7.1.2" data-path="practice.html"><a href="practice.html#создание-схемы-нивелирного-хода"><i class="fa fa-check"></i><b>7.1.2</b> Создание схемы нивелирного хода</a></li>
+<li class="chapter" data-level="7.1.3" data-path="practice.html"><a href="practice.html#подгрузка-пикетов-тахеометрической-съёмки"><i class="fa fa-check"></i><b>7.1.3</b> Подгрузка пикетов тахеометрической съёмки</a></li>
+<li class="chapter" data-level="7.1.4" data-path="practice.html"><a href="practice.html#векторизация-объектов-ситуации-и-рельефа"><i class="fa fa-check"></i><b>7.1.4</b> Векторизация объектов ситуации и рельефа</a></li>
+<li class="chapter" data-level="7.1.5" data-path="practice.html"><a href="practice.html#оформление-в-условных-знаках"><i class="fa fa-check"></i><b>7.1.5</b> Оформление в условных знаках</a></li>
+<li class="chapter" data-level="7.1.6" data-path="practice.html"><a href="practice.html#автоматизированная-обработка-высотных-данных"><i class="fa fa-check"></i><b>7.1.6</b> Автоматизированная обработка высотных данных</a></li>
+<li class="chapter" data-level="7.1.7" data-path="practice.html"><a href="practice.html#создание-макета-топографического-плана"><i class="fa fa-check"></i><b>7.1.7</b> Создание макета топографического плана</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="practice.html"><a href="practice.html#привязка-космического-снимка-по-наземным-опорным-точкам"><i class="fa fa-check"></i><b>7.2</b> Привязка космического снимка по наземным опорным точкам</a></li>
+<li class="chapter" data-level="7.3" data-path="digitize.html"><a href="digitize.html#digitize-attributes"><i class="fa fa-check"></i><b>7.3</b> Работа с атрибутами</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Топография с основами геодезии</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="practice" class="section level1">
+<h1><span class="header-section-number">Справка 7</span> Использование QGIS во время полевой топографической практики</h1>
+<div id="создание-топографического-плана" class="section level2">
+<h2><span class="header-section-number">7.1</span> Создание топографического плана</h2>
+<div id="practice-theod" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Создание схемы теодолитного хода</h3>
+<p><a href="practice.html#practice">В начало справки ⇡</a></p>
+<div id="practice-theod-template" class="section level4">
+<h4><span class="header-section-number">7.1.1.1</span> Шаблон схемы теодолитного хода</h4>
+<p><a href="https://disk.yandex.ru/i/Z3H_BOK2KYfDRQ" target="_blank">Схема теодолитного хода в формате PDF</a></p>
+<p><a href="https://disk.yandex.ru/d/JcXRhKuiqoVTLg" target="_blank">Проект шаблона схемы теодолитного хода для QGIS</a></p>
+</div>
+<div id="practice-theod-DB" class="section level4">
+<h4><span class="header-section-number">7.1.1.2</span> Работа с базой данных</h4>
+<p>Для схемы теодолитного хода следует создать отдельную базу данных, в которой будет несколько классов объектов:</p>
+<p>● Стороны хода</p>
+<p>● Дуги внутренних углов хода</p>
+<p>● Точки хода.</p>
+<p>Создать базу данных можно, нажав правой кнопкой по выбранной вами директории в браузере (проводнике). Выберите пункт меню <strong>New – Geopackage</strong>.</p>
+<div class="figure">
+<img src="images/Practice/Create_DB.png" alt="" />
+<p class="caption">Создание базы данных Geopackage</p>
+</div>
+<p>У вас откроется окно создания базы данных, где вы можете задать имя базы данных, сразу же создать один из классов, указав его тип геометрии и систему координат.</p>
+<div class="figure">
+<img src="images/Practice/DB_creation.png" alt="" />
+<p class="caption">Окно создания базы данных</p>
+</div>
+<p>Остальные классы объектов вы можете создать, щелкнув правой кнопкой мыши по уже созданной базе данных и выбрав пункт меню <strong>New Table</strong></p>
+<div class="figure">
+<img src="images/Practice/New_table.png" alt="" />
+<p class="caption">Окно создания базы данных</p>
+</div>
+</div>
+<div id="practice-theod-draw" class="section level4">
+<h4><span class="header-section-number">7.1.1.3</span> Черчение хода</h4>
+<p>Для нанесение точек хода необходимо добавить в проект из базы данных точечный класс объектов простым перетаскиванием, либо дважды щёлкнув по ним в Браузере. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт <strong>Режим редактирования</strong> (<strong>Toggle Editing</strong>), либо выделить слой и найти на панели инструментов кнопку <img src="images/Vector/Edit.png" />. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для точечного класса объекта появится кнопка <img src="images/Practice/New_points.png" />. Нажав на эту кнопку, вы сможете поставить точку в произвольном месте.</p>
+<p>Чтобы поставить точки по строго заданным (рассчитанным при уравнивании теодолитного хода) координатам необходимо использовать панель <strong>Advanced Digitizing Panel</strong>. Если она не открыта, щёлкните правой кнопкой мыши по пустому месту сверху основного окна QGIS и в выпадающем списке отметьте панель и окно.</p>
+<div class="figure">
+<img src="images/Practice/Advanced_digitizing.png" alt="" />
+<p class="caption">Включение дополнительной панели векторизации</p>
+</div>
+<p>Нажмите на кнопку активации инструментов <img src="images/Practice/Enable_Advanced.png" />. Введите координаты <em>X</em> и <em>Y</em>, закрепляя их замком (или нажатием на <strong>Enter</strong>). Щёлкните левой кнопкой мыши по карте – новая точка установится строго по заданным координатам. Сохраните изменения, нажав на иконку сохранения <img src="images/Vector/Save_edits.png" /> на панели редактирования.</p>
+<div class="figure">
+<img src="images/Practice/Coordinate_input.gif" alt="" />
+<p class="caption">Создание точки по заданным координатам</p>
+</div>
+<p>Для отрисовки сторон хода нужно зайти в режим редактирования соответствующего слоя. При векторизации объектов часто возникает необходимость пристыковать вершины одного объекта к вершинам другого объекта. Для корректной и комфортной пристыковки нужно включить панель Инструментов прилипания (<strong>snapping</strong>). Кнопка в виде магнита <img src="images/Ref04/Snapping.png" /> активирует прилипание. Остальные кнопки на данной панели позволяют уточнить параметры прилипания, в том числе расстояние, на котором оно начинает действовать. Отрисуйте стороны с включенным режимом прилипания, нажимая на левую кнопку мыши для установки вершин и завершая отрисовку правой кнопкой мыши. Сохраните изменения.</p>
+<blockquote>
+<p>Обратите внимание, что каждая сторона теодолитного хода должна быть отдельным объектом.</p>
+</blockquote>
+<p>Для черчения дуг углов включите панель <strong>Shape Digitizing Toolbar</strong>, нажав на пустое место верхней части окна QGIS правой кнопкой. На этой панели вам потребуется инструмент, который строит окружность по центральной точке и произвольной точки окружности (последний в списке).</p>
+<div class="figure">
+<img src="images/Practice/Circle_shape.png" alt="" />
+<p class="caption">Создание окружности</p>
+</div>
+<p>Чтобы превратить окружность в дугу, нужно взять инструмент разрезания <img src="images/Practice/Split.png" /> и нарисовать линию реза (закончить рисовку линии реза можно через нажатие правой кнопки мыши). Выберите объекты, которые хотите удалить, с помощью инструмента выделения <img src="images/Vector/Selection_tool.png" /> и нажмите <strong>DELETE</strong>.</p>
+</div>
+<div id="practice-theod-symbology" class="section level4">
+<h4><span class="header-section-number">7.1.1.4</span> Настройка символики и подписей</h4>
+<p>На схеме теодолитного хода следует различать точки самого хода и твёрдые точки, которые служат твёрдым направлением. Разная символика обуславливается разными значениями атрибутов данного класса в базе данных. Открыть атрибутивную таблицу слоя можно, нажав правой кнопкой мыши по нему и выбрав пункт <strong>Открыть таблицу атрибутов</strong>.</p>
+<p>Для редактирования атрибутов необходимо зайти в режим редактирования с помощью кнопки <img src="images/Vector/Edit.png" />. Для добавления или удаления атрибутивных столбцов также необходимо зайтив в режим редактирования, после чего появятся соответствующие кнопки <img src="images/Vector/New_field.png" /> и <img src="images/Vector/Delete_field.png" />. Для того чтобы закодировать отличия точек хода и твердых точек, нужно создать новое атрибутивное поле и записать соответствующим точкам разные значения. Обратите внимание, что каждая строка в атрибутивной таблице – это, по сути, один объект в классе объектов. Выделять объекты в атрибутивной таблицы можно с помощью нажатия левой кнопки мыши по левому краю строки. Для выбора нескольких строк подряд можно «тянуть» выделение левой кнопкой мыши, либо выделить первый и последний объект с зажатым <strong>SHIFT</strong>. Для выбора нескольких отдельных строк зажмите <strong>CTRL</strong>. Выделяемые в атрибутивной таблице объекты будут подсвечиваться жёлтым цветом на карте. Для приближения к выбранному объекту нажмите на кнопку <strong>Увеличить карту до выделенных строк</strong>.</p>
+<p>Для задания символики зайдите в свойства слоя точек, дважды по нему щёлкнув. Перейдите во вкладку <strong>Symbology</strong> (<strong>Стиль</strong>)</p>
+<div class="figure">
+<img src="images/Practice/Point_Symbology.png" alt="" />
+<p class="caption">Окно настройки символики слоя</p>
+</div>
+<p>Сверху нужно выбрать способ символики <strong>Categorized</strong>, что позволяет категориально разделить символы по значению атрибута. В поле <strong>Value</strong> нужно указать название атрибута, по котором происходит разделение, после чего нажать на кнопку <strong>Classify</strong> внизу окна – в окне посередине у вас появятся все возможные категории, для каждой из которых можно задать свою символику. Дважды щёлкните по категории, чтобы задать символ.</p>
+<div class="figure">
+<img src="images/Practice/Symbol_selector.png" alt="" />
+<p class="caption">Окно настройки символики слоя</p>
+</div>
+<p>Построение символики в QGIS иерархическое – каждый символ может быть представлен набором слоёв символов. Например, для создания знака временного геодезического пункта (кружок с точкой в центре) вы можете задать два слоя. Верхний слой – точка, которую можно задать кругом чёрного цвета уменьшенного размера. Нижний слой – тот же круг, но уже большего размера с белой заливкой и чёрной обводкой.</p>
+<p>Аналогично точкам мы можем разделить по символики стороны хода и твёрдое направление. Для последнего нужно задать два слоя с линией, у которой будет задан параметр <strong>Offset</strong>, то есть сдвиг от оси.</p>
+<p>Подписи аналогично символике зависят от значений в атрибутивной колонке. Для включения подписей нужно зайти в свойствах во вкладку <strong>Labels</strong>. Там вы можете включить подписи, выбрав <strong>Single Symbol</strong> и указав атрибутивную колонку, откуда будут браться значения (<strong>Value</strong>), а также гарнитуру, кегль шрифта и прочие настройки форматирования. Во вкладке <strong>Placement</strong> вы можете указать способ размещения подписей относительно объекта.</p>
+<div class="figure">
+<img src="images/Practice/Labels.png" alt="" />
+<p class="caption">Окно настройки символики слоя</p>
+</div>
+<p>Не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки <img src="images/Vector/Save_Project.png" />.</p>
+</div>
+<div id="practice-theod-layout" class="section level4">
+<h4><span class="header-section-number">7.1.1.5</span> Настройка макета компоновки</h4>
+<p>Для создания макета компоновки схемы теодолитного хода, то есть того, как схема будет выглядеть на листе бумаги, нужно вызвать <strong>Project – Layout Manager</strong>. В открывшемся окне нажмите на кнопку создания макета и задайте имя для него. После этого перед вами появится макет компоновки, который вы можете наполнить необходимыми элементами с помощью специальных кнопок слева.</p>
+<div class="figure">
+<img src="images/Symbology/Map_elements.png" alt="" />
+<p class="caption">Управление элементами макета</p>
+</div>
+<p>После добавления элементов схемы их перечень появляется в окошке справа вверху. Если выделить элемент, ниже открываются его свойства. Выделите элемент карты, запишите в его свойства масштаб. Систему координат выставить – <strong>WGS 1984 UTM 37N</strong>. В разделе Сетки нажмите на плюсик, чтобы добавить сетку. Выделив сетку и нажав на кнопку <strong>Modify Grid</strong>, мы можем редактировать её отображение.</p>
+<div class="figure">
+<img src="images/Practice/Grid_settings.png" alt="" />
+<p class="caption">Настройка сетки координат</p>
+</div>
+<p>В свойствах сетки выберите вид сетки – перекрестие, укажите шаг сетки, цвет линии – зеленый. В разделе <strong>Frame</strong> выберите <strong>interior ticks</strong> для показа выходов сетки наружу рамки. Длину выходов установить 3 мм.</p>
+<p>В разделе <strong>Draw Coordinates</strong> сориентируйте боковые подписи выходов сетки вертикально вдоль рамки.</p>
+<div class="figure">
+<img src="images/Practice/Coordinate_appearance.png" alt="" />
+<p class="caption">Настройка подписей координат</p>
+</div>
+<p>Для настройки рамки создайте ещё одну сетку, нажав на плюс в основных свойствах картографического изображения, затем нажмите на кнопку <strong>Modify Grid</strong> и настройте отображение рамки соответствующим образом.</p>
+<div class="figure">
+<img src="images/Practice/Borders.png" alt="" />
+<p class="caption">Настройка подписей координат</p>
+</div>
+<p>Для экспорта растрового изображения выберите <strong>Layout – Export as …</strong></p>
+</div>
+</div>
+<div id="создание-схемы-нивелирного-хода" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Создание схемы нивелирного хода</h3>
+</div>
+<div id="подгрузка-пикетов-тахеометрической-съёмки" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Подгрузка пикетов тахеометрической съёмки</h3>
+</div>
+<div id="векторизация-объектов-ситуации-и-рельефа" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> Векторизация объектов ситуации и рельефа</h3>
+</div>
+<div id="оформление-в-условных-знаках" class="section level3">
+<h3><span class="header-section-number">7.1.5</span> Оформление в условных знаках</h3>
+</div>
+<div id="автоматизированная-обработка-высотных-данных" class="section level3">
+<h3><span class="header-section-number">7.1.6</span> Автоматизированная обработка высотных данных</h3>
+</div>
+<div id="создание-макета-топографического-плана" class="section level3">
+<h3><span class="header-section-number">7.1.7</span> Создание макета топографического плана</h3>
+</div>
+</div>
+<div id="привязка-космического-снимка-по-наземным-опорным-точкам" class="section level2">
+<h2><span class="header-section-number">7.2</span> Привязка космического снимка по наземным опорным точкам</h2>
+</div>
+<div id="digitize-attributes" class="section level2">
+<h2><span class="header-section-number">7.3</span> Работа с атрибутами</h2>
+<p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
+<table>
+<tbody>
+<tr class="odd">
+<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2022.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="symbols.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["topography-course.pdf", "topography-course.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

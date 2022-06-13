@@ -8,7 +8,8 @@ rmd_files:
     - "Ref00_Stereo.Rmd"
     - "Ref01_Georeference.Rmd"
     - "Ref02_Topo.Rmd"
-    - "Ref03_Topo_symbology.Rmd"
+    - "Ref03_Topo_symbology.Rmd"	
+    - "Ref10_Practice.Rmd"
 delete_merged_file: true
 language:
   label:
