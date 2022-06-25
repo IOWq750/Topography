@@ -43,7 +43,15 @@ practice-theod-draw
 practice-theod-symbology
 practice-theod-layout
 создание-схемы-нивелирного-хода
-подгрузка-пикетов-тахеометрической-съёмки
+practice-level-template
+practice-level-DB
+practice-level-symbology
+practice-level-layout
+practice-csv-table-reading
+Practice-database
+map-topo-vectorization
+Practice-symbols
+map-topo-layout
 векторизация-объектов-ситуации-и-рельефа
 оформление-в-условных-знаках
 автоматизированная-обработка-высотных-данных
