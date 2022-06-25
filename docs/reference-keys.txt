@@ -35,7 +35,6 @@ symbols-task
 symbols-symbols
 symbols-layout
 practice
-создание-топографического-плана
 practice-theod
 practice-theod-template
 practice-theod-DB
@@ -47,6 +46,7 @@ practice-level-template
 practice-level-DB
 practice-level-symbology
 practice-level-layout
+создание-топографического-плана
 practice-csv-table-reading
 Practice-database
 map-topo-vectorization
