@@ -207,7 +207,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.3" data-path="practice.html"><a href="practice.html#practice-topo-vectorization"><i class="fa fa-check"></i><b>7.3.3</b> Векторизация</a></li>
 <li class="chapter" data-level="7.3.4" data-path="practice.html"><a href="practice.html#practice-topo-symbols"><i class="fa fa-check"></i><b>7.3.4</b> Оформление в условных знаках</a></li>
 <li class="chapter" data-level="7.3.5" data-path="practice.html"><a href="practice.html#автоматизация-создания-некоторых-объектов-на-топографических-планах-practice-topo-tipstricks"><i class="fa fa-check"></i><b>7.3.5</b> Автоматизация создания некоторых объектов на топографических планах {#practice-topo-tips&amp;tricks}</a></li>
-<li class="chapter" data-level="7.3.6" data-path="practice.html"><a href="practice.html#practice-topo-elevation"><i class="fa fa-check"></i><b>7.3.6</b> Автоматизированная обработка высотных данных</a></li>
+<li class="chapter" data-level="7.3.6" data-path="practice.html"><a href="practice.html#practice-topo-elevation"><i class="fa fa-check"></i><b>7.3.6</b> Обработка высотных данных</a></li>
 <li class="chapter" data-level="7.3.7" data-path="practice.html"><a href="practice.html#practice-topo-layout"><i class="fa fa-check"></i><b>7.3.7</b> Оформление макета</a></li>
 </ul></li>
 <li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#привязка-космического-снимка-по-наземным-опорным-точкам"><i class="fa fa-check"></i><b>7.4</b> Привязка космического снимка по наземным опорным точкам</a></li>
@@ -520,12 +520,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="создание-объекта-границы-растительности-practice-topo-tipstricks-vegetation-borders" class="section level4">
 <h4><span class="header-section-number">7.3.5.2</span> Создание объекта границы растительности {#practice-topo-tips&amp;tricks-vegetation-borders}</h4>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
-<p>Границы растительности и грунтов обозначаются пунктирной линией, но если настраивать стандартным образом обводку у полигонов соответствующих объектов, то при стыковке двух полигонов произойдёт наложение границ.</p>
+<p>Границы растительности и грунтов обозначаются пунктирной линией, но если настраивать стандартным образом обводку у полигонов соответствующих объектов, то при стыковке двух полигонов произойдёт наложение границ. Именно поэтому границы должны существовать в виде отдельного класса объекта. Для этого можно воспользоваться инструментом <strong>Polygons to lines</strong> и удалив дублирующие сегменты.</p>
 </div>
 </div>
 <div id="practice-topo-elevation" class="section level3">
-<h3><span class="header-section-number">7.3.6</span> Автоматизированная обработка высотных данных</h3>
+<h3><span class="header-section-number">7.3.6</span> Обработка высотных данных</h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
+<p>При построении топографического плана горизонтали можно проводить вручную, а можно попробовать получить их автоматически на основе цифровой модели рельефа. В рамках учебной практики вы попробуете оба варианта и оцените достоверность и точность каждого.</p>
+<blockquote>
+<p>Цифровая модель рельефа (Digital Elevation Model) – это растр, каждый пиксель которого кодирует высоту.</p>
+</blockquote>
+<p>Для построения ЦМР в QGIS на основе данных тахеометрической съёмки можно использовать инструмент ГИС-пакета SAGA, который доступен через интерфейс QGIS. Для этого в панели <strong>Processing Toolbox Panel</strong> через поисковую строку найдите инструмент <strong>Natural neighbour</strong>. Это инструмент линейной интерполяции точечных данных на основе триангуляции. Среди параметров инструмента важно указать разрешение итоговой модели.</p>
+<div class="figure">
+<img src="images/Practice/Natural_Neighbour.png" alt="" />
+<p class="caption">Инструмент интерполяции Natural Neighbour</p>
+</div>
+<p>Для извлечения из ЦМР горизонталей следует воспользоваться другим инструментом – <strong>Contour</strong> – его так же можно найти через поиск.</p>
+<div class="figure">
+<img src="images/Practice/Contour.png" alt="" />
+<p class="caption">Инструмент извлечения горизонталей из ЦМР</p>
+</div>
+<p>Самый важный параметр, который следует указать в интерфейсе этого инструмента – сечение горизонталей (<strong>Interval between contour lines</strong>).</p>
+<p>Для настройки подписей горизонталей зайдите в свойства слоя во вкладку <strong>Labels</strong>.</p>
+<div class="figure">
+<img src="images/Practice/Contours_Labels.png" alt="" />
+<p class="caption">Настройка подписей горизонталей</p>
+</div>
+<p>В разделе <strong>Text</strong> можно указать гарнитуру, кегль. В разделе <strong>Buffer</strong> можно включить т.н. гало, т. е. обводку вокруг символов, которая закрывает собой горизонтали. В разделе <strong>Placement</strong> в свойстве <strong>Mode</strong> указывается <strong>Curved</strong>, т. е. искривлённая подпись, а также включается размещение <strong>on line</strong>, чтобы подпись была на горизонтали.</p>
 </div>
 <div id="practice-topo-layout" class="section level3">
 <h3><span class="header-section-number">7.3.7</span> Оформление макета</h3>
