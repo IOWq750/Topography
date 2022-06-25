@@ -206,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.2" data-path="practice.html"><a href="practice.html#practice-topo-database"><i class="fa fa-check"></i><b>7.3.2</b> Создание базы данных для топографического плана</a></li>
 <li class="chapter" data-level="7.3.3" data-path="practice.html"><a href="practice.html#practice-topo-vectorization"><i class="fa fa-check"></i><b>7.3.3</b> Векторизация</a></li>
 <li class="chapter" data-level="7.3.4" data-path="practice.html"><a href="practice.html#practice-topo-symbols"><i class="fa fa-check"></i><b>7.3.4</b> Оформление в условных знаках</a></li>
-<li class="chapter" data-level="7.3.5" data-path="practice.html"><a href="practice.html#автоматизация-создания-некоторых-объектов-на-топографических-планах-practice-topo-tipstricks"><i class="fa fa-check"></i><b>7.3.5</b> Автоматизация создания некоторых объектов на топографических планах {#practice-topo-tips&amp;tricks}</a></li>
+<li class="chapter" data-level="7.3.5" data-path="practice.html"><a href="practice.html#practice-topo-tips_tricks"><i class="fa fa-check"></i><b>7.3.5</b> Автоматизация создания некоторых объектов на топографических планах</a></li>
 <li class="chapter" data-level="7.3.6" data-path="practice.html"><a href="practice.html#practice-topo-elevation"><i class="fa fa-check"></i><b>7.3.6</b> Обработка высотных данных</a></li>
 <li class="chapter" data-level="7.3.7" data-path="practice.html"><a href="practice.html#practice-topo-layout"><i class="fa fa-check"></i><b>7.3.7</b> Оформление макета</a></li>
 </ul></li>
@@ -495,11 +495,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Детальные настройки символов сверяйте с Условными обозначениями, проверяйте, как они выглядят в режиме макета.</strong></p>
 <p><strong>Сохраните проект.</strong></p>
 </div>
-<div id="автоматизация-создания-некоторых-объектов-на-топографических-планах-practice-topo-tipstricks" class="section level3">
-<h3><span class="header-section-number">7.3.5</span> Автоматизация создания некоторых объектов на топографических планах {#practice-topo-tips&amp;tricks}</h3>
+<div id="practice-topo-tips_tricks" class="section level3">
+<h3><span class="header-section-number">7.3.5</span> Автоматизация создания некоторых объектов на топографических планах</h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
-<div id="создание-площадного-объекта-дороги-practice-topo-tipstricks-roads" class="section level4">
-<h4><span class="header-section-number">7.3.5.1</span> Создание площадного объекта дороги {#practice-topo-tips&amp;tricks-roads}</h4>
+<div id="practice-topo-tips_tricks-roads" class="section level4">
+<h4><span class="header-section-number">7.3.5.1</span> Создание площадного объекта дороги</h4>
 <p>Обычно дороги отбиваются по осевой линии, если у них известная и постоянная ширина. Чтобы наиболее эффективно и быстро построить площадной знак дороги, можно воспользоваться одним из инструментов геообработки QGIS, который строит буферные зоны. Для этого щёлкните правой кнопкой мыши по пустому полю верхней панели программы, чтобы увидеть список окон и панелей. Выберите панель <strong>Processing Toolbox Panel</strong>. Это панель со всеми инструментами геообработки. Через поисковую строку панели найдите инструмент <strong>Buffer</strong>. Дважды щёлкните по инструменту, после чего откроется окно.</p>
 <div class="figure">
 <img src="images/Practice/Buffer.png" alt="" />
@@ -517,8 +517,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Настройка разной символики для границ дороги</p>
 </div>
 </div>
-<div id="создание-объекта-границы-растительности-practice-topo-tipstricks-vegetation-borders" class="section level4">
-<h4><span class="header-section-number">7.3.5.2</span> Создание объекта границы растительности {#practice-topo-tips&amp;tricks-vegetation-borders}</h4>
+<div id="practice-topo-tips_tricks-vegetation-borders" class="section level4">
+<h4><span class="header-section-number">7.3.5.2</span> Создание объекта границы растительности</h4>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
 <p>Границы растительности и грунтов обозначаются пунктирной линией, но если настраивать стандартным образом обводку у полигонов соответствующих объектов, то при стыковке двух полигонов произойдёт наложение границ. Именно поэтому границы должны существовать в виде отдельного класса объекта. Для этого можно воспользоваться инструментом <strong>Polygons to lines</strong> и удалив дублирующие сегменты.</p>
 </div>
