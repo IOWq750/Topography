@@ -461,7 +461,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practice-topo-symbols" class="section level3">
 <h3><span class="header-section-number">7.3.4</span> Оформление в условных знаках</h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
-<p>Для работы с оформлением топографического плана скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>, а также <a href="https://yadi.sk/i/4EpTOHEhQdVq9g" target="_blank">условные обозначения</a>.</p>
+<p>Для работы с оформлением топографического плана скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>, а также <a href="https://yadi.sk/i/4EpTOHEhQdVq9g" target="_blank">условные обозначения 2005</a> и <a href="https://disk.yandex.ru/i/_WJi-PJUXlZi3Q" target="_blank">условные обозначения 1989</a>.</p>
 <p>Переместите папку со скаченными символами в удобную для использования директорию. Затем в основном меню QGIS выберите <strong>Settings – Options…</strong>. В открывшемся окне глобальных настроек перейдите во вкладку <strong>System</strong> и выберите раздел <strong>SVG Paths</strong>. Нажмите на плюс и добавьте путь к набору векторных символов.</p>
 <p>Для оформления слоёв проекта в условных знаках необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует <strong>Symbology</strong>. Для точечного слоя по умолчанию будет выставлен <strong>Marker – Simple Marker</strong>.</p>
 <div class="figure">
@@ -547,6 +547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practice-topo-layout" class="section level3">
 <h3><span class="header-section-number">7.3.7</span> Оформление макета</h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
+<p><a href="https://disk.yandex.ru/d/rWXOQug9ts11fQ" target="_blank">Пример оформления макета топографического плана</a></p>
 <p>С основами создания и оформления макета компоновки можно ознакомиться в разделе по <a href="practice.html#practice-theod-layout">теодолитному ходу</a>.</p>
 <p>Изменить размер листа можно щелчком правой кнопкой мыши по листу. После этого справа откроются свойства элемента, где можно указать размеры листа.</p>
 <div class="figure">
@@ -554,6 +555,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Изменение размеров листа</p>
 </div>
 <p>Рамка топографической карты состоит из внутренней тонкой и внешней толстой рамки. Обе рамки можно по отдельности добавить в свойствах элемента.</p>
+<p>Для того чтобы сделать подписи координат приближенными к стандартным в настройках, нужно зайти в свойства сетки. Сделаем, например, так, что последние три цифры координат будут подписываться всегда, остальные же только на крайних на листе выходах сетки. Выберем для подписи последних трёх цифр внутренню рамку, зайдём в раздел <strong>Draw Coordinates</strong> и в пункте <strong>Format</strong> укажем <strong>Custom</strong>. После нажатия на кнопку выражения, перед вами откроется окно, где нужно написать выражение <em>right(to_string(@grid_number), 3)</em>.</p>
+<div class="figure">
+<img src="images/Practice/Expression_label_last3.png" alt="" />
+<p class="caption">Подписывание последних трёх цифр координат</p>
+</div>
+<p>Для того чтобы сделать подписи первых частей координат у крайних выходов сетки, нужно зайти в настройки внешней рамки и по аналогии с предыдущим указать пользовательский формат подписи. В окне выражения нужно написать <em>left(to_string(@grid_number), length(to_string(@grid_number)) - 3)</em>. Чтобы подписывались только крайние выходы сетки, нужно в разделе <strong>Appearance</strong> задать свойства <strong>Interval</strong>, исходя из охвата вашей карты, и свойства <strong>Offset</strong>, исходя из значений координат крайней левой и крайней нижней линии сетки.</p>
+<div class="figure">
+<img src="images/Practice/Expression_label_First.png" alt="" />
+<p class="caption">Подписывание первых цифр координат</p>
+</div>
+<p>Обратите внимание, что согласно условным обозначениям у всех текстовых элементов есть определённые шрифты, которые вы можете установить и задать для вашей карты.</p>
 </div>
 </div>
 <div id="practice-georeference" class="section level2">
@@ -569,7 +581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p class="caption">Открытие растрового файла</p>
 </div>
 <blockquote>
-<p>Если вы не видите такого пункта меню, то зайдите в <strong>Plugins – Manage and Install plugins…</strong> (<strong>Установки – Модули и управление модулями</strong>, найдите через поиск и включите соответствующий модуль, поставив галочку (с версии 3.16 этот модуль по умолчанию встроен в QGIS).</p>
+<p>Если вы не видите такого пункта меню, то зайдите в <strong>Plugins – Manage and Install plugins…</strong> (<strong>Установки – Модули и управление модулями</strong>), найдите через поиск и включите соответствующий модуль, поставив галочку (с версии 3.16 этот модуль по умолчанию встроен в QGIS).</p>
 </blockquote>
 <p>Откроется отдельное окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Practice/Open_raster.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению в месте потенциального размещения опорной точки откроет окно, куда будет предложено ввести координаты. При использовании наземных опорных точек, которые добавлены в ваш проект, вы можете нажать на кнопку <strong>From Map Canvas</strong> и выбрать соответственную точку.</p>
 <div class="figure">
