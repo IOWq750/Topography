@@ -57,4 +57,4 @@ practice-topo-tips_tricks-roads
 practice-topo-tips_tricks-vegetation-borders
 practice-topo-elevation
 practice-topo-layout
-привязка-космического-снимка-по-наземным-опорным-точкам
+practice-georeference
