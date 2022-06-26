@@ -4,21 +4,21 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 5 Географическая привязка | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 5 Географическая привязка | Топография с основами геодезии" />
+  <title>Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии</title>
+  <meta name="description" content="Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии" />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 5 Географическая привязка | Топография с основами геодезии" />
+  <meta property="og:title" content="Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="Справка 5 Географическая привязка | Топография с основами геодезии" />
+  <meta property="og:description" content="Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 5 Географическая привязка | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии" />
   
-  <meta name="twitter:description" content="Справка 5 Географическая привязка | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Справка 1 Изменение языка интерфейса и прочих глобальных переменных QGIS | Топография с основами геодезии" />
   
 
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="96x96" href="apple-touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="stereo.html"/>
-<link rel="next" href="digitize.html"/>
+<link rel="prev" href="index.html"/>
+<link rel="next" href="coordinates.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -233,120 +233,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="georeference" class="section level1">
-<h1><span class="header-section-number">Справка 5</span> Географическая привязка</h1>
-<div id="georeference-theory" class="section level2">
-<h2><span class="header-section-number">5.1</span> Краткая теоретическая информация</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p><em>Эллипсоид</em> – математическая фигура,описывающая фигуру Земли и характеризующаяся параметрами малой и большой полуоси.</p>
-<p><em>Географическая (геодезическая) система координат</em> – система координат на эллипсоиде, задающая счёт широтам и долготам в градусах, а также положение эллипсоида внутри тела земли.</p>
-<p><em>Спроецированная (прямоугольная) система координат</em> – система координат проекции, определяющая ориентировку декартовых осей координат и их начало.</p>
-<p><em>Географическая привязка</em> – сопоставление точек изображения и точек местности.</p>
-<p><em>Трансформация</em> – перевод данных из одной системы координат в другую.</p>
-</div>
-<div id="georeference-data" class="section level2">
-<h2><span class="header-section-number">5.2</span> Исходные данные</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p><a href="https://yadi.sk/i/mvQ3lJJVNVJiuA" target="_blank">Учебная топографическая карта масштаба 1:25 000</a></p>
-<p><a href="https://yadi.sk/i/Zo4U3AuslrxwAg" target="_blank">Снимок №1</a></p>
-<p><a href="https://yadi.sk/i/_Yl8PMShZ-7FIw" target="_blank">Снимок №2</a></p>
-<p><a href="https://yadi.sk/i/JKSSi97_dbu7Lg" target="_blank">Снимок №3</a></p>
-<p><a href="https://yadi.sk/i/WDWZgCLA2A539Q" target="_blank">Бланк задания</a></p>
-</div>
-<div id="georeference-task" class="section level2">
-<h2><span class="header-section-number">5.3</span> Цель работы</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Привязать топографическую карту, а затем к ней привязать аэрофотоснимок. Оценить точность привязки карты и снимка. Определить детализацию снимку и соответствующий ей масштаб. Обосновать выбор опорных точек для привязки снимка, указав на отличия ситуации, отражённой на карте и на снимке.</p>
-</div>
-<div id="coordinate-systems" class="section level2">
-<h2><span class="header-section-number">5.4</span> Системы координат в QGIS</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Системы координат в QGIS задаются в свойствах проекта. Для этого нужно открыть пункт меню <strong>Проект – Свойства</strong>.</p>
-<div class="figure">
-<img src="images/Georeference/Project_properties.png" alt="" />
-<p class="caption">Открытие свойств проекта</p>
-</div>
-<p>Перейдите на вкладку <strong>Системы координат</strong>. В среднем окне видно две свёрнутые группы систем координат – географические и прямоугольные (спроецированные).
-<img src="images/Georeference/Reference_systems_default.png" alt="Открытие свойств проекта" /></p>
-<p>Если раскрыть эти группы, то вы увидите полный перечень систем координат по алфавиту. Например, поскольку известно, что для старых отечественных топографических карт используется проекция Гаусса-Крюгера на основе системы координат координат Пулково 1942 года, то можно пролистать перечень прямоугольных СК до Pulkovo 1942 и далее найти нужную зону проекции Гаусса-Крюгера нужной ширины (они бывают 3° и 6°). Также нужные проекции можно искать через строку поиска вверху окна.</p>
-<div class="figure">
-<img src="images/Georeference/Gauss_7N.png" alt="" />
-<p class="caption">Открытие свойств проекта</p>
-</div>
-</div>
-<div id="georeference-topo" class="section level2">
-<h2><span class="header-section-number">5.5</span> Привязка топографической карты</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Добавьте топографическую карту в проект, нажав на кнопку <img src="images/Georeference/Open_raster.png" />.</p>
-<div class="figure">
-<img src="images/Georeference/Open_topomap.gif" alt="" />
-<p class="caption">Открытие растрового файла</p>
-</div>
-<p>Поскольку открытая карта на данный момент не привязана, справа от слоя в таблице слоёв вы увидите знак вопроса.</p>
-<blockquote>
-<p>Если вы не видите карту, то, вероятно, она расположилась где-то за пределами вашего экрана. Чтобы увидеть её, нажмите правой кнопкой мыши по слою и выберете <strong>Увеличить до слоя</strong>. Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?</p>
-</blockquote>
-<p>Запустите модуль привязки через меню <strong>Растр – Привязка растров…</strong></p>
-<div class="figure">
-<img src="images/Georeference/Georeference_raster.png" alt="" />
-<p class="caption">Открытие растрового файла</p>
-</div>
-<blockquote>
-<p>Если вы не видите такого пункта меню, то зайдите в <strong>Установки – Модули и управление модулями</strong>, вбейте в поиск «привязка» и включите соответствующий модуль, поставив галочку.</p>
-</blockquote>
-<p>Откроется отдельное окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Georeference/Open_raster.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению откроет окно, куда будет предложено ввести координаты. Выберите пересечения линий прямоугольной сетки в качестве точек с известными прямоугольными координатами.</p>
-<div class="figure">
-<img src="images/Georeference/Input_coordinates.png" alt="" />
-<p class="caption">Окно ввода координат</p>
-</div>
-<blockquote>
-<p>Обратите внимание, что оси X и Y в геоинформационном программном обеспечении ориентированы как в математике. Для координаты X вводить номер зоны <strong>не нужно</strong>.</p>
-</blockquote>
-<p>Введите не менее 5 точек равномерно по всей карте – обычно это углы и центр листа. Внизу окна появится таблица с вашими точками привязки – будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку <img src="images/Georeference/Transformation_settings.png" />. В качестве типа трансформации для топографических карт должно быть достаточно полиномиального первой степени. Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.</p>
-<blockquote>
-<p>Сохраняйте файлы в папку с путями без латиницы, пробелов и спецсимволов.</p>
-</blockquote>
-<div class="figure">
-<img src="images/Georeference/Transformation_parameters.png" alt="" />
-<p class="caption">Параметры трансформации</p>
-</div>
-<p>После указания типа трансформации в таблице внизу должны появиться расчётные невязки. Убедитесь в том, что невязки имеют значение менее пикселя. Если невязка более пикселя, нужно удалить неправильную опорную точку, нажав на кнопку <img src="images/Georeference/Delete_point.png" /> и выбрав точку на карте. Для добавления новой точки выберите кнопку <img src="images/Georeference/Add_point.png" />. Когда точность трансформации станет удовлетворительной, запустите сам процесс трансформации, нажав на кнопку <img src="images/Georeference/Transformation_button.png" />. Закройте модуль привязки.</p>
-</div>
-<div id="georeference-aerial" class="section level2">
-<h2><span class="header-section-number">5.6</span> Привязка аэрофотоснимков</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Привязка материалов аэрофотосъёмки происходит аналогично, но в качестве опорных точек выступают соответственные точки на топографической карте. Для этого нужно сопоставить снимок с картой и найти эти точки. В модуле привязке выберите точку, но при появлении окна не вводите координаты, а выберите кнопку <strong>С карты</strong>.</p>
-<div class="figure">
-<img src="images/Georeference/Reference_aerial.gif" alt="" />
-<p class="caption">Установка точки с карты</p>
-</div>
-<p>Расставьте минимум 5 точек равномерно по всему снимку. В параметрах преобразования укажите тип трансформации – <strong>проективное</strong>. Именно такое преобразование используется для аэрофотоснимков.</p>
-</div>
-<div id="georeference-measure" class="section level2">
-<h2><span class="header-section-number">5.7</span> Измерения по карте и снимку</h2>
-<p><a href="georeference.html#georeference">В начало справки ⇡</a></p>
-<p>Для измерений по карте или по снимку используется инструмент линейки <img src="images/Georeference/Measure.png" />, расположенный на панели атрибутов. Если у вас такой панели нет, её можно открыть, щёлкнув правой кнопкой мыши по пустому месту сверху.</p>
-<div class="figure">
-<img src="images/Georeference/Measuring.gif" alt="" />
-<p class="caption">Измерения по карте</p>
-</div>
-<table>
-<tbody>
-<tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2022.</td>
-</tr>
-</tbody>
-</table>
+<div id="global" class="section level1">
+<h1><span class="header-section-number">Справка 1</span> Изменение языка интерфейса и прочих глобальных переменных QGIS</h1>
+<p>В справке используется англоязычная версия QGIS. Чтобы поменять язык интерфейса в меню основного окна QGIS выберите <strong>Установки – Параметры</strong> (<strong>Settings – Options</strong>)</p>
+<p><img src="images/Index0/Options.png" /></p>
+<p>В разделе <strong>Общие улучшения</strong> (<strong>General</strong>) поставьте галочку возле пункта <strong>Переопределить языковые настройки</strong> (<strong>Override system locale</strong>) и выберите напротив пункта <strong>Перевод пользовательского интерфейса</strong> (<strong>User interface translation</strong>) язык <strong>American English</strong>. Нажмите на кнопку <strong>OK</strong>. Изменения вступят в силу после перезагрузки QGIS.</p>
+<p><img src="images/Index0/Interface.png" /></p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="stereo.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="digitize.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="coordinates.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

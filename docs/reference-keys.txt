@@ -1,3 +1,4 @@
+global
 coordinates
 coordinates-theory
 coordinates-data
