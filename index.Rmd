@@ -84,7 +84,7 @@ favicon: images/favicon.ico
 Дополнительную информацию по установке можно найти на [https://qgis.org/ru/site/forusers/download.html](https://qgis.org/ru/site/forusers/download.html){target="_blank"}.
 
 
-# Изменение языка интерфейса и прочих глобальных переменных QGIS {#global}
+## Изменение языка интерфейса и прочих глобальных переменных QGIS {#global}
 
 
 В справке используется англоязычная версия QGIS. Чтобы поменять язык интерфейса в меню основного окна QGIS выберите **Установки – Параметры** (**Settings – Options**)
