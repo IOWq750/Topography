@@ -309,7 +309,7 @@ _Advanced Digitizing Toolbar_
 [В начало справки ⇡](#practice-topo)
 
 
-Для работы с оформлением топографического плана скачайте [символы](https://yadi.sk/d/mb1wTvAUUAgVUQ){target="_blank"} и [топографические шрифты](https://yadi.sk/d/G_3EVFLqg3C5pA){target="_blank"}, а также [условные обозначения 2005](https://yadi.sk/i/4EpTOHEhQdVq9g){target="_blank"} и [условные обозначения 1989](https://disk.yandex.ru/i/_WJi-PJUXlZi3Q){target="_blank"}.
+Для работы с оформлением топографического плана скачайте [символы](https://yadi.sk/d/mb1wTvAUUAgVUQ){target="_blank"} и [топографические шрифты](https://yadi.sk/d/G_3EVFLqg3C5pA){target="_blank"}, а также [условные обозначения 2005 года](https://yadi.sk/i/4EpTOHEhQdVq9g){target="_blank"} и [условные обозначения 1989 года](https://disk.yandex.ru/i/_WJi-PJUXlZi3Q){target="_blank"}.
 
 
 
@@ -455,6 +455,21 @@ _Advanced Digitizing Toolbar_
 
 ## Привязка космического снимка по наземным опорным точкам {#practice-georeference}
 [В начало справки ⇡](#practice)
+
+
+### Исходные данные {#practice-data}
+
+
+[Снимок Keyhole 1973 года](https://disk.yandex.ru/i/7a93zQEgNnI4dA){target="_blank"}
+
+
+[Снимок Digital Globe 2018 года. Участок 1](https://disk.yandex.ru/i/bIn38XOCT92FXA){target="_blank"}
+
+
+[Снимок Digital Globe 2018 года. Участок 2](https://disk.yandex.ru/i/_VykXwJloU-0yA){target="_blank"}
+
+
+[Снимок Digital Globe 2018 года. Участок 3](https://disk.yandex.ru/i/D0-eTUvb3eX_1w){target="_blank"}
 
 
 Добавьте снимок в проект, нажав на кнопку ![](images/Practice/Open_raster.png). Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.

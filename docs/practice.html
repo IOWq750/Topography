@@ -24,7 +24,7 @@
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
 
 
-<meta name="date" content="2022-06-26" />
+<meta name="date" content="2022-07-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -211,7 +211,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.6" data-path="practice.html"><a href="practice.html#practice-topo-elevation"><i class="fa fa-check"></i><b>7.3.6</b> Обработка высотных данных</a></li>
 <li class="chapter" data-level="7.3.7" data-path="practice.html"><a href="practice.html#practice-topo-layout"><i class="fa fa-check"></i><b>7.3.7</b> Оформление макета</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#practice-georeference"><i class="fa fa-check"></i><b>7.4</b> Привязка космического снимка по наземным опорным точкам</a></li>
+<li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#practice-georeference"><i class="fa fa-check"></i><b>7.4</b> Привязка космического снимка по наземным опорным точкам</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="practice.html"><a href="practice.html#practice-data"><i class="fa fa-check"></i><b>7.4.1</b> Исходные данные</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -461,7 +463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practice-topo-symbols" class="section level3">
 <h3><span class="header-section-number">7.3.4</span> Оформление в условных знаках</h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
-<p>Для работы с оформлением топографического плана скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>, а также <a href="https://yadi.sk/i/4EpTOHEhQdVq9g" target="_blank">условные обозначения 2005</a> и <a href="https://disk.yandex.ru/i/_WJi-PJUXlZi3Q" target="_blank">условные обозначения 1989</a>.</p>
+<p>Для работы с оформлением топографического плана скачайте <a href="https://yadi.sk/d/mb1wTvAUUAgVUQ" target="_blank">символы</a> и <a href="https://yadi.sk/d/G_3EVFLqg3C5pA" target="_blank">топографические шрифты</a>, а также <a href="https://yadi.sk/i/4EpTOHEhQdVq9g" target="_blank">условные обозначения 2005 года</a> и <a href="https://disk.yandex.ru/i/_WJi-PJUXlZi3Q" target="_blank">условные обозначения 1989 года</a>.</p>
 <p>Переместите папку со скаченными символами в удобную для использования директорию. Затем в основном меню QGIS выберите <strong>Settings – Options…</strong>. В открывшемся окне глобальных настроек перейдите во вкладку <strong>System</strong> и выберите раздел <strong>SVG Paths</strong>. Нажмите на плюс и добавьте путь к набору векторных символов.</p>
 <p>Для оформления слоёв проекта в условных знаках необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует <strong>Symbology</strong>. Для точечного слоя по умолчанию будет выставлен <strong>Marker – Simple Marker</strong>.</p>
 <div class="figure">
@@ -571,6 +573,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="practice-georeference" class="section level2">
 <h2><span class="header-section-number">7.4</span> Привязка космического снимка по наземным опорным точкам</h2>
 <p><a href="practice.html#practice">В начало справки ⇡</a></p>
+<div id="practice-data" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Исходные данные</h3>
+<p><a href="https://disk.yandex.ru/i/7a93zQEgNnI4dA" target="_blank">Снимок Keyhole 1973 года</a></p>
+<p><a href="https://disk.yandex.ru/i/bIn38XOCT92FXA" target="_blank">Снимок Digital Globe 2018 года. Участок 1</a></p>
+<p><a href="https://disk.yandex.ru/i/_VykXwJloU-0yA" target="_blank">Снимок Digital Globe 2018 года. Участок 2</a></p>
+<p><a href="https://disk.yandex.ru/i/D0-eTUvb3eX_1w" target="_blank">Снимок Digital Globe 2018 года. Участок 3</a></p>
 <p>Добавьте снимок в проект, нажав на кнопку <img src="images/Practice/Open_raster.png" />. Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.</p>
 <blockquote>
 <p>Если вы не видите снимок, то, вероятно, он расположился где-то за пределами вашего экрана. Чтобы увидеть его, нажмите правой кнопкой мыши по слою и выберете <strong>Zoom to Layer</strong> (<strong>Увеличить до слоя</strong>). Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?</p>
@@ -607,6 +615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 
+</div>
 </div>
 </div>
             </section>
