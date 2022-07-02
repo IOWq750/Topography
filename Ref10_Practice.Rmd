@@ -453,11 +453,11 @@ _Advanced Digitizing Toolbar_
 Обратите внимание, что согласно условным обозначениям у всех текстовых элементов есть определённые шрифты, которые вы можете установить и задать для вашей карты.
 
 
-## Привязка космического снимка по наземным опорным точкам {#practice-georeference}
+## Привязка космического снимка {#practice-georeference}
 [В начало справки ⇡](#practice)
 
 
-### Исходные данные {#practice-data}
+### Исходные данные {#practice-georeference-data}
 
 
 [Снимок Keyhole 1973 года](https://disk.yandex.ru/i/7a93zQEgNnI4dA){target="_blank"}
@@ -470,6 +470,9 @@ _Advanced Digitizing Toolbar_
 
 
 [Снимок Digital Globe 2018 года. Участок 3](https://disk.yandex.ru/i/D0-eTUvb3eX_1w){target="_blank"}
+
+
+### Привязка по наземным опорным точкам {#practice-georeference-gcp}
 
 
 Добавьте снимок в проект, нажав на кнопку ![](images/Practice/Open_raster.png). Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.

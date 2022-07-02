@@ -58,4 +58,5 @@ practice-topo-tips_tricks-vegetation-borders
 practice-topo-elevation
 practice-topo-layout
 practice-georeference
-practice-data
+practice-georeference-data
+practice-georeference-gcp
