@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
 
 
-<meta name="date" content="2023-02-28" />
+<meta name="date" content="2023-06-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -225,7 +225,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#practice-georeference"><i class="fa fa-check"></i><b>7.4</b> Привязка космического снимка</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="practice.html"><a href="practice.html#practice-georeference-data"><i class="fa fa-check"></i><b>7.4.1</b> Исходные данные</a></li>
-<li class="chapter" data-level="7.4.2" data-path="practice.html"><a href="practice.html#practice-georeference-gcp"><i class="fa fa-check"></i><b>7.4.2</b> Привязка по наземным опорным точкам</a></li>
+<li class="chapter" data-level="7.4.2" data-path="practice.html"><a href="practice.html#practice-georeference-gpx"><i class="fa fa-check"></i><b>7.4.2</b> Сброс данных со спутниковых навигаторов</a></li>
+<li class="chapter" data-level="7.4.3" data-path="practice.html"><a href="practice.html#practice-georeference-gcp"><i class="fa fa-check"></i><b>7.4.3</b> Привязка по наземным опорным точкам</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -563,7 +564,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">7.3.7</span> Оформление макета<a href="practice.html#practice-topo-layout" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><a href="practice.html#practice-topo">В начало справки ⇡</a></p>
 <p><a href="https://disk.yandex.ru/d/rWXOQug9ts11fQ" target="_blank">Пример оформления макета топографического плана</a></p>
-<p>С основами создания и оформления макета компоновки можно ознакомиться в разделе по <a href="practice.html#practice-theod-layout">теодолитному ходу</a>.</p>
+<p>С основами создания и оформления макета компоновки можно ознакомиться в разделе по <a href="practice.html#practice-theod-layout">теодолитному ходу</a>. Вы можете скачать шаблон оформления макета топографического плана и поменять его экстент в соответствии со своей территорией. Для этого зайдите в свойства элемента карты и поменяйте значения координат экстента (охвата) под свою территорию, введя максимальные, а затем минимальные координаты по обеим осям.</p>
+<div class="figure">
+<img src="images/Practice/Extent.png" alt="" />
+<p class="caption">Изменение охвата макета</p>
+</div>
+<blockquote>
+<p>Обратите внимание, что в зависимости от предыдущих значений координат экстента, у вас может не с первого раза получиться ввести свои координаты, поэтому введите их повторно.</p>
+</blockquote>
 <p>Изменить размер листа можно щелчком правой кнопкой мыши по листу. После этого справа откроются свойства элемента, где можно указать размеры листа.</p>
 <div class="figure">
 <img src="images/Practice/Layout_Size.png" alt="" />
@@ -593,8 +601,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="https://disk.yandex.ru/i/_VykXwJloU-0yA" target="_blank">Снимок Digital Globe 2018 года. Участок 2</a></p>
 <p><a href="https://disk.yandex.ru/i/D0-eTUvb3eX_1w" target="_blank">Снимок Digital Globe 2018 года. Участок 3</a></p>
 </div>
-<div id="practice-georeference-gcp" class="section level3 hasAnchor" number="7.4.2">
-<h3><span class="header-section-number">7.4.2</span> Привязка по наземным опорным точкам<a href="practice.html#practice-georeference-gcp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="practice-georeference-gpx" class="section level3 hasAnchor" number="7.4.2">
+<h3><span class="header-section-number">7.4.2</span> Сброс данных со спутниковых навигаторов<a href="practice.html#practice-georeference-gpx" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для сброса данных со спутниковых навигаторов подключите их через интерфейс mini usb к компьютеру. Откроется окно проводника <strong>Garmin</strong>. Зайдите в папку <strong>GPX</strong> и скопируйте путевые точки. Из папки <strong>Current</strong> скопируйте текущий трек.</p>
+</div>
+<div id="practice-georeference-gcp" class="section level3 hasAnchor" number="7.4.3">
+<h3><span class="header-section-number">7.4.3</span> Привязка по наземным опорным точкам<a href="practice.html#practice-georeference-gcp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Добавьте снимок в проект, нажав на кнопку <img src="images/Practice/Open_raster.png" />. Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.</p>
 <blockquote>
 <p>Если вы не видите снимок, то, вероятно, он расположился где-то за пределами вашего экрана. Чтобы увидеть его, нажмите правой кнопкой мыши по слою и выберете <strong>Zoom to Layer</strong> (<strong>Увеличить до слоя</strong>). Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?</p>

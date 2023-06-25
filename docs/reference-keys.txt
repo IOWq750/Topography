@@ -59,4 +59,5 @@ practice-topo-elevation
 practice-topo-layout
 practice-georeference
 practice-georeference-data
+practice-georeference-gpx
 practice-georeference-gcp
