@@ -61,3 +61,4 @@ practice-georeference
 practice-georeference-data
 practice-georeference-gpx
 practice-georeference-gcp
+practice-georeference-interpretation

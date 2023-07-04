@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
 
 
-<meta name="date" content="2023-06-25" />
+<meta name="date" content="2023-07-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -222,11 +222,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3.6" data-path="practice.html"><a href="practice.html#practice-topo-elevation"><i class="fa fa-check"></i><b>7.3.6</b> Обработка высотных данных</a></li>
 <li class="chapter" data-level="7.3.7" data-path="practice.html"><a href="practice.html#practice-topo-layout"><i class="fa fa-check"></i><b>7.3.7</b> Оформление макета</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#practice-georeference"><i class="fa fa-check"></i><b>7.4</b> Привязка космического снимка</a>
+<li class="chapter" data-level="7.4" data-path="practice.html"><a href="practice.html#practice-georeference"><i class="fa fa-check"></i><b>7.4</b> Привязка и дешифрирование космического снимка</a>
 <ul>
 <li class="chapter" data-level="7.4.1" data-path="practice.html"><a href="practice.html#practice-georeference-data"><i class="fa fa-check"></i><b>7.4.1</b> Исходные данные</a></li>
 <li class="chapter" data-level="7.4.2" data-path="practice.html"><a href="practice.html#practice-georeference-gpx"><i class="fa fa-check"></i><b>7.4.2</b> Сброс данных со спутниковых навигаторов</a></li>
 <li class="chapter" data-level="7.4.3" data-path="practice.html"><a href="practice.html#practice-georeference-gcp"><i class="fa fa-check"></i><b>7.4.3</b> Привязка по наземным опорным точкам</a></li>
+<li class="chapter" data-level="7.4.4" data-path="practice.html"><a href="practice.html#practice-georeference-interpretation"><i class="fa fa-check"></i><b>7.4.4</b> Дешифрирование снимка</a></li>
 </ul></li>
 </ul></li>
 <li class="divider"></li>
@@ -592,11 +593,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="practice-georeference" class="section level2 hasAnchor" number="7.4">
-<h2><span class="header-section-number">7.4</span> Привязка космического снимка<a href="practice.html#practice-georeference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">7.4</span> Привязка и дешифрирование космического снимка<a href="practice.html#practice-georeference" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="practice.html#practice">В начало справки ⇡</a></p>
 <div id="practice-georeference-data" class="section level3 hasAnchor" number="7.4.1">
 <h3><span class="header-section-number">7.4.1</span> Исходные данные<a href="practice.html#practice-georeference-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><a href="https://disk.yandex.ru/i/7a93zQEgNnI4dA" target="_blank">Снимок Keyhole 1973 года</a></p>
+<p><a href="https://disk.yandex.ru/i/7a93zQEgNnI4dA" target="_blank">Снимок Keyhole 1973 года для привязки по наземным опорным точкам</a></p>
+<p>Снимки для дешифрирования</p>
 <p><a href="https://disk.yandex.ru/i/bIn38XOCT92FXA" target="_blank">Снимок Digital Globe 2018 года. Участок 1</a></p>
 <p><a href="https://disk.yandex.ru/i/_VykXwJloU-0yA" target="_blank">Снимок Digital Globe 2018 года. Участок 2</a></p>
 <p><a href="https://disk.yandex.ru/i/D0-eTUvb3eX_1w" target="_blank">Снимок Digital Globe 2018 года. Участок 3</a></p>
@@ -611,7 +613,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Если вы не видите снимок, то, вероятно, он расположился где-то за пределами вашего экрана. Чтобы увидеть его, нажмите правой кнопкой мыши по слою и выберете <strong>Zoom to Layer</strong> (<strong>Увеличить до слоя</strong>). Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?</p>
 </blockquote>
-<p>Запустите модуль привязки через меню <strong>Raster – Georeferencer</strong> (<strong>Растр – Привязка растров…</strong>).</p>
+<p>Запустите модуль привязки через меню <strong>Layer – Georeferencer</strong> (<strong>Слои – Привязка растров…</strong>).</p>
 <div class="figure">
 <img src="images/Practice/Georeferencer.png" alt="" />
 <p class="caption">Открытие растрового файла</p>
@@ -619,7 +621,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Если вы не видите такого пункта меню, то зайдите в <strong>Plugins – Manage and Install plugins…</strong> (<strong>Установки – Модули и управление модулями</strong>), найдите через поиск и включите соответствующий модуль, поставив галочку (с версии 3.16 этот модуль по умолчанию встроен в QGIS).</p>
 </blockquote>
-<p>Откроется отдельное окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Practice/Open_raster.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению в месте потенциального размещения опорной точки откроет окно, куда будет предложено ввести координаты. При использовании наземных опорных точек, которые добавлены в ваш проект, вы можете нажать на кнопку <strong>From Map Canvas</strong> и выбрать соответственную точку.</p>
+<p>Откроется отдельное окно привязки. Нажмите на кнопку <strong>Открыть растр</strong> <img src="images/Practice/Open_raster.png" />, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению в месте потенциального размещения опорной точки откроет окно, куда будет предложено ввести координаты. При использовании наземных опорных точек, отмеченных в ходе маршрута на навигации, введите координату <strong>X</strong> в окно <strong>Easting</strong> и <strong>Y</strong> в окно <strong>Northing</strong>.</p>
+<blockquote>
+<p>При работе на полигоне Чашниково координаты СК проекции WGS 1984 UTM 37N <strong>Northing</strong> начинаются с цифр <em>621</em>, координаты <strong>Easting</strong> с <em>38</em>.</p>
+</blockquote>
+<p>Если в вашей версии QGIS в открывшемся окне есть опция выбора системы координат, укажите <strong>правильную</strong>.</p>
 <div class="figure">
 <img src="images/Practice/Enter_Coordinates.png" alt="" />
 <p class="caption">Окно ввода координат</p>
@@ -627,7 +633,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Обратите внимание, что оси X и Y в геоинформационном программном обеспечении ориентированы как в математике. Для координаты X вводить номер зоны <strong>не нужно</strong>.</p>
 </blockquote>
-<p>После расстановки точек внизу окна появится таблица с вашими точками привязки – будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку <img src="images/Practice/Transformation_settings.png" />. В качестве типа трансформации для снимка может подойти полиномиальное преобразование первой степени или проективное преобразование. Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.</p>
+<p>После расстановки точек внизу окна появится таблица с вашими точками привязки – будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку <img src="images/Practice/Transformation_settings.png" />. В качестве типа трансформации для снимка может подойти полиномиальное преобразование первой степени (минимально необходимо 3 опорные точки) или проективное преобразование (минимально необходимо 4 опорные точки). Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.</p>
+<p>Убедитесь в том, что стоит галка напротив опции <strong>Use 0 for transparency when needed</strong>, чтоб у вас не было чёрной рамки вокруг привязанного растра.</p>
 <blockquote>
 <p>Сохраняйте файлы в папку с путями без латиницы, пробелов и спецсимволов.</p>
 </blockquote>
@@ -635,6 +642,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <img src="images/Practice/Transformation_parameters.png" alt="" />
 <p class="caption">Параметры трансформации</p>
 </div>
+<p>После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.</p>
+<p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
+<p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Practice/Swipe_button.png" />.</p>
+</div>
+<div id="practice-georeference-interpretation" class="section level3 hasAnchor" number="7.4.4">
+<h3><span class="header-section-number">7.4.4</span> Дешифрирование снимка<a href="practice.html#practice-georeference-interpretation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Для дешифрирования космических снимков необходимо осуществить их привязку. В случае с современными космическими снимками это можно сделать на основе подложки картографических веб-сервисов.</p>
+<p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
+<p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong> или какой-либо еще картографический веб-сервис со спутниковой подложкой. Нажмите <strong>Добавить</strong>.</p>
+<p><img src="images/Practice/QMS.png" /></p>
+<p>Добавьте в качестве слоя данных привязываемый снимок.</p>
+<blockquote>
+<p>Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите <strong>панель работы со слоями</strong>.</p>
+</blockquote>
+<p>Процесс дешифрирования представляет собой создание базы данных и векторизацию объектов по данным космической съёмки. О том, как это делается, вы можете узнать из раздела 7.3.2 и 7.3.3.</p>
 <table>
 <tbody>
 <tr class="odd">
