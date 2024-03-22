@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Справка 5 Векторизация топографической карты | Топография с основами геодезии</title>
   <meta name="description" content="Справка 5 Векторизация топографической карты | Топография с основами геодезии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.36 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Справка 5 Векторизация топографической карты | Топография с основами геодезии" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2024-03-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,74 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
+
 
 
 <style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 </style>
-
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -277,12 +216,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Атрибут класса объектов</strong> – это формализованное описание какого-либо свойства класса объектов. Атрибутов может быть много, каждый из них отвечает за различные аспекты пространственных объектов или явлений. У класса почв это может быть атрибут типа, подтипа, pH, содержания гумуса, мощности и т.д. Атрибуты строго типизируются, то есть при создании указывается тип данных, который будет храниться в атрибутивном поле: <em>целочисленные данные</em>, <em>действительные числа</em>, <em>числа с плавающей точкой</em>, <em>логические значения</em>, <em>текстовые данные</em> и ряд других.</p>
 </blockquote>
 <p>QGIS поддерживает различные форматы пространственных данных. Среди них наиболее удобным и современным для хранения и работы считается формат <strong>Geopackage</strong>. По сути это формат базы пространственных данных, внутри которой мы можем складывать различные классы объектов. Для создания базы данных формата <strong>Geopackage</strong> откройте окно Браузера внутри QGIS. Если его нет, включите его в выпадающем списке при щелчке правой кнопкой мыши по пустой панели. Найдите каталог, в котором вы хотите создать базу данных (лучше всего, чтобы путь к этой базы состоял из символов латинского алфавита, не содержал дефисов, пробелов и спецсимволов). Правой кнопкой мыши щелкните по каталогу, выберете <strong>Новые – Geopackage</strong>. Откроется окно, которое помимо самой базы данных предложит создать класс объектов внутри неё. В поле Имя таблицы введите имя класса объектов латинскими символами, лучше, чтобы это был английский перевод соответствующего вида картографируемого объекта, а не транслитерация.</p>
-<div class="figure">
-<img src="images/Vector/Create_gpkg.png" alt="" />
-<p class="caption">Окно создания базы данных Geopackage</p>
+<p>Другой вариант создания базы данных – нажмите на кнопку <img src="images/Vector/New_gpkg_layer.png" /> на панели менеджера источников данных.</p>
+<div class="float">
+<img src="images/Vector/Create_gpkg.png" alt="Окно создания базы данных Geopackage" />
+<div class="figcaption">Окно создания базы данных Geopackage</div>
 </div>
-<p>В поле <strong>Тип геометрии</strong> укажите соответствующую геометрию объектов.
-Укажите спроецированную систему координат. Если указать геодезическую систему координат, то велика вероятность, что при векторизации объектов возникнут курьёзные ситуации.
+<p>В поле <strong>Тип геометрии</strong> укажите соответствующую геометрию объектов.</p>
+<blockquote>
+<p>Обратите внимание, для площадных объектов необходимо выбирать полигональную геометрию, для линейных (реки, горизонтали и др.) – линейную, для внемасштабных (точечных) знаков – точечную.</p>
+</blockquote>
+<p>Укажите спроецированную систему координат. Если указать геодезическую систему координат, то велика вероятность, что при векторизации объектов возникнут курьёзные ситуации.
 В разделе <strong>New Field</strong> можно указать имя, типа и длину атрибутивного поля создаваемого класса объектов.</p>
 <p>Каждый последующий класс объектов создавайте внутри базы данных. Таким образом вы сформируете единое хранилище для всех картографируемых объектов.</p>
 </div>
@@ -291,9 +234,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
 <p>Созданные классы объектов в базе данных можно добавить в перечень слоев проекта простым перетаскиванием, либо дважды щёлкнув по ним в Браузере. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт <strong>Режим редактирования</strong>, либо выделить слой и найти на панели инструментов кнопку <img src="images/Vector/Edit.png" />. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для полигонального объекта появится кнопка <img src="images/Vector/New_polygon.png" />, с помощью которой можно создать новый полигон в слое. Для других типов геометрии иконка будет немного отличаться.</p>
 <p>Рисовка контура осуществляется с помощью левой кнопки мыши. Для завершения рисовки объекта нажмите правую кнопку мыши. Для редактирования отдельных вершин нажмите на кнопку <img src="images/Vector/Vertices.png" />. После этого у объекта кружочками выделятся вершины.</p>
-<div class="figure">
-<img src="images/Vector/Polygon.png" alt="" />
-<p class="caption">Полигон в режиме отображения вершин</p>
+<div class="float">
+<img src="images/Vector/Polygon.png" alt="Полигон в режиме отображения вершин" />
+<div class="figcaption">Полигон в режиме отображения вершин</div>
 </div>
 <p>Курсор в таком режиме может вести себя тремя разными способами:</p>
 <ol style="list-style-type: decimal">
@@ -304,27 +247,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Нажатие на клавишу <strong>DELETE</strong> позволяет удалить вершину.</p>
 <p>При векторизации объектов часто возникает необходимость пристыковать вершины одного объекта к вершинам другого объекта. Для корректной и комфортной пристыковки нужно включить панель Инструменты прилипания (<strong>snapping</strong>). Кнопка в виде магнита <img src="images/Ref04/Snapping.png" /> активирует прилипание. Остальные кнопки на данной панели позволяют уточнить параметры прилипания, в том числе расстояние, на котором оно начинает действовать.</p>
 <p>Если вам необходимо повторить значительную часть существующего контура при создании нового, то удобнее всего воспользоваться трассировкой (<strong>Tracing</strong>), нажав на кнопку <img src="images/Vector/Tracing.png" /> на панели инструментов прилипания. После этого при ведении на небольшом расстоянии от контура новый контур будет автоматически пристыковываться к существующем.</p>
-<div class="figure">
-<img src="images/Vector/Tracing.gif" alt="" />
-<p class="caption">Пример работы с инструментом трассировки</p>
+<div class="float">
+<img src="images/Vector/Tracing.gif" alt="Пример работы с инструментом трассировки" />
+<div class="figcaption">Пример работы с инструментом трассировки</div>
 </div>
 <p><em>Дополнительные инструменты оцифровки</em></p>
 <p>Соответствующую панель вы так же, как и предыдущую, можете найти в выпадающем списке панелей.</p>
-<div class="figure">
-<img src="images/Vector/Additional_panel.png" alt="" />
-<p class="caption">Дополнительная панель векторизации</p>
+<div class="float">
+<img src="images/Vector/Additional_panel.png" alt="Дополнительная панель векторизации" />
+<div class="figcaption">Дополнительная панель векторизации</div>
 </div>
 <p>На данной панели доступны инструменты для векторизации параллельных и перпендикулярных линий, для перемещения объектов, создания внутренних колец (по сути – дырки в полигоне), разрезания объектов, склеивания объектов и другие.</p>
 <p>Выбрать объекты, например, для склеивания можно с помощью инструмента выделения <img src="images/Vector/Selection_tool.png" />.</p>
-<p>Не забывайте регулярно сохранять изменения в геометрии слоев с помощью кнопки на панели <img src="images/Vector/Save_edits.png" />. Также не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки <img src="images/Vector/Save_Project.png" />.</p>
+<p>Не забывайте регулярно сохранять изменения в геометрии слоев с помощью кнопки на панели <img src="images/Vector/Save_edits.png" />. Также не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки <img src="images/Vector/Save_project.png" />.</p>
 </div>
 <div id="digitize-attributes" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Работа с атрибутами<a href="digitize.html#digitize-attributes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="digitize.html#digitize">В начало справки ⇡</a></p>
 <p>Векторизация предназначена для показа геометрической составляющей объектов и явлений на карте. Для показа семантических (смысловых) различий в явлениях используются атрибуты. Преимущество ГИС-пакетов по сравнению с графическими пакетами заключается в том, что мы можем напрямую сопоставить символику слоя и значения атрибутивных полей. Например, если мы показываем качественным фоном какое-либо явление, то каждой явление должно иметь своё значение в атрибутивной таблице. Открыть атрибутивную таблицу слоя можно, нажав правой кнопкой мыши по нему и выбрав пункт <strong>Открыть таблицу атрибутов</strong>.</p>
-<div class="figure">
-<img src="images/Vector/Attribute_table.gif" alt="" />
-<p class="caption">Выделение строк атрибутивной таблицы</p>
+<div class="float">
+<img src="images/Vector/Attribute_table.gif" alt="Выделение строк атрибутивной таблицы" />
+<div class="figcaption">Выделение строк атрибутивной таблицы</div>
 </div>
 <p>Для редактирования атрибутов необходимо зайти в режим редактирования с помощью кнопки <img src="images/Vector/Edit.png" />. Для добавления или удаления атрибутивных столбцов также необходимо зайтив в режим редактирования, после чего появятся соответствующие кнопки <img src="images/Vector/New_field.png" /> и <img src="images/Vector/Delete_field.png" />.</p>
 <blockquote>
@@ -334,7 +277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table>
 <tbody>
 <tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2023.</td>
+<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2024.</td>
 </tr>
 </tbody>
 </table>
@@ -401,20 +344,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
