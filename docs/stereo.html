@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 3 Работа со стереопарой снимков | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <title>Справка 3 Работа со стереопарой снимков | Топография с основами картографии</title>
+  <meta name="description" content="Топография с основами геодезии" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами картографии" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta property="og:description" content="Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Справка 3 Работа со стереопарой снимков | Топография с основами картографии" />
   
-  <meta name="twitter:description" content="Справка 3 Работа со стереопарой снимков | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Топография с основами геодезии" />
   
 
-<meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
+<meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2025-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,12 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -120,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Топография с основами геодезии</a></li>
+<li><a href="./">Топография с основами картографии</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение для работы</a>
@@ -242,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Топография с основами геодезии</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Топография с основами картографии</a>
           </h1>
         </div>
 
@@ -257,17 +262,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p><em>Стереоэффект</em> – пространственное восприятие объекта при рассматривании двух его плоских перспективных изображений.</p>
 <p><em>Стереопара</em> – снимки, полученные из разных точек пространства на одну и ту же территорию, либо объект.</p>
-<div class="figure">
-<img src="images/Stereo/stereopair.png" alt="" />
-<p class="caption">Принципиальная схема стереоблюдений точек местности</p>
+<div class="float">
+<img src="images/Stereo/stereopair.png" alt="Принципиальная схема стереоблюдений точек местности" />
+<div class="figcaption">Принципиальная схема стереоблюдений точек местности</div>
 </div>
 <p><em>Базис съёмки</em> (<span class="math inline">\(b\)</span>) – расстояние в масштабе снимков между точками съёмки (центрами их проекций).</p>
 <p><em>Продольный параллакс</em> (<span class="math inline">\(p\)</span>) – разность координат <span class="math inline">\(x\)</span> соответственных точек на снимках (<span class="math inline">\(x_л - x_п\)</span>).</p>
 <p><em>Поперечный параллакс</em> (<span class="math inline">\(q\)</span>) – разность координат <span class="math inline">\(y\)</span> соответственных точек на снимках (<span class="math inline">\(y_л - y_п\)</span>).</p>
 <p><em>Разность параллаксов</em> (<span class="math inline">\(\Delta p\)</span>) – разница в смещении координат соответственных точек, обусловленная разницей в их высоте (<span class="math inline">\(p_2 - p_1\)</span>).</p>
-<div class="figure">
-<img src="images/Stereo/parallax.png" alt="" />
-<p class="caption">Координаты соответственных точек на паре снимков</p>
+<div class="float">
+<img src="images/Stereo/parallax.png" alt="Координаты соответственных точек на паре снимков" />
+<div class="figcaption">Координаты соответственных точек на паре снимков</div>
 </div>
 <p><em>Формула превышений</em> – приблизительная формула для вычисления превышений точек по стереопарам снимков через разность параллаксов двух точек <span class="math inline">\(\Delta p\)</span>.</p>
 <p><span class="math display">\[h = H\frac{\Delta p }{b + \Delta p}\]</span></p>
@@ -276,9 +281,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">3.2</span> Установка программного обеспечения<a href="stereo.html#stereo-soft" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Для практической работы вам понадобится открытая учебная фотограмметрическая программа <strong>E-foto</strong>. Информацию о ней можно найти на домашнем сайте (<a href="http://www.efoto.eng.uerj.br/" target="_blank">http://www.efoto.eng.uerj.br/</a>), там же можно скачать себе дистрибутив программы. Для этого перейдите во вкладку <strong>DOWNLOAD – Latest Version</strong>.</p>
-<div class="figure">
-<img src="images/Stereo/Download.png" alt="" />
-<p class="caption">Страница для загрузки программы и данных</p>
+<div class="float">
+<img src="images/Stereo/Download.png" alt="Страница для загрузки программы и данных" />
+<div class="figcaption">Страница для загрузки программы и данных</div>
 </div>
 <p>Запустите скачанный пакет установщика и установите программу.</p>
 </div>
@@ -309,21 +314,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><a href="stereo.html#stereo">В начало справки ⇡</a></p>
 <p>Разместите папку с проектом у себя на компьютере так, чтобы путь к ней был без пробелов, кириллицы, дефисов и иных специальных символов. Запустите проект <strong>Stereo.epp</strong> с помощью программы <strong>E-foto</strong>.</p>
 <p>Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание.</p>
-<div class="figure">
-<img src="images/Stereo/Project_Manager.png" alt="" />
-<p class="caption">Окно менеджера проекта</p>
+<div class="float">
+<img src="images/Stereo/Project_Manager.png" alt="Окно менеджера проекта" />
+<div class="figcaption">Окно менеджера проекта</div>
 </div>
 <p>В меню проекта выберите пункт <strong>Execute – Stereo Plotter</strong>. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки, однако в данной программе измерения можно проводить и без них.</p>
-<div class="figure">
-<img src="images/Stereo/Stereoplotter.png" alt="" />
-<p class="caption">Окно стереокомпаратора</p>
+<div class="float">
+<img src="images/Stereo/Stereoplotter.png" alt="Окно стереокомпаратора" />
+<div class="figcaption">Окно стереокомпаратора</div>
 </div>
 <p>Если вы работаете в анаглифических очках и изображение на экране двоится, зажмите <strong>SHIFT</strong> и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение.</p>
 <p>Для измерения высоты в точке нужно добавить точку с помощью кнопки <img src="images/Stereo/Add_Point.png" />, далее необходимо выбрать кнопку <img src="images/Stereo/Measure.png" />. С помощью колеса мыши можно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках в маленьких окошках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс (положение точек не совпадает по оси y), необходимо зажать <strong>CTRL</strong> и крутить колесо мыши до тех пор, пока поперечный параллакс не пропадёт. Обратите внимание, что для измерения каждой новой точки необходимо предварительно добавить её с помощью <img src="images/Stereo/Add_Point.png" />. После снятия измерений результаты будут показаны на панели справа в виде координат X, Y, Z.</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2023.</td>
+<td><em>Карпачевский А.М.</em> <strong>Топография с основами картографии</strong>. М.: Географический факультет МГУ, 2025.</td>
 </tr>
 </tbody>
 </table>
@@ -350,42 +355,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["topography-course.pdf", "topography-course.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["topography-course.pdf", "topography-course.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>

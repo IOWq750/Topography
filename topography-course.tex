@@ -1,0 +1,1932 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  12pt,
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{PT Serif}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{colortbl}
+\usepackage{hhline}
+\newlength\Oldarrayrulewidth
+\newlength\Oldtabcolsep
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{wrapfig}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Топография с основами картографии},
+  pdfauthor={Карпачевский А.М.},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Топография с основами картографии}
+\author{Карпачевский А.М.}
+\date{2025-03-09}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{Программное обеспечение для работы}\label{ux43fux440ux43eux433ux440ux430ux43cux43cux43dux43eux435-ux43eux431ux435ux441ux43fux435ux447ux435ux43dux438ux435-ux434ux43bux44f-ux440ux430ux431ux43eux442ux44b}
+\addcontentsline{toc}{chapter}{Программное обеспечение для работы}
+
+\section*{QGIS}\label{qgis}
+\addcontentsline{toc}{section}{QGIS}
+
+Для выполнения работ в учебном курсе вам потребуется скачать и установить на свой компьютер геоинформационное приложение QGIS. Это свободно распространяемое программное обеспечение, то есть для его установки не требуется покупка или регистрация.
+
+\subsection*{Windows}\label{windows}
+\addcontentsline{toc}{subsection}{Windows}
+
+Скачайте с официального сайта последнюю версию QGIS. По состоянию на 7 февраля 2025 г. это версия 3.34. Выберите версию в зависимости от разрядности вашей системы. \href{https://download.osgeo.org/qgis/windows/QGIS-OSGeo4W-3.34.15-1.msi}{Перейти к скачиванию}.
+
+Если на вашем компьютере уже установлена более старая версия QGIS, удалите её перед началом установки новой версии. Вы можете использовать старую версию QGIS для выполнения большинства заданий практикума, однако, если у вас возникнут технические проблемы, возможно потребуется переустановка (рекомендуем проконсультироваться с преподавателем!).
+
+Когда исполняемый файл загрузится, запустите его. Если потребуется, разрешите приложению вносить изменения на вашем устройстве.
+
+Будет показано приветственное окно мастера установки. Нажмите «Далее», чтобы перейти на следующий шаг.
+
+\includegraphics{images/Index0/win01.png}
+
+На следующем шаге будет показано лицензионное соглашение QGIS и другого программного обеспечения, входящего в пакет поставки. Нажмите «Принимаю».
+
+\includegraphics{images/Index0/win02.png}
+
+На следующем шаге выберите папку для установки и отметьте, нужно ли создавать ярлыки на рабочем столе и в меню «Пуск». По возможности используйте параметры, предлагаемые по умолчанию.
+
+\includegraphics{images/Index0/win03.png}
+
+На следующем шаге предлагается запустить процедуру установки. Нажмите «Install». Когда система выдаст запрос на внесение изменений, примите его.
+
+\includegraphics{images/Index0/win04.png}
+
+После окончания установки может произойти так, что окно установщика будет смещено с дисплея целиком или частично. В этом случае кликните на иконку окна установщика в панели задач, а затем нажмите \textbf{Enter}.
+
+Когда установка будет завершена, вы сможете запустить QGIS одним из следующих способов:
+
+\begin{itemize}
+\tightlist
+\item
+  с помощью ярлыка QGIS Desktop 3.34.15 из папки QGIS Desktop 3.34.15 на рабочем столе;
+\item
+  с помощью ярлыка приложения QGIS Desktop 3.34.15 в меню «Пуск».
+\end{itemize}
+
+\subsection*{macOS}\label{macos}
+\addcontentsline{toc}{subsection}{macOS}
+
+Скачайте с \href{https://www.kyngchaos.com/files/software/qgis/QGIS-macOS-3.4.12-1.dmg}{официального сайта} образ диска QGIS последней вышедшей версии. По состоянию на 7 февраля 2025 г. это версия 3.34.15. \href{https://qgis.org/downloads/macos/qgis-macos-pr.dmg}{Скачать}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac01.png}
+\caption{Страница загрузки QGIS для macOS}
+\end{figure}
+
+После того как образ загрузится, запустите его. В открывшемся окне нажмите кнопку «Agree», чтобы принять условия лицензионного соглашения:
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac02.png}
+\caption{Лицензионное соглашение}
+\end{figure}
+
+Дождитесь, пока нужные файлы будут распакованы.
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac03.png}
+\caption{Распаковка образа}
+\end{figure}
+
+По окончании распаковки появится окно, в котором нужно будет перетащить значок QGIS в папку «Приложения» (\emph{Applications}).
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac04.png}
+\caption{Окно установки}
+\end{figure}
+
+Перетащите значок QGIS в папку «Приложения» (\emph{Applications}). Это запустит процесс установки.
+
+\includegraphics{images/Index0/mac05.png}
+
+Дождитесь, пока компьютер выполнит необходимые действия.
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac06.png}
+\caption{Процедура установки}
+\end{figure}
+
+Запустите приложение QGIS, чтобы убедиться в его работоспособности. Если установка выполнена корректно, откроется главное окно приложения.
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac07.png}
+\caption{Главное окно приложения QGIS}
+\end{figure}
+
+При первом запуске может потребоваться разрешение на использование приложений от сторонних разработчиков. В этом случае откройте настройки и включите соответствующую опцию.
+
+\includegraphics{images/Index0/mac08.png}
+
+По окончании установки можно размонтировать («извлечь») образ диска QGIS.
+
+\begin{figure}
+\centering
+\includegraphics{images/Index0/mac09.png}
+\caption{Извлечение виртуального образа с помощью контекстного меню}
+\end{figure}
+
+\subsection*{Linux}\label{linux}
+\addcontentsline{toc}{subsection}{Linux}
+
+Воспользуйтесь инструкциями по \href{https://qgis.org/ru/site/forusers/alldownloads.html\#linux}{этой ссылке}.
+
+Дополнительную информацию по установке можно найти на \url{https://qgis.org/ru/site/forusers/download.html}.
+
+\section{Изменение языка интерфейса и прочих глобальных переменных QGIS}\label{global}
+
+В справке используется англоязычная версия QGIS. Чтобы поменять язык интерфейса в меню основного окна QGIS выберите \textbf{Установки -- Параметры} (\textbf{Settings -- Options})
+
+\includegraphics{images/Index0/Options.png}
+
+В разделе \textbf{Общие улучшения} (\textbf{General}) поставьте галочку возле пункта \textbf{Переопределить языковые настройки} (\textbf{Override system locale}) и выберите напротив пункта \textbf{Перевод пользовательского интерфейса} (\textbf{User interface translation}) язык \textbf{American English}. Нажмите на кнопку \textbf{OK}. Изменения вступят в силу после перезагрузки QGIS.
+
+\includegraphics{images/Index0/Interface.png}
+
+\chapter{Координаты на топографической карте}\label{coordinates}
+
+\section{Краткая теоретическая информация}\label{coordinates-theory}
+
+\hyperref[coordinates]{В начало справки ⇡}
+
+\emph{Эллипсоид} -- математическая фигура,описывающая фигуру Земли и характеризующаяся параметрами малой и большой полуоси.
+
+\emph{Географическая (геодезическая) система координат} -- система координат на эллипсоиде, задающая счёт широтам и долготам в градусах, а также положение эллипсоида внутри тела земли.
+
+\emph{Спроецированная (прямоугольная) система координат} -- система координат проекции, определяющая ориентировку декартовых осей координат и их начало.
+
+\section{Исходные данные}\label{coordinates-data}
+
+\hyperref[coordinates]{В начало справки ⇡}
+
+\href{https://disk.yandex.ru/i/6OLWDuRwV85cuA}{Учебная топографическая карта масштаба 1:10 000}
+
+\href{https://disk.yandex.ru/i/UrzUS6kVB7vwgg}{Бланк задания}
+
+\href{https://autode.sk/31q2BNi}{Онлайн-вьюер}
+
+\section{Цель работы}\label{coordinates-task}
+
+\hyperref[coordinates]{В начало справки ⇡}
+
+Научиться измерять по топографической карте геодезические и прямоугольные координаты точек, решать обратную геодезическую задачу, определять расстояния и ориентирующие углы.
+
+\section{Выполнение работы в онлайн-вьюере}\label{coordinates-workflow}
+
+\hyperref[coordinates]{В начало справки ⇡}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Запустить онлайн-вьюер. Откроется учебная топографическая карта.
+\end{enumerate}
+
+\includegraphics{images/Coordinates/DWG_View.png}
+
+Менять масштаб просматриваемого изображения можно колесиком мыши. Дополнительно в файле точки, соответствующие 10-секундным отрезкам, соединены зелеными линиями. Т.е. это дополнительно проведенные параллели и меридианы.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Найти две точки на листе топографической карты, к которым будут привязаны все измерения. Указать их названия в шапке бланка.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(flextable)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: пакет 'flextable' был собран под R версии 4.4.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(magrittr)}
+\NormalTok{df }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{x =} \DecValTok{1}\SpecialCharTok{:}\DecValTok{10}\NormalTok{, }\AttributeTok{y =} \DecValTok{11}\SpecialCharTok{:}\DecValTok{20}\NormalTok{)}
+\NormalTok{df }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{regulartable}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{autofit}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} 
+\FunctionTok{width}\NormalTok{(}\AttributeTok{j=}\SpecialCharTok{\textasciitilde{}}\NormalTok{x,}\AttributeTok{width=}\DecValTok{1}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{width}\NormalTok{(}\AttributeTok{j=}\SpecialCharTok{\textasciitilde{}}\NormalTok{y,}\AttributeTok{width=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\global\setlength{\Oldarrayrulewidth}{\arrayrulewidth}
+
+\global\setlength{\Oldtabcolsep}{\tabcolsep}
+
+\setlength{\tabcolsep}{2pt}
+
+\renewcommand*{\arraystretch}{1.5}
+
+
+
+\providecommand{\ascline}[3]{\noalign{\global\arrayrulewidth #1}\arrayrulecolor[HTML]{#2}\cline{#3}}
+
+\begin{longtable}[c]{|p{1.00in}|p{1.00in}}
+
+
+
+\ascline{1.5pt}{666666}{1-2}
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{x}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{y}}}} \\
+
+\ascline{1.5pt}{666666}{1-2}\endfirsthead 
+
+\ascline{1.5pt}{666666}{1-2}
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{x}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{y}}}} \\
+
+\ascline{1.5pt}{666666}{1-2}\endhead
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{1}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{11}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{2}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{12}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{3}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{13}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{4}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{14}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{5}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{15}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{6}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{16}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{7}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{17}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{8}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{18}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{9}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{19}}}} \\
+
+
+
+
+
+\multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{10}}}} & \multicolumn{1}{>{\raggedleft}m{\dimexpr 1in+0\tabcolsep}}{\textcolor[HTML]{000000}{\fontsize{11}{11}\selectfont{\global\setmainfont{Arial}{20}}}} \\
+
+\ascline{1.5pt}{666666}{1-2}
+
+
+
+\end{longtable}
+
+
+
+\arrayrulecolor[HTML]{000000}
+
+\global\setlength{\arrayrulewidth}{\Oldarrayrulewidth}
+
+\global\setlength{\tabcolsep}{\Oldtabcolsep}
+
+\renewcommand*{\arraystretch}{1}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Точка & \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{\texttt{1-я\ (A)}} & \\
+\emph{\texttt{2-я\ (B)}} & \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Описать лист топографической карты, заполнив \emph{таблицу 1} бланка. Указать масштаб карты (численный вид), номер зоны, долготу осевого меридиана зоны, номенклатуру.
+\end{enumerate}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+& \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Номенклатура} & \\
+\textbf{Номер зоны} & \\
+\textbf{Долгота осевого} & \\
+\textbf{Масштаб карты} & \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Определить геодезические координаты точек -- широту (B) и долготу (L) -- с точностью до 1 секунды. Нужно выбрать инструмент \textbf{Измерение} (расположено на нижней панели меню). Откроется дополнительное меню для измерений. Необходимо зайти в Настройки, установить единицы измерений (сантиметры), точность (до 0,1). Обязательно подвиньте рычажок \textbf{Enable free measure}.
+\end{enumerate}
+
+\includegraphics{images/Coordinates/Measure.png}
+
+Нужно провести перпендикуляр от выбранной точки до ближайших южной и западной зеленых линий, т.е. до ближайшей южной параллели с известной широтой и ближайшего западного меридиана с известной долготой. Когда вы отметите вторую точку отрезка, появится расстояние в см. Нужно перевести расстояние в секунды, если известно, что 10-секундный отрезок по широте составляет 3,1 см, а по долготе - 1,8 см.
+
+Заполнить \emph{таблицу 3}.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Номера точек & B (широта) & L (долгота) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{1 (A)} & & \\
+\textbf{2 (B)} & & \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Определить прямоугольные координаты точек -- абсциссу и ординату -- с точностью до 5 м.
+  Измерения проводить аналогично пункту 4, но перпендикуляры проводить к линиям километровой сетки. Вычислить разность соответствующих координат точек. Заполнить таблицу 2.
+  Номера точек Прямоугольные координаты, м
+\end{enumerate}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Номера точек & X & Y \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{1 (A)} & & \\
+\textbf{2 (B)} & & \\
+\textbf{\(\Delta\) =} & & \\
+\end{longtable}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Измерение расстояния и дирекционного угла:
+  Проведите измерение расстояния от 1-й до 2-й точки S в см, переведите в метры на местности, значение внесите в \emph{таблицу 4}.
+\end{enumerate}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.7037}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1481}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.1481}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Измеренный
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Вычисленные
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Дирекционный угол (\(\alpha\)) направления: 1-2 (A,B)} & & \\
+\textbf{Расстояние (S) между точками: 1-2 (A-B), м} & & \\
+\end{longtable}
+
+Выберите инструмент измерения углов. Чтобы измерить дирекционный угол, нужно отметить 3 точки: первая точка ({\textbf{1}}) это проекция вашей точки A на ось Y (выберите горизонтальную линию сетки севернее вашей точки, поскольку дирекционый угол считается от северного направления линии сетки (оси Х) до выбранного направления), вторая ({\textbf{2}}) - ваша точка А, третья ({\textbf{3}}) - ваша точка В.
+
+\includegraphics{images/Coordinates/Angles.png}
+
+\begin{quote}
+Обратите внимание, что измерения углов в программе ведутся по часовой (от 0° до 180°) и против часовой (от 0° до 180°). Если измеряемый Вами угол больше 180°, необходимо полученное значение вычесть из 360°. На рисунке при измеренном значении 131,8° дирекционный угол будет равен 228,2°. Измеренное (или рассчитанное) значение дирекционного угла \(\alpha\) выбранного направления нужно внести в строки таблиц 4 (измеренные) и 5.
+\textbf{Внимание! Измеренное значение вносится в бланк дважды и должно быть одинаковым!}
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\item
+  Вычислить дирекционный угол А выбранного направления и расстояние S, решив обратную геодезическую задачу. Полученные значения округлить до до 0,5° и 1 м соответственно, данные занести в таблицу 4. Сравнить измеренные и вычисленные значения дирекционного угла и расстояния. Разность значений не должна превышать 1° для углов и 10 м для расстояний.
+\item
+  Определить, пользуясь формулами и информацией из зарамочного оформления карты, другие ориентирующие углы выбранного направления (точка 1 -- точка 2), последовательно заполняя \emph{таблицу 5}.
+\end{enumerate}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Ориентируемая линия 1-2 (A-B) & Угол \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Дирекционный угол \(\alpha\)} & \\
+\textbf{Сближение меридианов \(\gamma\)} & \\
+\textbf{Геодезический азимут A} & \\
+\textbf{Магнитное склонение D} & \\
+\textbf{Магнитный азимут Aм} & \\
+\end{longtable}
+
+● Определить среднее значение Гауссова сближения меридианов \(\gamma\) на листе карты.
+
+● Вычислить геодезический азимут А выбранного направления.
+
+● Вычислить величину склонения магнитной стрелки D на текущую дату.
+
+● Вычислить магнитный азимут Am выбранного направления.
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Дешифрирование снимков}\label{interpretation}
+
+\section{Краткая теоретическая информация}\label{interpretation-theory}
+
+\hyperref[interpretation]{В начало справки ⇡}
+
+\emph{Данные дистанционного зондирования} -- материалы космической или воздушной (аэро-) съёмки, представленные преимущественно снимками.
+
+\emph{Дешифрирование} -- распознавание и отрисовка в условных знаках объектов и явлений по данным дистанционного зондирования.
+
+\emph{Дешифровочный признак} -- некая особенная черта объекта, по которому он определяется по данным дистанционного зондирования.
+
+\emph{Прямые дешифровочные признаки} -- признаки самих объектов.
+
+\emph{Косвенные дешифровочные признаки} -- прямые дешифровочные признаки объектов-индикаторов.
+
+\emph{Признак формы (геометрический)} -- характерные формы объектов.
+
+\emph{Признак размера (геометрический)} -- абсолютный, но чаще относительный размер объекта.
+
+\emph{Признак тени (геометрический)} -- падающая тень объекта (на поверхности земли) или собственная тень объекта (его затенённая часть).
+
+\emph{Признак яркости (яркостный)} -- яркость объекта на снимке, зависящая от количества отражённого солнечного света.
+
+\emph{Признак цвета (яркостный)} -- совокупность яркостей объекта в синем, зелёном и красном диапазоне спектра.
+
+\emph{Спектральный образ (яркостный)} -- совокупность яркостей во всех диапазонах спектра (не только в видимом).
+
+\emph{Текстура (структурный)} -- сочетание неразличимых элементов изображения, формирующих единое целое.
+
+\emph{Структура (структурный)} -- сочетание различимых элементов изображения (несколько текстур).
+
+\emph{Рисунок (структурный)} -- сочетание нескольких текстур и структур.
+
+\section{Исходные данные}\label{interpretation-data}
+
+\hyperref[interpretation]{В начало справки ⇡}
+
+\href{https://yadi.sk/d/eOVRxRZiEh_PWQ}{Участки дешифрирования (Воскресенск)}
+
+\href{https://disk.yandex.ru/d/_00irQJ8Kw3bWQ}{Участки дешифрирования (Петровск)}
+
+\href{https://yadi.sk/i/x5atjx5eSHcTGw}{Бланк работы}
+
+\section{Цель работы}\label{interpretation-task}
+
+\hyperref[interpretation]{В начало справки ⇡}
+
+Для своего участка снимка провести дешифрирование 10 типов объектов по мозаике космических снимков Google. Заполнить бланк, описав использованные дешифровочные признаки и дав расшифровку условных знаков.
+
+\section{Работа с Google My Maps (Мои карты)}\label{interpretation-google}
+
+\hyperref[interpretation]{В начало справки ⇡}
+
+Зайдите в свой аккаунт Google в браузере и пройдите по \href{https://www.google.com/maps/d/u/0/?hl=ru}{ссылке}. Google Мои карты -- это специальный сервис для создания простых веб-карт, которыми можно поделиться с другими с помощью обычной ссылки. Для создания новой карты нажмите на большую кнопку слева \textbf{+СОЗДАТЬ НОВУЮ КАРТУ}. Откроется окно, которое будет выглядеть следующим образом:
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Initial_view.png}
+\caption{Начальное окно карты}
+\end{figure}
+
+По умолчанию ваша карта называется «Карта без названия». Вы можете поменять название, щёлкнув по нему слева вверху страницы. Чтобы импортировать данные, нужно нажать на кнопку \textbf{Импорт} и выбрать \textbf{KMZ} файл, который был вам ранее предоставлен. После добавления данных охват карты подстроится под эти данные. Для того чтобы ваша карта по умолчанию открывалась для конкретного охвата, нажмите на три точки возле заголовка и выберите пункт \textbf{Задать область просмотра по умолчанию}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Default_view.png}
+\caption{Настройка вида по умолчанию}
+\end{figure}
+
+Выбрать мозаику спутниковых снимков можно в слое с базовой картой (в самом низу списка слоёв).
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Basemap.png}
+\caption{Выбор базовой карты}
+\end{figure}
+
+Для того чтобы задать стиль или настроить подписи для рамок, нажмите на кнопку настройки стиля под названием слоя. Его можно сделать либо индивидуальным, либо стандартным. Там же можно вывести подписи рамок по их названию.
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Layer_style.gif}
+\caption{Выбор базовой карты}
+\end{figure}
+
+Для отрисовки объектов на карте необходимо создать новый слой, нажав на кнопку \textbf{Добавить слой}. Этот слой можно назвать по типу объектов, которые будут в нем храниться. Приблизьтесь к объекту, который вы хотите отрисовать. Для начала собственно отрисовки выберите кнопку \includegraphics{images/Interpretation/Draw.png} под строкой поиска. Обратите внимание, что рисовка происходит в активном слое -- у него слева синяя вертикальная полоска. Левой кнопкой мыши расставляются узлы объекты. Если это площадной объект, то последний узел нужно замкнуть на первый. Замыкание полигона автоматически завершает отрисовку объекта, после чего перед вами появляется окошко, где вы можете задать его название, а также стиль (цвет заливки, обводка, прозрачность). Завершить отрисовку линейного объекта можно двойным щелчком левой клавиши мыши.
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Draw_polygon.gif}
+\caption{Создание слоя и отрисовка объектов}
+\end{figure}
+
+Когда ваша карта будет готова, вы можете скопировать ссылку и прислать её преподавателю на проверку вместе с бланком. Для этого нажмите кнопку \textbf{Поделиться}. Включите общий доступ по ссылке к карте и скопируйте ссылку.
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Share.png}
+\caption{Настройка доступа к карте}
+\end{figure}
+
+\section{Заполнение бланка}\label{interpretation-blank}
+
+\hyperref[interpretation]{В начало справки ⇡}
+
+Бланк следует заполнить следующим образом по колонкам:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  Условный знак;
+\item
+  Дешифрируемый объект;
+\item
+  перечисляются дешифровочные признаки, которые вы использовали (их, как правило, несколько!);
+\item
+  Классификационные особенности признаков, например, прямой геометрический, прямой яркостный, прямой структурный, либо косвенный геометрический и т.д.
+\item
+  Конкретный признак, по которому дешифрируется объект, то есть, если форма, то какая форма, если яркость, то какая яркость, если косвенный признак, то по какому объекту.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{images/Interpretation/Blank_Example.png}
+\caption{Пример заполнения бланка}
+\end{figure}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Работа со стереопарой снимков}\label{stereo}
+
+\section{Краткая теоретическая информация}\label{stereo-theory}
+
+\hyperref[stereo]{В начало справки ⇡}
+
+\emph{Стереоэффект} -- пространственное восприятие объекта при рассматривании двух его плоских перспективных изображений.
+
+\emph{Стереопара} -- снимки, полученные из разных точек пространства на одну и ту же территорию, либо объект.
+
+\begin{figure}
+\centering
+\includegraphics{images/Stereo/stereopair.png}
+\caption{Принципиальная схема стереоблюдений точек местности}
+\end{figure}
+
+\emph{Базис съёмки} (\(b\)) -- расстояние в масштабе снимков между точками съёмки (центрами их проекций).
+
+\emph{Продольный параллакс} (\(p\)) -- разность координат \(x\) соответственных точек на снимках (\(x_л - x_п\)).
+
+\emph{Поперечный параллакс} (\(q\)) -- разность координат \(y\) соответственных точек на снимках (\(y_л - y_п\)).
+
+\emph{Разность параллаксов} (\(\Delta p\)) -- разница в смещении координат соответственных точек, обусловленная разницей в их высоте (\(p_2 - p_1\)).
+
+\begin{figure}
+\centering
+\includegraphics{images/Stereo/parallax.png}
+\caption{Координаты соответственных точек на паре снимков}
+\end{figure}
+
+\emph{Формула превышений} -- приблизительная формула для вычисления превышений точек по стереопарам снимков через разность параллаксов двух точек \(\Delta p\).
+
+\[h = H\frac{\Delta p }{b + \Delta p}\]
+
+\section{Установка программного обеспечения}\label{stereo-soft}
+
+\hyperref[stereo]{В начало справки ⇡}
+
+Для практической работы вам понадобится открытая учебная фотограмметрическая программа \textbf{E-foto}. Информацию о ней можно найти на домашнем сайте (\url{http://www.efoto.eng.uerj.br/}), там же можно скачать себе дистрибутив программы. Для этого перейдите во вкладку \textbf{DOWNLOAD -- Latest Version}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Stereo/Download.png}
+\caption{Страница для загрузки программы и данных}
+\end{figure}
+
+Запустите скачанный пакет установщика и установите программу.
+
+\section{Исходные данные}\label{stereo-initial}
+
+\hyperref[stereo]{В начало справки ⇡}
+
+В работе будут использоваться данные аэрофотосъёмки на учебный полигон Сатино. Съёмка производилась с помощью камеры АФА-41/10.
+Примерная высота съёмки -- 1500 м;
+
+Фокусное расстояние камеры -- 96,78 мм;
+
+Базис съёмки между снимками 10182 и 10183 составляет 71 мм, между снимками 10183 и 10184 -- 69 мм, между 10184 и 10185 -- 69 мм.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Скачайте данные проекта, доступные по \href{https://yadi.sk/d/3a5RAakJsZoAYg}{ссылке}.
+\end{enumerate}
+
+Проект включает в себя собственно файл проекта с расширением *.epp и четыре аэрофотоснимка.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\item
+  \href{https://yadi.sk/i/gX-dbnhTKGme_A}{Топографическая карта масштаба 1:10 000}
+\item
+  \href{https://yadi.sk/d/dzFeiJ2zVdx_Hw}{Аэрофотоснимки с нанесённой сеткой}
+\item
+  \href{https://yadi.sk/i/wJ_0jiAc-nkO6A}{Бланк задания}
+\end{enumerate}
+
+\section{Цель работы}\label{stereo-task}
+
+\hyperref[stereo]{В начало справки ⇡}
+
+Научиться выполнять измерения по стереопаре аэрофотоснимков с использованием формулы превышений и специального программного обеспечения. Построить гипсометрический профиль по данным измерений двумя способами и топографической карты.
+
+\section{Работа в стереокомпараторе}\label{stereo-stereoplotter}
+
+\hyperref[stereo]{В начало справки ⇡}
+
+Разместите папку с проектом у себя на компьютере так, чтобы путь к ней был без пробелов, кириллицы, дефисов и иных специальных символов. Запустите проект \textbf{Stereo.epp} с помощью программы \textbf{E-foto}.
+
+Откроется окно менеджера проекта. Слева приведена структура проекта, а по центру - содержание.
+
+\begin{figure}
+\centering
+\includegraphics{images/stereo/Project_Manager.png}
+\caption{Окно менеджера проекта}
+\end{figure}
+
+В меню проекта выберите пункт \textbf{Execute -- Stereo Plotter}. Откроется окно с анаглифными изображением стереопары снимков. Для эффективной работы с анаглифами рекомендуется использовать специальные очки, однако в данной программе измерения можно проводить и без них.
+
+\begin{figure}
+\centering
+\includegraphics{images/stereo/Stereoplotter.png}
+\caption{Окно стереокомпаратора}
+\end{figure}
+
+Если вы работаете в анаглифических очках и изображение на экране двоится, зажмите \textbf{SHIFT} и подвиньте изображение до тех пор, пока рассматриваемый участок не сольётся в объёмное изображение.
+
+Для измерения высоты в точке нужно добавить точку с помощью кнопки \includegraphics{images/stereo/Add_Point.png}, далее необходимо выбрать кнопку \includegraphics{images/stereo/Measure.png}. С помощью колеса мыши можно посадить марку на измеряемый объект. На увеличенных фрагментах левого и правого изображения снизу будут показываться эти марки в «монокулярном» режиме. Как только мнимая марка слилась (реальные марки оказались на соответственных точках в маленьких окошках), нажмите левую кнопку мыши и в окне справа появятся измерения для данной точки. В случае, если вы замечаете поперечный параллакс (положение точек не совпадает по оси y), необходимо зажать \textbf{CTRL} и крутить колесо мыши до тех пор, пока поперечный параллакс не пропадёт. Обратите внимание, что для измерения каждой новой точки необходимо предварительно добавить её с помощью \includegraphics{images/stereo/Add_Point.png}. После снятия измерений результаты будут показаны на панели справа в виде координат X, Y, Z.
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Географическая привязка}\label{georeference}
+
+\section{Краткая теоретическая информация}\label{georeference-theory}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+\emph{Эллипсоид} -- математическая фигура,описывающая фигуру Земли и характеризующаяся параметрами малой и большой полуоси.
+
+\emph{Географическая (геодезическая) система координат} -- система координат на эллипсоиде, задающая счёт широтам и долготам в градусах, а также положение эллипсоида внутри тела земли.
+
+\emph{Спроецированная (прямоугольная) система координат} -- система координат проекции, определяющая ориентировку декартовых осей координат и их начало.
+
+\emph{Географическая привязка} -- сопоставление точек изображения и точек местности.
+
+\emph{Трансформация} -- перевод данных из одной системы координат в другую.
+
+\section{Исходные данные}\label{georeference-data}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+\href{https://yadi.sk/i/mvQ3lJJVNVJiuA}{Учебная топографическая карта масштаба 1:25 000}
+
+\href{https://yadi.sk/i/Zo4U3AuslrxwAg}{Снимок №1}
+
+\href{https://yadi.sk/i/_Yl8PMShZ-7FIw}{Снимок №2}
+
+\href{https://yadi.sk/i/JKSSi97_dbu7Lg}{Снимок №3}
+
+\href{https://yadi.sk/i/WDWZgCLA2A539Q}{Бланк задания}
+
+\section{Цель работы}\label{georeference-task}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+Привязать топографическую карту, а затем к ней привязать аэрофотоснимок. Оценить точность привязки карты и снимка. Определить детализацию снимку и соответствующий ей масштаб. Обосновать выбор опорных точек для привязки снимка, указав на отличия ситуации, отражённой на карте и на снимке.
+
+\section{Системы координат в QGIS}\label{coordinate-systems}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+Системы координат в QGIS задаются в свойствах проекта. Для этого нужно открыть пункт меню \textbf{Проект -- Свойства}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Project_properties.png}
+\caption{Открытие свойств проекта}
+\end{figure}
+
+Перейдите на вкладку \textbf{Системы координат}. В среднем окне видно две свёрнутые группы систем координат -- географические и прямоугольные (спроецированные).
+\includegraphics{images/Georeference/Reference_systems_default.png}
+
+Если раскрыть эти группы, то вы увидите полный перечень систем координат по алфавиту. Например, поскольку известно, что для старых отечественных топографических карт используется проекция Гаусса-Крюгера на основе системы координат координат Пулково 1942 года, то можно пролистать перечень прямоугольных СК до Pulkovo 1942 и далее найти нужную зону проекции Гаусса-Крюгера нужной ширины (они бывают 3° и 6°). Также нужные проекции можно искать через строку поиска вверху окна.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Gauss_7N.png}
+\caption{Открытие свойств проекта}
+\end{figure}
+
+\section{Привязка топографической карты}\label{georeference-topo}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+Добавьте топографическую карту в проект, нажав на кнопку \includegraphics{images/Georeference/Open_raster.png}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Open_topomap.gif}
+\caption{Открытие растрового файла}
+\end{figure}
+
+Поскольку открытая карта на данный момент не привязана, справа от слоя в таблице слоёв вы увидите знак вопроса.
+
+\begin{quote}
+Если вы не видите карту, то, вероятно, она расположилась где-то за пределами вашего экрана. Чтобы увидеть её, нажмите правой кнопкой мыши по слою и выберете \textbf{Увеличить до слоя}. Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?
+\end{quote}
+
+Запустите модуль привязки через меню \textbf{Layer -- Georeferencer} (\textbf{Слои -- Привязка растров\ldots{}}).
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Georeference_raster.png}
+\caption{Открытие растрового файла}
+\end{figure}
+
+\begin{quote}
+Если вы не видите такого пункта меню, то зайдите в \textbf{Установки -- Модули и управление модулями}, вбейте в поиск «привязка» и включите соответствующий модуль, поставив галочку.
+\end{quote}
+
+Откроется отдельное окно привязки. Нажмите на кнопку \textbf{Открыть растр} \includegraphics{images/Georeference/Open_raster.png}, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению откроет окно, куда будет предложено ввести координаты. Выберите пересечения линий прямоугольной сетки в качестве точек с известными прямоугольными координатами.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Input_coordinates.png}
+\caption{Окно ввода координат}
+\end{figure}
+
+\begin{quote}
+Обратите внимание, что оси X и Y в геоинформационном программном обеспечении ориентированы как в математике. Для координаты X вводить номер зоны \textbf{не нужно}.
+\end{quote}
+
+Введите не менее 5 точек равномерно по всей карте -- обычно это углы и центр листа. Внизу окна появится таблица с вашими точками привязки -- будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку \includegraphics{images/Georeference/Transformation_settings.png}. В качестве типа трансформации для топографических карт должно быть достаточно полиномиального первой степени. Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.
+
+\begin{quote}
+Сохраняйте файлы в папку с путями без латиницы, пробелов и спецсимволов.
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Transformation_parameters.png}
+\caption{Параметры трансформации}
+\end{figure}
+
+После указания типа трансформации в таблице внизу должны появиться расчётные невязки. Убедитесь в том, что невязки имеют значение менее пикселя. Если невязка более пикселя, нужно удалить неправильную опорную точку, нажав на кнопку \includegraphics{images/Georeference/Delete_point.png} и выбрав точку на карте. Для добавления новой точки выберите кнопку \includegraphics{images/Georeference/Add_point.png}. Когда точность трансформации станет удовлетворительной, запустите сам процесс трансформации, нажав на кнопку \includegraphics{images/Georeference/Transformation_button.png}. Закройте модуль привязки.
+
+\section{Привязка аэрофотоснимков}\label{georeference-aerial}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+Привязка материалов аэрофотосъёмки происходит аналогично, но в качестве опорных точек выступают соответственные точки на топографической карте. Для этого нужно сопоставить снимок с картой и найти эти точки. В модуле привязке выберите точку, но при появлении окна не вводите координаты, а выберите кнопку \textbf{С карты}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Reference_aerial.gif}
+\caption{Установка точки с карты}
+\end{figure}
+
+Расставьте минимум 5 точек равномерно по всему снимку. В параметрах преобразования укажите тип трансформации -- \textbf{проективное}. Именно такое преобразование используется для аэрофотоснимков.
+
+\section{Измерения по карте и снимку}\label{georeference-measure}
+
+\hyperref[georeference]{В начало справки ⇡}
+
+Для измерений по карте или по снимку используется инструмент линейки \includegraphics{images/Georeference/Measure.png}, расположенный на панели атрибутов. Если у вас такой панели нет, её можно открыть, щёлкнув правой кнопкой мыши по пустому месту сверху.
+
+\begin{figure}
+\centering
+\includegraphics{images/Georeference/Measuring.gif}
+\caption{Измерения по карте}
+\end{figure}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Векторизация топографической карты}\label{digitize}
+
+\section{Исходные данные}\label{digitize-initial}
+
+\hyperref[digitize]{В начало справки ⇡}
+
+Привязанная топографическая карта.
+
+\section{Цель работы}\label{digitize-task}
+
+\hyperref[digitize]{В начало справки ⇡}
+
+Научиться создавать базу пространственных данных для картографирования, научиться проводить векторизацию объектов на топографической карте и снимке.
+
+\section{Создание базы пространственных данных}\label{digitize-database}
+
+\hyperref[digitize]{В начало справки ⇡}
+
+Составление карты подразумевает, прежде всего, создание векторных наборов данных.
+
+\begin{quote}
+\textbf{Векторные данные} -- данные, которые описываются набором координат.
+\end{quote}
+
+На данный момент нам необходимо знать, что векторные объекты могут относиться к трём \emph{основным} типам геометрии: 1) точечные; 2) линейные; 3) полигональные.
+
+\begin{quote}
+\textbf{Классы объектов} -- это наборы однородных векторных данных одного типа геометрии с одним набором атрибутов, относящие к одному роду пространственных объектов или явлений. Например, на почвенной карте будет визуализироваться класс полигональных объектов почв, класс полигональных объектов механического состава, класс внемасштабных почвенных ареалов.
+\end{quote}
+
+\begin{quote}
+\textbf{Атрибут класса объектов} -- это формализованное описание какого-либо свойства класса объектов. Атрибутов может быть много, каждый из них отвечает за различные аспекты пространственных объектов или явлений. У класса почв это может быть атрибут типа, подтипа, pH, содержания гумуса, мощности и т.д. Атрибуты строго типизируются, то есть при создании указывается тип данных, который будет храниться в атрибутивном поле: \emph{целочисленные данные}, \emph{действительные числа}, \emph{числа с плавающей точкой}, \emph{логические значения}, \emph{текстовые данные} и ряд других.
+\end{quote}
+
+QGIS поддерживает различные форматы пространственных данных. Среди них наиболее удобным и современным для хранения и работы считается формат \textbf{Geopackage}. По сути это формат базы пространственных данных, внутри которой мы можем складывать различные классы объектов. Для создания базы данных формата \textbf{Geopackage} откройте окно Браузера внутри QGIS. Если его нет, включите его в выпадающем списке при щелчке правой кнопкой мыши по пустой панели. Найдите каталог, в котором вы хотите создать базу данных (лучше всего, чтобы путь к этой базы состоял из символов латинского алфавита, не содержал дефисов, пробелов и спецсимволов). Правой кнопкой мыши щелкните по каталогу, выберете \textbf{Новые -- Geopackage}. Откроется окно, которое помимо самой базы данных предложит создать класс объектов внутри неё. В поле Имя таблицы введите имя класса объектов латинскими символами, лучше, чтобы это был английский перевод соответствующего вида картографируемого объекта, а не транслитерация.
+
+Другой вариант создания базы данных -- нажмите на кнопку \includegraphics{images/vector/New_gpkg_layer.png} на панели менеджера источников данных.
+
+\begin{figure}
+\centering
+\includegraphics{images/vector/Create_gpkg.png}
+\caption{Окно создания базы данных Geopackage}
+\end{figure}
+
+В поле \textbf{Тип геометрии} укажите соответствующую геометрию объектов.
+
+\begin{quote}
+Обратите внимание, для площадных объектов необходимо выбирать полигональную геометрию, для линейных (реки, горизонтали и др.) -- линейную, для внемасштабных (точечных) знаков -- точечную.
+\end{quote}
+
+Укажите спроецированную систему координат. Если указать геодезическую систему координат, то велика вероятность, что при векторизации объектов возникнут курьёзные ситуации.
+В разделе \textbf{New Field} можно указать имя, типа и длину атрибутивного поля создаваемого класса объектов.
+
+Каждый последующий класс объектов создавайте внутри базы данных. Таким образом вы сформируете единое хранилище для всех картографируемых объектов.
+
+\section{Векторизация}\label{digitize-vectorize}
+
+\hyperref[digitize]{В начало справки ⇡}
+
+Созданные классы объектов в базе данных можно добавить в перечень слоев проекта простым перетаскиванием, либо дважды щёлкнув по ним в Браузере. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт \textbf{Режим редактирования}, либо выделить слой и найти на панели инструментов кнопку \includegraphics{images/vector/Edit.png}. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для полигонального объекта появится кнопка \includegraphics{images/vector/New_polygon.png}, с помощью которой можно создать новый полигон в слое. Для других типов геометрии иконка будет немного отличаться.
+
+Рисовка контура осуществляется с помощью левой кнопки мыши. Для завершения рисовки объекта нажмите правую кнопку мыши. Для редактирования отдельных вершин нажмите на кнопку \includegraphics{images/vector/Vertices.png}. После этого у объекта кружочками выделятся вершины.
+
+\begin{figure}
+\centering
+\includegraphics{images/vector/Polygon.png}
+\caption{Полигон в режиме отображения вершин}
+\end{figure}
+
+Курсор в таком режиме может вести себя тремя разными способами:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  При выделении вершины вы можете изменить её положение
+\item
+  При выделении ребра вы можете сдвинуть его вместе со смежными вершинами
+\item
+  При нажатии на плюсик в центре ребра добавляется новая вершина
+\end{enumerate}
+
+Нажатие на клавишу \textbf{DELETE} позволяет удалить вершину.
+
+При векторизации объектов часто возникает необходимость пристыковать вершины одного объекта к вершинам другого объекта. Для корректной и комфортной пристыковки нужно включить панель Инструменты прилипания (\textbf{snapping}). Кнопка в виде магнита \includegraphics{images/Ref04/Snapping.png} активирует прилипание. Остальные кнопки на данной панели позволяют уточнить параметры прилипания, в том числе расстояние, на котором оно начинает действовать.
+
+Если вам необходимо повторить значительную часть существующего контура при создании нового, то удобнее всего воспользоваться трассировкой (\textbf{Tracing}), нажав на кнопку \includegraphics{images/vector/Tracing.png} на панели инструментов прилипания. После этого при ведении на небольшом расстоянии от контура новый контур будет автоматически пристыковываться к существующем.
+
+\begin{figure}
+\centering
+\includegraphics{images/vector/Tracing.gif}
+\caption{Пример работы с инструментом трассировки}
+\end{figure}
+
+\emph{Дополнительные инструменты оцифровки}
+
+Соответствующую панель вы так же, как и предыдущую, можете найти в выпадающем списке панелей.
+
+\begin{figure}
+\centering
+\includegraphics{images/vector/Additional_panel.png}
+\caption{Дополнительная панель векторизации}
+\end{figure}
+
+На данной панели доступны инструменты для векторизации параллельных и перпендикулярных линий, для перемещения объектов, создания внутренних колец (по сути -- дырки в полигоне), разрезания объектов, склеивания объектов и другие.
+
+Выбрать объекты, например, для склеивания можно с помощью инструмента выделения \includegraphics{images/vector/Selection_tool.png}.
+
+Не забывайте регулярно сохранять изменения в геометрии слоев с помощью кнопки на панели \includegraphics{images/vector/Save_edits.png}. Также не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки \includegraphics{images/vector/Save_project.png}.
+
+\section{Работа с атрибутами}\label{digitize-attributes}
+
+\hyperref[digitize]{В начало справки ⇡}
+
+Векторизация предназначена для показа геометрической составляющей объектов и явлений на карте. Для показа семантических (смысловых) различий в явлениях используются атрибуты. Преимущество ГИС-пакетов по сравнению с графическими пакетами заключается в том, что мы можем напрямую сопоставить символику слоя и значения атрибутивных полей. Например, если мы показываем качественным фоном какое-либо явление, то каждой явление должно иметь своё значение в атрибутивной таблице. Открыть атрибутивную таблицу слоя можно, нажав правой кнопкой мыши по нему и выбрав пункт \textbf{Открыть таблицу атрибутов}.
+
+\begin{figure}
+\centering
+\includegraphics{images/vector/Attribute_table.gif}
+\caption{Выделение строк атрибутивной таблицы}
+\end{figure}
+
+Для редактирования атрибутов необходимо зайти в режим редактирования с помощью кнопки \includegraphics{images/vector/Edit.png}. Для добавления или удаления атрибутивных столбцов также необходимо зайтив в режим редактирования, после чего появятся соответствующие кнопки \includegraphics{images/vector/New_field.png} и \includegraphics{images/vector/Delete_field.png}.
+
+\begin{quote}
+Обратите внимание, что изменение структуры атрибутивной таблицы в режиме редактирования -- это исключительно «фишка» QGIS. Другие известные ГИС-пакеты, например ArcGIS, позволяют это делать только вне режима редактирования.
+\end{quote}
+
+Каждая строка в атрибутивной таблице -- это, по сути, один объект в классе объектов. Выделять объекты в атрибутивной таблицы можно с помощью нажатия левой кнопки мыши по левому краю строки. Для выбора нескольких строк подряд можно «тянуть» выделение левой кнопкой мыши, либо выделить первый и последний объект с зажатым \textbf{SHIFT}. Для выбора нескольких отдельных строк зажмите \textbf{CTRL}. Выделяемые в атрибутивной таблице объекты будут подсвечиваться жёлтым цветом на карте. Для приближения к выбранному объекту нажмите на кнопку \textbf{Увеличить карту до выделенных строк}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Оформление в условных знаках}\label{symbols}
+
+\section{Исходные данные}\label{symbols-initial}
+
+\hyperref[symbols]{В начало справки ⇡}
+
+Для работы с оформлением топографического плана или карты скачайте \href{https://yadi.sk/d/mb1wTvAUUAgVUQ}{символы} и \href{https://yadi.sk/d/G_3EVFLqg3C5pA}{топографические шрифты}.
+
+\section{Цель работы}\label{symbols-task}
+
+\hyperref[symbols]{В начало справки ⇡}
+
+Научиться оформлять векторные слои согласно принятым условным обозначениям в ПО QGIS.
+
+\section{Оформление в условных знаках}\label{symbols-symbols}
+
+\hyperref[symbols]{В начало справки ⇡}
+
+Для оформления наших слоёв проекта в условных знаков необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует \textbf{Стиль}. Для точечного слоя по умолчанию будет выставлен \textbf{Простой маркер}.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Symbol_style_svg.png}
+\caption{Простой маркер в символике слоя}
+\end{figure}
+
+С ним особо ничего не сделаешь -- можно поменять геометрическую фигуру, изменить размер или цвет. Для использования более разнообразной библиотеки символов нужно в типе слоя выбрать \textbf{SVG-маркер}.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Svg_selection.png}
+\caption{Выбор SVG-символа}
+\end{figure}
+
+Переместите папку со скаченными символами в директорию, где находятся остальные SVG-символы. Например, на Windows 10 это, вероятно, будет следующий путь:
+
+\textbf{C:\textbackslash Users\textbackslash\%USERNAME\%\textbackslash AppData\textbackslash Roaming\textbackslash QGIS\textbackslash QGIS3\textbackslash profiles\textbackslash custom\textbackslash svg}
+
+При выборе символа внизу появляется адрес к данному символу у вас на компьютере. Размер символа и его цвет вы можете настраивать в этом же окне.
+
+Для площадных объектов всё работает похоже, но немного сложнее. По умолчанию для таких слоёв даётся заливка цветом, которую можно менять. Дополнительно можно менять обводку. Для того чтобы заполнить наши площадные объекты штриховкой из специальных символов, например, газона, нужно выбрать \textbf{Тип слоя -- Заливка маркерами}.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Polygon_filling.png}
+\caption{Заливка маркерами}
+\end{figure}
+
+После этого иерархия структуры значка в верхнем окошке вырастет -- там добавится простой маркер. Как заменить простой маркер на SVG-символ вы уже знаете. Для настройки шага (частоты) маркеров необходимо выделить \textbf{Заливка маркерами} в иерархии структуры стиля.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Marker_shifting.png}
+\caption{Настройки заливки маркерами}
+\end{figure}
+
+Обратите внимание, что здесь можно настроить смещение символов, чтобы маркеры располагались, например, в шахматном порядке.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Chess_placement.png}
+\caption{Шахматный порядок маркеров}
+\end{figure}
+
+\textbf{Детальные настройки символов сверяйте с Условными обозначениями, проверяйте, как они выглядят в режиме макета.}
+
+\textbf{Сохраните проект.}
+
+\section{Оформление макета}\label{symbols-layout}
+
+\hyperref[symbols]{В начало справки ⇡}
+
+Итоговое оформление карты/плана в ГИС-пакете QGIS осуществляется в режиме макета. Для этого надо найти пункт меню \textbf{Проект -- Создать макет}. После ввода имени макета откроется отдельное окно, в котором нам предстоит скомпоновать наше картографическое изображение.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/New_layout.png}
+\caption{Создание макета}
+\end{figure}
+
+На пустом листе необходимо разместить саму карту, текстовые элементы, масштабную линейку с помощью специальных кнопок слева.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Map_elements.png}
+\caption{Управление элементами карты}
+\end{figure}
+
+После добавления элементов карты их перечень появляется в окошке справа вверху.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Element_properties.png}
+\caption{Свойства элемента карты}
+\end{figure}
+
+Если выделить элемент, ниже открываются его свойства. Выделите элемент карты, запишите в его свойства масштаб. В разделе Сетки нажмите на плюсик, чтобы добавить сетку. Выделив сетку и нажав на кнопку \textbf{Modify Grid}, мы можем редактировать её отображение.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Grid_settings.png}
+\caption{Настройка сетки координат}
+\end{figure}
+
+В свойствах сетки выберите вид сетки -- перекрестие, шаг сетки -- 25 метров, цвет линии -- зеленый.
+В разделе Рамки выберите \textbf{exterior ticks} для показа выходов сетки наружу рамки. Длину выходов установить 7 мм.
+
+В разделе \textbf{Draw Coordinates} сориентируйте боковые подписи выходов сетки вертикально вдоль рамки.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Draw_coordinates.png}
+\caption{Настройка отображения подписей координат}
+\end{figure}
+
+В свойствах карты включите опцию Рамка. Настройте её ширину в соответствии с требованиями.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Border.png}
+\caption{Настройка рамки}
+\end{figure}
+
+Расположите масштаб и стандартную информацию о листе топографического плана в текстовых элементах сверху и снизу рамки.
+
+Настройте размер и расстояние между условными знаками в соответствии с требованиям.
+
+Изменить размер листа можно щелчком правой кнопкой по листу. После этого справа откроются свойства элемента, где можно указать размеры листа.
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Layout_size.png}
+\caption{Изменение размеров листа}
+\end{figure}
+
+Для экспорта растрового изображения выберите \textbf{Макет -- Экспорт в \ldots{}}
+
+\begin{figure}
+\centering
+\includegraphics{images/symbology/Topo.jpg}
+\caption{Пример топографического плана. Съёмка -- бригада в составе А. Веприцкого, Е. Макаровой, А. Мизиновой, Е. Епифановой, М. Рамих. Картограф-составитель -- А. Мизинова, 2020.}
+\end{figure}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+\chapter{Использование QGIS во время полевой топографической практики}\label{practice}
+
+В этой справке вы найдёте информацию об основных технических приёмах работе в ГИС-пакете QGIS на учебной топографической практике. Для универсализации терминов, названий функций и элементов интерфейса в справке используется англоязычный пользовательский интерфейс. О том, как менять язык программы, вы можете узнать в \href{https://iowq750.github.io/Topography/\#global}{начальном разделе}.
+
+\section{Создание схемы теодолитного хода}\label{practice-theod}
+
+\subsection{Шаблон схемы теодолитного хода}\label{practice-theod-template}
+
+\href{https://disk.yandex.ru/i/Z3H_BOK2KYfDRQ}{Схема теодолитного хода в формате PDF}
+
+\href{https://disk.yandex.ru/d/JcXRhKuiqoVTLg}{Проект шаблона схемы теодолитного хода для QGIS}
+
+\subsection{Работа с базой данных}\label{practice-theod-DB}
+
+\hyperref[practice-theod]{В начало справки ⇡}
+
+Для схемы теодолитного хода следует создать отдельную базу данных, в которой будет несколько классов объектов:
+
+● Стороны хода
+
+● Дуги внутренних углов хода
+
+● Точки хода.
+
+Создать базу данных можно, нажав правой кнопкой по выбранной вами директории в браузере (проводнике). Выберите пункт меню \textbf{New -- Geopackage}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Create_DB.png}
+\caption{Создание базы данных Geopackage}
+\end{figure}
+
+У вас откроется окно создания базы данных, где вы можете задать имя базы данных, сразу же создать один из классов, указав его тип геометрии и систему координат.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/DB_creation.png}
+\caption{Окно создания базы данных}
+\end{figure}
+
+Остальные классы объектов вы можете создать, щёлкнув правой кнопкой мыши по уже созданной базе данных и выбрав пункт меню \textbf{New Table}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/New_table.png}
+\caption{Окно создания базы данных}
+\end{figure}
+
+\subsection{Черчение хода}\label{practice-theod-draw}
+
+\hyperref[practice-theod]{В начало справки ⇡}
+
+Для нанесение точек хода необходимо добавить в проект из базы данных точечный класс объектов простым перетаскиванием, либо дважды щёлкнув по ним в Браузере. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт \textbf{Режим редактирования} (\textbf{Toggle Editing}), либо выделить слой и найти на панели инструментов кнопку \includegraphics{images/Practice/Edit.png}. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для точечного класса объекта появится кнопка \includegraphics{images/Practice/New_points.png}. Нажав на эту кнопку, вы сможете поставить точку в произвольном месте.
+
+Чтобы поставить точки по строго заданным (рассчитанным при уравнивании теодолитного хода) координатам необходимо использовать панель \textbf{Advanced Digitizing Panel}. Если она не открыта, щёлкните правой кнопкой мыши по пустому месту сверху основного окна QGIS и в выпадающем списке отметьте панель и окно.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Advanced_digitizing.png}
+\caption{Включение дополнительной панели векторизации}
+\end{figure}
+
+Нажмите на кнопку активации инструментов \includegraphics{images/Practice/Enable_Advanced.png}. Введите координаты \emph{X} и \emph{Y}, закрепляя их замком (или нажатием на \textbf{Enter}). Щёлкните левой кнопкой мыши по карте -- новая точка установится строго по заданным координатам. Сохраните изменения, нажав на иконку сохранения \includegraphics{images/Practice/Save_edits.png} на панели редактирования.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Coordinate_input.gif}
+\caption{Создание точки по заданным координатам}
+\end{figure}
+
+Для отрисовки сторон хода нужно зайти в режим редактирования соответствующего слоя. При векторизации объектов часто возникает необходимость пристыковать вершины одного объекта к вершинам другого объекта. Для корректной и комфортной пристыковки нужно включить панель Инструментов прилипания (\textbf{snapping}). Кнопка в виде магнита \includegraphics{images/Practice/Snapping.png} активирует прилипание. Остальные кнопки на данной панели позволяют уточнить параметры прилипания, в том числе расстояние, на котором оно начинает действовать. Отрисуйте стороны с включенным режимом прилипания, нажимая на левую кнопку мыши для установки вершин и завершая отрисовку правой кнопкой мыши. Сохраните изменения.
+
+\begin{quote}
+Обратите внимание, что каждая сторона теодолитного хода должна быть отдельным объектом.
+\end{quote}
+
+Для черчения дуг углов включите панель \textbf{Shape Digitizing Toolbar}, нажав на пустое место верхней части окна QGIS правой кнопкой. На этой панели вам потребуется инструмент, который строит окружность по центральной точке и произвольной точки окружности (последний в списке).
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Circle_shape.png}
+\caption{Создание окружности}
+\end{figure}
+
+Чтобы превратить окружность в дугу, нужно взять инструмент разрезания \includegraphics{images/Practice/Split.png} и нарисовать линию реза (закончить рисовку линии реза можно через нажатие правой кнопки мыши). Выберите объекты, которые хотите удалить, с помощью инструмента выделения \includegraphics{images/Practice/Selection_tool.png} и нажмите \textbf{DELETE}.
+
+\subsection{Настройка символики и подписей}\label{practice-theod-symbology}
+
+\hyperref[practice-theod]{В начало справки ⇡}
+
+На схеме теодолитного хода следует различать точки самого хода и твёрдые точки, которые служат твёрдым направлением. Разная символика обуславливается разными значениями атрибутов данного класса в базе данных. Открыть атрибутивную таблицу слоя можно, нажав правой кнопкой мыши по нему и выбрав пункт \textbf{Open Attribute Table}.
+
+Для редактирования атрибутов необходимо зайти в режим редактирования с помощью кнопки \includegraphics{images/Practice/Edit.png}. Для добавления или удаления атрибутивных столбцов также необходимо зайтив в режим редактирования, после чего появятся соответствующие кнопки \includegraphics{images/Practice/New_field.png} и \includegraphics{images/Practice/Delete_field.png}. Для того чтобы закодировать отличия точек хода и твердых точек, нужно создать новое атрибутивное поле и записать соответствующим точкам разные значения. Обратите внимание, что каждая строка в атрибутивной таблице -- это, по сути, один объект в классе объектов. Выделять объекты в атрибутивной таблицы можно с помощью нажатия левой кнопки мыши по левому краю строки. Для выбора нескольких строк подряд можно «тянуть» выделение левой кнопкой мыши, либо выделить первый и последний объект с зажатым \textbf{SHIFT}. Для выбора нескольких отдельных строк зажмите \textbf{CTRL}. Выделяемые в атрибутивной таблице объекты будут подсвечиваться жёлтым цветом на карте. Для приближения к выбранному объекту нажмите на кнопку \textbf{Pan map to the selected rows} (\textbf{Увеличить карту до выделенных строк}) \includegraphics{images/Practice/Zoom_to_selection.png}.
+
+Для задания символики зайдите в свойства слоя точек, дважды по нему щёлкнув. Перейдите во вкладку \textbf{Symbology} (\textbf{Стиль})
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Point_Symbology.png}
+\caption{Окно настройки символики слоя}
+\end{figure}
+
+Сверху нужно выбрать способ символики \textbf{Categorized}, что позволяет категориально разделить символы по значению атрибута. В поле \textbf{Value} нужно указать название атрибута, по котором происходит разделение, после чего нажать на кнопку \textbf{Classify} внизу окна -- в окне посередине у вас появятся все возможные категории, для каждой из которых можно задать свою символику. Дважды щёлкните по категории, чтобы задать символ.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Symbol_selector.png}
+\caption{Окно настройки символики слоя}
+\end{figure}
+
+Построение символики в QGIS иерархическое -- каждый символ может быть представлен набором слоёв символов. Например, для создания знака временного геодезического пункта (кружок с точкой в центре) вы можете задать два слоя. Верхний слой -- точка, которую можно задать кругом чёрного цвета уменьшенного размера. Нижний слой -- тот же круг, но уже большего размера с белой заливкой и чёрной обводкой.
+
+Аналогично точкам мы можем разделить по символики стороны хода и твёрдое направление. Для последнего нужно задать два слоя с линией, у которой будет задан параметр \textbf{Offset}, то есть сдвиг от оси.
+
+Подписи аналогично символике зависят от значений в атрибутивной колонке. Для включения подписей нужно зайти в свойствах во вкладку \textbf{Labels}. Там вы можете включить подписи, выбрав \textbf{Single Symbol} и указав атрибутивную колонку, откуда будут браться значения (\textbf{Value}), а также гарнитуру, кегль шрифта и прочие настройки форматирования. Во вкладке \textbf{Placement} вы можете указать способ размещения подписей относительно объекта.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Labels.png}
+\caption{Окно настройки символики слоя}
+\end{figure}
+
+Не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки \includegraphics{images/Practice/Save_project.png}.
+
+\subsection{Настройка макета компоновки}\label{practice-theod-layout}
+
+\hyperref[practice-theod]{В начало справки ⇡}
+
+Для создания макета компоновки схемы теодолитного хода, то есть того, как схема будет выглядеть на листе бумаги, нужно вызвать \textbf{Project -- Layout Manager}. В открывшемся окне нажмите на кнопку создания макета и задайте имя для него. После этого перед вами появится макет компоновки, который вы можете наполнить необходимыми элементами с помощью специальных кнопок слева.
+
+\begin{figure}
+\centering
+\includegraphics{images/Symbology/Map_elements.png}
+\caption{Управление элементами макета}
+\end{figure}
+
+После добавления элементов схемы их перечень появляется в окошке справа вверху. Если выделить элемент, ниже открываются его свойства. Выделите элемент карты, запишите в его свойства масштаб. Систему координат выставить -- \textbf{WGS 1984 UTM 37N}. В разделе Сетки нажмите на плюсик, чтобы добавить сетку. Выделив сетку и нажав на кнопку \textbf{Modify Grid}, мы можем редактировать её отображение.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Grid_settings.png}
+\caption{Настройка сетки координат}
+\end{figure}
+
+В свойствах сетки выберите вид сетки -- \textbf{Cross} (\textbf{перекрестие}), укажите шаг сетки, цвет линии -- зеленый. В разделе \textbf{Frame} выберите \textbf{interior ticks} для показа выходов сетки внутрь рамки. Длину выходов можно установить 3 мм.
+
+В разделе \textbf{Draw Coordinates} сориентируйте боковые подписи выходов сетки вертикально вдоль рамки.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Coordinate_appearance.png}
+\caption{Настройка подписей координат}
+\end{figure}
+
+Для настройки рамки создайте ещё одну сетку, нажав на плюс в основных свойствах картографического изображения, затем нажмите на кнопку \textbf{Modify Grid} и настройте отображение рамки соответствующим образом.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Borders.png}
+\caption{Настройка подписей координат}
+\end{figure}
+
+Для экспорта растрового изображения выберите \textbf{Layout -- Export as \ldots{}}.
+
+\section{Создание схемы нивелирного хода}\label{ux441ux43eux437ux434ux430ux43dux438ux435-ux441ux445ux435ux43cux44b-ux43dux438ux432ux435ux43bux438ux440ux43dux43eux433ux43e-ux445ux43eux434ux430}
+
+\hyperref[practice]{В начало справки ⇡}
+
+\subsection{Шаблон схемы нивелирного хода}\label{practice-level-template}
+
+\href{https://disk.yandex.ru/i/vxkXew-pAmtdRg}{Схема нивелирного хода в формате PDF}
+
+\href{https://disk.yandex.ru/d/frDDrler8BldDQ}{Проект шаблона схемы нивелирного хода для QGIS}
+
+\subsection{Работа с базой данных}\label{practice-level-DB}
+
+Для схемы нивелирного хода следует создать отдельную базу данных, в которой будет два класса объектов:
+
+● Стороны хода;
+
+● Точки хода.
+
+Как создавать базу данных, можно посмотреть в разделе про \hyperref[practice-theod-DB]{теодолитный ход}.
+
+\subsection{Настройка символики и подписей}\label{practice-level-symbology}
+
+\hyperref[practice-level]{В начало справки ⇡}
+
+Аналогично тому, как это делалось для теодолитного хода, вы можете оформить объекты на схеме нивелирного хода. Помните о том, что на схеме следует использовать разные символы для твёрдых точек, собственно точек хода и иксовых (дополнительных) точек. Аналогично следует различать собственно стороны хода и стороны хода, примыкающие к иксовым точкам.
+
+Для того чтобы показать направление измерений для сторон нужно установить стрелку. Это можно сделать, зайдя в настройки символики слоя и добавив слой маркеров. В качестве маркера выбирается соответствующий символ стрелки, настраивается его размер и указывается его положение в центральной точке линии.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Arrow_setting.png}
+\caption{Добавление стрелки к линиям}
+\end{figure}
+
+В схеме нивелирного хода можно использовать некоторые возможности оформления подписей в дополнение к описанным в \hyperref[practice-theod-symbology]{разделе}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  Показ знака «+» перед положительными значениями превышений. Для этого разделе форматирования в свойствах подписей нужно включить соответствующую опцию и указать поле, по которому будет присваиваться символ.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Plus_sign.png}
+\caption{Добавление стрелки к линиям}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Добавление двух подписей к одному объекту: название точки и её высота. Для этого необходимо в свойствах подписей выбрать \textbf{Rule-based labeling} в самом верху окна. Добавьте два правила и для каждого задайте свой атрибут в качестве источника подписей. В разделе \textbf{Placement} вы можете задать разное относительное размещение подписей, а также задать сдвиг (\textbf{offset}) для подписей.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Rule-Based_Labeling.png}
+\caption{Добавление стрелки к линиям}
+\end{figure}
+
+\subsection{Настройка макета компоновки}\label{practice-level-layout}
+
+\hyperref[practice-level]{В начало справки ⇡}
+
+Настройте макет компоновки аналогично тому, как это описано в разделе про \hyperref[practice-theod-layout]{теодолитный ход} и экспортируйте результат в PDF.
+
+\section{Создание топографического плана}\label{practice-topo}
+
+\hyperref[practice]{В начало справки ⇡}
+
+\subsection{Подгрузка пикетов тахеометрической съёмки}\label{practice-topo-csv-table-reading}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+QGIS может читать данные в разном формате: векторном, растровом, табличном и других.
+
+Подготовьте таблицу формата CSV, где будут содержаться данные по каждому пикету тахеометрии. Все инструменты для чтения различных форматов данных стандартно расположены на панели слева. Для чтения CSV-таблицы используйте иконку в виде запятой.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Open_data.png}
+\caption{Панель менеджера источника данных}
+\end{figure}
+
+\begin{quote}
+Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите \textbf{Manage Layers Toolbar}.
+\end{quote}
+
+В открывшемся окне \textbf{Data Source Manager \textbar{} Delimited Text} укажите путь к CSV-файлу. В разделе Формат файла выберите или пропишите разделитель колонок в файле. Если разделитель указан верно, внизу в окошке предпросмотра (\textbf{Sample Data}) вы увидите данные ячеек, разнесенные по соответствующим колонкам. При необходимости, если в текстовых полях вы видите непонятные символы, поменяйте кодировку (обычно это либо UTF-8, либо windows-1251).
+
+В разделе \textbf{Geometry Definition} мы указываем поле с геометрией объекта. Если файл CSV содержит координаты X и Y точек, то необходимо выбрать их соответствующее название из выпадающего списка напротив \textbf{X field} и \textbf{Y field}. Обращаем ваше внимание на то, что в QGIS, как и во всех ГИС-пакетах, реализована правая декартова система координат, то есть x (easting) -- направлен на восток, y (northing) направлен на север. Ваши исходные данные могут быть с по-иному заданными осями.
+
+В окошке \textbf{Geometry CRS} (\textbf{Система координат геометрии}) необходимо указать правильную систему координат, в которую изначально подразумеваются ваши исходные данные. Если неправильно задать систему координат, объекты окажутся не в том месте, где хотелось бы их видеть.
+После того, как были заданы все необходимые параметры, должна активироваться кнопка \textbf{Add} (\textbf{Добавить}) внизу окна. Если она не активирована, вероятно, есть ошибка при чтении данных, например, в исходной таблице неправильно указан десятичный разделитель (точка или запятая в зависимости от настроек операционной системы).
+
+В окне карты должны появиться точечные объекты. Для удобства работы с сними можно добавить подписи этих точек. Для этого нужно зайти в свойства слоя (дважды щёлкнуть по слою), найти пункт \textbf{Labels} и выбрать \textbf{Single labels}. В окне \textbf{Value} выбирается имя поля атрибутивной таблицы, по которому мы хотим получить подписи. Если вы хотите сделать сложную подпись на основе нескольких строк, нажмите на кнопку \includegraphics{images/Practice/Expression.png}, откроется конструктор выражений. В среднем окне можно найти пункт Поля и значения. Двойной щелчок по имени поля добавляет его в выражение. Соединение значений полей осуществляется посредством конкатенации строк. Для этого используется символ \includegraphics{images/Practice/Concatenation.png}. Например, если мы хотим вывести подпись по коду точки и по ее описанию, это может выглядеть так:
+\emph{``Code'' \textbar\textbar{} `` '' ``Description''}
+
+\textbf{Сохраните проект.}
+
+\subsection{Создание базы данных для топографического плана}\label{practice-topo-database}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+QGIS поддерживает различные форматы пространственных данных. Среди них наиболее удобным для хранения и работы считается формат \textbf{Geopackage}. По сути это формат базы пространственных данных, внутри которой мы можем складывать различные классы объектов.
+
+\begin{quote}
+Под классом объектов подразумевается набор объектов одного типа геометрии со схожей семантической (смысловой) нагрузкой. Очень важно, чтобы в пределах одного класса объектов не было пересечений объектов. Например, полигоны луговой и высокотравной растительности могут быть отнесены к одному классу объектов, а полигональные объекты гидрографии к другому.
+\end{quote}
+
+Для создания базы данных формата \textbf{Geopackage} откройте окно Браузера внутри QGIS. Если его нет, включите его в выпадающем списке при щелчке правой кнопкой мыши по пустой панели. Найдите каталог, в котором вы хотите создать базу данных (лучше всего, чтобы путь к этой базы состоял из символов латинского алфавита, не содержал дефисов, пробелов и спецсимволов). Правой кнопкой мыши щелкните по каталогу, выберете \textbf{New -- Geopackage}. Откроется окно, которое помимо самой базы данных предложит создать слой внутри неё. В поле Имя таблицы введите имя класса объектов латинскими символами, лучше, чтобы это был английский перевод соответствующего вида картографируемого объекта, а не транслитерация.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Create_gpkg.png}
+\caption{Окно создания базы данных Geopackage}
+\end{figure}
+
+В поле \textbf{Geometry type} укажите соответствующую геометрию объектов (тип локализации на плане): точки, линии или полигоны. Обратите внимание, что каждый класс объектов поддерживает только один тип геометрии. Укажите спроецированную систему координат. Если указать геодезическую систему координат, например \emph{WGS 1984}, то велика вероятность, что при векторизации объектов возникнут курьёзные ситуации.
+В разделе \textbf{New Field} можно указать имя, типа и длину атрибутивного поля создаваемого класса объектов.
+
+Поскольку мы создаем план не небольшую территорию, позволительно будет создать для каждого вида объекта отдельный класс внутри базы. Каждый последующий класс объектов создавайте внутри базы данных. Таким образом вы сформируете единое хранилище для всех картографируемых объектов.
+
+\subsection{Векторизация}\label{practice-topo-vectorization}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+Созданные классы объектов в базе данных можно добавить в перечень слоев проекта простым перетаскиванием. Для редактирования объектов и добавления новых объектов в класс необходимо войти в режим редактирования. Для этого можно щелкнуть правой кнопкой мыши по слою и выбрать пункт \textbf{Toggle Editing}, либо выделить слой и найти на панели инструментов кнопку \includegraphics{images/Practice/Edit.png}. Активация режима редактирования откроет некоторые другие кнопки на панелях. Например, для полигонального объекта появится кнопка \includegraphics{images/Practice/New_polygon.png}, с помощью которой можно создать новый полигон в слое. Для других типов геометрии иконка будет немного отличаться.
+
+Рисовка контура осуществляется с помощью левой кнопки мыши. Для завершения объекта нажмите правую кнопку мыши. Для редактирования отдельных вершин нажмите на кнопку \includegraphics{images/Practice/Vertices.png}. После этого у объекта кружочками выделятся вершины.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Polygon.png}
+\caption{Полигон в режиме отображения вершин}
+\end{figure}
+
+Курсор в таком режиме может вести себя тремя разными способами:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\item
+  При выделении вершины вы можете изменить её положение;
+\item
+  При выделении ребра вы можете сдвинуть его вместе со смежными вершинами;
+\item
+  При нажатии на плюсик в центре ребра добавляется новая вершина.
+\end{enumerate}
+
+Нажатие на клавишу \textbf{delete} позволяет удалить вершину. При векторизации объектов часто возникает необходимость пристыковать вершины одного объекта к вершинам другого объекта. Для корректной и комфортной пристыковки нужно включить панель Инструменты прилипания (\textbf{snapping}). Кнопка в виде магнита \includegraphics{images/Practice/Snapping.png} активирует прилипание. Остальные кнопки на данной панели позволяют уточнить параметры прилипания, в том числе расстояние, на котором оно начинает действовать.
+
+Если вам необходимо повторить значительную часть существующего контура при создании нового, то удобнее всего воспользоваться трассировкой (\textbf{Tracing}), нажав на кнопку \includegraphics{images/Practice/Tracing.png} на панели инструментов прилипания. После этого при ведении на небольшом расстоянии от контура новый контур будет автоматически пристыковываться к существующем.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Tracing.gif}
+\caption{Пример работы с инструментом трассировки}
+\end{figure}
+
+\emph{Advanced Digitizing Toolbar}
+
+Соответствующую панель вы так же, как и предыдущую, можете найти в выпадающем списке панелей.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Additional_panel.png}
+\caption{Дополнительная панель векторизации}
+\end{figure}
+
+На данной панели доступны инструменты для для перемещения объектов \includegraphics{images/Practice/Move.png}, создания внутренних колец (по сути -- вырезание дырки в полигоне) \includegraphics{images/Practice/Hole.png}, разрезания объектов \includegraphics{images/Practice/Split.png}, склеивания объектов \includegraphics{images/Practice/Merge.png}, изменения направления линии \includegraphics{images/Practice/Flip.png} и другие.
+
+Выбрать объекты, например, для склеивания можно с помощью инструмента выделения \includegraphics{images/Practice/Selection_tool.png}.
+
+Не забывайте регулярно сохранять изменения в геометрии слоев с помощью кнопки на панели \includegraphics{images/Practice/Save_edits.png}. Также не забывайте изменять изменения в самом проекте (они касаются набора слоев, их оформления, некоторых параметров) с помощью кнопки \includegraphics{images/Practice/Save_project.png}.
+
+\subsection{Оформление в условных знаках}\label{practice-topo-symbols}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+Для работы с оформлением топографического плана скачайте \href{https://yadi.sk/d/mb1wTvAUUAgVUQ}{символы} и \href{https://yadi.sk/d/G_3EVFLqg3C5pA}{топографические шрифты}, а также \href{https://yadi.sk/i/4EpTOHEhQdVq9g}{условные обозначения 2005 года} и \href{https://disk.yandex.ru/i/_WJi-PJUXlZi3Q}{условные обозначения 1989 года}.
+
+Переместите папку со скаченными символами в удобную для использования директорию. Затем в основном меню QGIS выберите \textbf{Settings -- Options\ldots{}}. В открывшемся окне глобальных настроек перейдите во вкладку \textbf{System} и выберите раздел \textbf{SVG Paths}. Нажмите на плюс и добавьте путь к набору векторных символов.
+
+Для оформления слоёв проекта в условных знаках необходимо дважды щёлкнуть по слою. Откроются его свойства, среди которых в данный момент нас интересует \textbf{Symbology}. Для точечного слоя по умолчанию будет выставлен \textbf{Marker -- Simple Marker}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Symbol_style_svg.png}
+\caption{Простой маркер в символике слоя}
+\end{figure}
+
+С ним особо ничего не сделаешь -- можно поменять геометрическую фигуру, изменить размер или цвет. Для использования более разнообразной библиотеки символов нужно в типе слоя выбрать \textbf{SVG Marker}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Svg_selection.png}
+\caption{Выбор SVG-символа}
+\end{figure}
+
+При выборе символа внизу появляется адрес к данному символу у вас на компьютере. Размер символа и его цвет вы можете настраивать в этом же окне.
+
+Для площадных объектов всё работает похоже, но немного сложнее. По умолчанию для таких слоёв даётся заливка цветом, которую можно менять. Дополнительно можно менять обводку. Для того чтобы заполнить наши площадные объекты штриховкой из специальных символов, например, газона или луговой растительности, нужно выбрать заливку маркерами \textbf{Fill -- Point Pattern Fill -- Marker}. Простой маркер замените на \textbf{SVG Marker} и укажите соответствующий символ из скаченной библиотеки. Задайте размеры символа согласно условным знакам. Имейте в виду, что по умолчанию ширина и высота символа меняются пропорционально, но если нажать на замок справа, то вы сможете произвольно масштабировать символ.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/SVG_filling.png}
+\caption{Настройка заливки маркерами}
+\end{figure}
+
+Для настройки шага (частоты) маркеров необходимо выделить \textbf{Point Pattern Fill} в иерархии структуры стиля. Введите значения вертикального и горизонтального расстояния согласно принятым условным обозначениям. Обратите внимание, что вы можете указать единицы измерения в миллиметрах. Для того чтобы выставить маркеры в шахматном порядке можно задать параметр \textbf{Displacement} по горизонтали или по вертикали.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Chess_filling.png}
+\caption{Шахматный порядок маркеров}
+\end{figure}
+
+Для получения случайного заполнения маркерами используйте соответствующую опцию \textbf{Random Marker Fill}. Например, для обозначения леса можно использовать простой маркер в виде круга с белой заливкой и чёрной обводкой. Укажите способ расчёта (\textbf{Count Method}) через плотность. Параметр \textbf{Seed} - это стартовое число для генерирования случайных последовательностей.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Randomized_fill.png}
+\caption{Настройка случайного размещения маркеров}
+\end{figure}
+
+\textbf{Детальные настройки символов сверяйте с Условными обозначениями, проверяйте, как они выглядят в режиме макета.}
+
+\subsection{Автоматизация создания некоторых объектов на топографических планах}\label{practice-topo-tips_tricks}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+\subsubsection{Создание площадного объекта дороги}\label{practice-topo-tips_tricks-roads}
+
+Обычно дороги при топографической съёмке отбиваются по осевой линии, если у них известная и постоянная ширина. Чтобы наиболее эффективно и быстро построить площадной знак дороги по таким исходным данным, можно воспользоваться одним из инструментов геообработки QGIS, который строит буферные зоны. Для этого щёлкните правой кнопкой мыши по пустому полю верхней панели программы, чтобы увидеть список окон и панелей. Выберите панель \textbf{Processing Toolbox Panel}. Это панель со всеми инструментами геообработки. Через поисковую строку панели найдите инструмент \textbf{Buffer}. Дважды щёлкните по инструменту, после чего откроется окно.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Buffer.png}
+\caption{Интерфейс инструмента построения буфера}
+\end{figure}
+
+В окне необходимо задать параметры: входной линейный класс объектов, т. е. ось дороги; \textbf{Distance} -- радиус буферной зоны, определяющий половину ширины дороги; параметр \textbf{End Cap Style} позволяет установить стиль окончания буфера; галочка \textbf{Dissolve Result} позволяет склеить несколько буферных зон в один объект. В параметр \textbf{Buffered} вводится выходной класс объектов. Чтобы выходной класс был не временным, а постоянным, выберите справа опцию \textbf{Save to Geopackage}, укажите путь к вашей базе данных, после чего откроется маленькое окно, куда предлагается ввести название выходного класса.
+
+Условный знак просёлочных и полевых дорог в масштабе 1:500 представляет собой полигон с двумя разными стилями обводки -- сплошной и штриховой. Проще всего такой условный знак построить, конвертировав полигон в линии с помощью инструмента \textbf{Polygons to lines}. Найдите его через поиск в панели инструментов геообработки.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Polygons_to_Lines.png}
+\caption{Интерфейс инструмента построения линий из полигонов}
+\end{figure}
+
+Сохраните выходной линейный класс объектов в базе данных, отредактируйте его геометрию (порежьте на сегменты, удалите лишние сегменты) и присвойте линиям разную символику в зависимости от значения атрибута. Для этого зайдите в свойства символики слоя и выберите способ символики \textbf{Categorized}, после чего нажмите на кнопку \textbf{Classify}, и у вас появтся разные стили линий, в зависимости от значения атрибута. Для штриховой линии в настройках символа \textbf{Simple Line} включите галочку \textbf{Use custom dash pattern}. Здесь вы можете задать длину штриха и длину пробела согласно принятым условным обозначениям
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Roads_borders.png}
+\caption{Настройка разной символики для границ дороги}
+\end{figure}
+
+\subsubsection{Создание объекта границы растительности}\label{practice-topo-tips_tricks-vegetation-borders}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+Границы растительности и грунтов обозначаются пунктирной линией, но если настраивать стандартным образом обводку у полигонов соответствующих объектов, то при стыковке двух полигонов произойдёт наложение границ. Именно поэтому границы должны существовать в виде отдельного класса объекта. Для этого можно воспользоваться инструментом \textbf{Polygons to lines} и удалив дублирующие сегменты.
+
+\subsection{Обработка высотных данных}\label{practice-topo-elevation}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+При построении топографического плана горизонтали можно проводить вручную, а можно попробовать получить их автоматически на основе цифровой модели рельефа. В рамках учебной практики вы попробуете оба варианта и оцените достоверность и точность каждого.
+
+\begin{quote}
+Цифровая модель рельефа (Digital Elevation Model) -- это растр, каждый пиксель которого кодирует высоту.
+\end{quote}
+
+Для построения ЦМР в QGIS на основе данных тахеометрической съёмки можно использовать инструмент ГИС-пакета SAGA, который доступен через интерфейс QGIS. Для этого в панели \textbf{Processing Toolbox Panel} через поисковую строку найдите инструмент \textbf{Natural neighbour}. Это инструмент линейной интерполяции точечных данных на основе триангуляции. Среди параметров инструмента важно указать разрешение итоговой модели.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Natural_Neighbour.png}
+\caption{Инструмент интерполяции Natural Neighbour}
+\end{figure}
+
+Для извлечения из ЦМР горизонталей следует воспользоваться другим инструментом -- \textbf{Contour} -- его так же можно найти через поиск.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Contour.png}
+\caption{Инструмент извлечения горизонталей из ЦМР}
+\end{figure}
+
+Самый важный параметр, который следует указать в интерфейсе этого инструмента -- сечение горизонталей (\textbf{Interval between contour lines}).
+
+Для настройки подписей горизонталей зайдите в свойства слоя во вкладку \textbf{Labels}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Contours_Labels.png}
+\caption{Настройка подписей горизонталей}
+\end{figure}
+
+В разделе \textbf{Text} можно указать гарнитуру, кегль. В разделе \textbf{Buffer} можно включить т.н. гало, т. е. обводку вокруг символов, которая закрывает собой горизонтали. В разделе \textbf{Placement} в свойстве \textbf{Mode} указывается \textbf{Curved}, т. е. подпись по кривой, а также включается размещение \textbf{on line}, чтобы подпись лежала на горизонтали.
+
+\subsection{Оформление макета}\label{practice-topo-layout}
+
+\hyperref[practice-topo]{В начало справки ⇡}
+
+\href{https://disk.yandex.ru/d/rWXOQug9ts11fQ}{Пример оформления макета топографического плана}
+
+С основами создания и оформления макета компоновки можно ознакомиться в разделе по \hyperref[practice-theod-layout]{теодолитному ходу}. Вы можете скачать шаблон оформления макета топографического плана и поменять его экстент в соответствии со своей территорией (по ссылке выше скачайте файл с расширением *.qpt).
+
+Загрузить шаблон оформления макета можно, вызвав через меню менеджер макетов (\textbf{Project -- Layout Manager}). В открывшемся окне выберите создание макета на основе конкретного шаблона (\textbf{Specific}). Задайте путь к файлу QPT. Нажмите на кнопку \textbf{Create}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Layout_Manager.png}
+\caption{Окно менеджера макетов}
+\end{figure}
+
+Чтобы поменять охват территории, зайдите в свойства элемента карты и поменяйте значения координат экстента (охвата) под свою территорию, введя максимальные, а затем минимальные координаты по обеим осям.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Extent.png}
+\caption{Изменение охвата макета}
+\end{figure}
+
+\begin{quote}
+Обратите внимание, что в зависимости от предыдущих значений координат экстента, у вас может не с первого раза получиться ввести свои координаты, поэтому введите их повторно.
+\end{quote}
+
+Изменить размер листа можно щелчком правой кнопкой мыши по листу. После этого справа откроются свойства элемента, где можно указать размеры листа.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Layout_size.png}
+\caption{Изменение размеров листа}
+\end{figure}
+
+Рамка топографической карты состоит из внутренней тонкой и внешней толстой рамки. Обе рамки можно по отдельности добавить в свойствах элемента.
+
+Для того чтобы сделать подписи координат приближенными к стандартным в настройках, нужно зайти в свойства сетки. Сделаем, например, так, что последние три цифры координат будут подписываться всегда, остальные же только на крайних на листе выходах сетки. Выберем для подписи последних трёх цифр внутренню рамку, зайдём в раздел \textbf{Draw Coordinates} и в пункте \textbf{Format} укажем \textbf{Custom}. После нажатия на кнопку выражения, перед вами откроется окно, где нужно написать выражение \emph{right(to\_string(@grid\_number), 3)}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Expression_label_last3.png}
+\caption{Подписывание последних трёх цифр координат}
+\end{figure}
+
+Для того чтобы сделать подписи первых частей координат у крайних выходов сетки, нужно зайти в настройки внешней рамки и по аналогии с предыдущим указать пользовательский формат подписи. В окне выражения нужно написать \emph{left(to\_string(@grid\_number), length(to\_string(@grid\_number)) - 3)}. Чтобы подписывались только крайние выходы сетки, нужно в разделе \textbf{Appearance} задать свойства \textbf{Interval}, исходя из охвата вашей карты, и свойства \textbf{Offset}, исходя из значений координат крайней левой и крайней нижней линии сетки.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Expression_label_First.png}
+\caption{Подписывание первых цифр координат}
+\end{figure}
+
+Обратите внимание, что согласно условным обозначениям у всех текстовых элементов есть определённые шрифты, которые вы можете установить и задать для вашей карты.
+
+\section{Привязка и дешифрирование космического снимка}\label{practice-georeference}
+
+\hyperref[practice]{В начало справки ⇡}
+
+\subsection{Исходные данные}\label{practice-georeference-data}
+
+\href{https://disk.yandex.ru/i/7a93zQEgNnI4dA}{Снимок Keyhole 1973 года для привязки по наземным опорным точкам}
+
+Снимки для дешифрирования
+
+\href{https://disk.yandex.ru/i/bIn38XOCT92FXA}{Снимок Digital Globe 2018 года. Участок 1}
+
+\href{https://disk.yandex.ru/i/_VykXwJloU-0yA}{Снимок Digital Globe 2018 года. Участок 2}
+
+\href{https://disk.yandex.ru/i/D0-eTUvb3eX_1w}{Снимок Digital Globe 2018 года. Участок 3}
+
+\subsection{Сброс данных со спутниковых навигаторов}\label{practice-georeference-gpx}
+
+Для сброса данных со спутниковых навигаторов подключите их через интерфейс mini usb к компьютеру. Откроется окно проводника \textbf{Garmin}. Зайдите в папку \textbf{GPX} и скопируйте путевые точки. Из папки \textbf{Current} скопируйте текущий трек.
+
+\subsection{Привязка по наземным опорным точкам}\label{practice-georeference-gcp}
+
+Добавьте снимок в проект, нажав на кнопку \includegraphics{images/Practice/Open_raster.png}. Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.
+
+\begin{quote}
+Если вы не видите снимок, то, вероятно, он расположился где-то за пределами вашего экрана. Чтобы увидеть его, нажмите правой кнопкой мыши по слою и выберете \textbf{Zoom to Layer} (\textbf{Увеличить до слоя}). Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?
+\end{quote}
+
+Запустите модуль привязки через меню \textbf{Layer -- Georeferencer} (\textbf{Слои -- Привязка растров\ldots{}}).
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Georeference_raster.png}
+\caption{Открытие растрового файла}
+\end{figure}
+
+\begin{quote}
+Если вы не видите такого пункта меню, то зайдите в \textbf{Plugins -- Manage and Install plugins\ldots{}} (\textbf{Установки -- Модули и управление модулями}), найдите через поиск и включите соответствующий модуль, поставив галочку (с версии 3.16 этот модуль по умолчанию встроен в QGIS).
+\end{quote}
+
+Откроется отдельное окно привязки. Нажмите на кнопку \textbf{Открыть растр} \includegraphics{images/Practice/Open_raster.png}, добавьте привязываемый растр. Щелчок левой кнопкой мыши по привязываемому изображению в месте потенциального размещения опорной точки откроет окно, куда будет предложено ввести координаты. При использовании наземных опорных точек, отмеченных в ходе маршрута на навигации, введите координату \textbf{X} в окно \textbf{Easting} и \textbf{Y} в окно \textbf{Northing}.
+
+\begin{quote}
+При работе на полигоне Чашниково координаты СК проекции WGS 1984 UTM 37N \textbf{Northing} начинаются с цифр \emph{621}, координаты \textbf{Easting} с \emph{38}.
+\end{quote}
+
+Если в вашей версии QGIS в открывшемся окне есть опция выбора системы координат, укажите \textbf{правильную}.
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Enter_Coordinates.png}
+\caption{Окно ввода координат}
+\end{figure}
+
+\begin{quote}
+Обратите внимание, что оси X и Y в геоинформационном программном обеспечении ориентированы как в математике. Для координаты X вводить номер зоны \textbf{не нужно}.
+\end{quote}
+
+После расстановки точек внизу окна появится таблица с вашими точками привязки -- будут указаны координаты этих точек в исходной СК изображения и в целевой СК, а также невязки. Далее необходимо указать способ трансформации для расчёта невязок. Нажмите на кнопку \includegraphics{images/Practice/Transformation_settings.png}. В качестве типа трансформации для снимка может подойти полиномиальное преобразование первой степени (минимально необходимо 3 опорные точки) или проективное преобразование (минимально необходимо 4 опорные точки). Укажите целевую систему координат (в которой вводились координаты точек), а также путь для сохраняемого файла.
+
+Убедитесь в том, что стоит галка напротив опции \textbf{Use 0 for transparency when needed}, чтоб у вас не было чёрной рамки вокруг привязанного растра.
+
+\begin{quote}
+Сохраняйте файлы в папку с путями без латиницы, пробелов и спецсимволов.
+\end{quote}
+
+\begin{figure}
+\centering
+\includegraphics{images/Practice/Transformation_parameters.png}
+\caption{Параметры трансформации}
+\end{figure}
+
+После добавления трансформированного изображения в основное окно карты убедитесь в правильности проделанной операции, сравнивая его с подложкой из мозаики спутниковых снимков. Для этого удобно использовать инструмент шторки.
+
+Зайдите в \textbf{Модули -- Управление и установка модулей\ldots{}} и вбейте в поиск \textbf{MapSwipe Tool}. После этого появится панель шторки.
+
+Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку \includegraphics{images/Practice/Swipe_button.png}.
+
+\subsection{Дешифрирование снимка}\label{practice-georeference-interpretation}
+
+Для дешифрирования космических снимков необходимо осуществить их привязку. В случае с современными космическими снимками это можно сделать на основе подложки картографических веб-сервисов.
+
+Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню \textbf{Модули -- Управление и установка модулей\ldots{}}. Впишите в строку поиска \textbf{QuickMapServices}. Установите модуль.
+
+Откроется окно модуля. В окне поиска геосервиса введите \textbf{Google satelite} или какой-либо еще картографический веб-сервис со спутниковой подложкой. Нажмите \textbf{Добавить}.
+
+\includegraphics{images/practice/QMS.png}
+
+Добавьте в качестве слоя данных привязываемый снимок.
+
+\begin{quote}
+Примечание: Если у вас такой панели не оказалось, это значит, что она отключена. Для включения панели щелкните правой кнопкой мыши по пустому месту на панели и найдите \textbf{панель работы со слоями}.
+\end{quote}
+
+Процесс дешифрирования представляет собой создание базы данных и векторизацию объектов по данным космической съёмки. О том, как это делается, вы можете узнать из раздела 7.3.2 и 7.3.3.
+
+\begin{longtable}[]{@{}l@{}}
+\toprule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\emph{Карпачевский А.М.} \textbf{Топография с основами картографии}. М.: Географический факультет МГУ, 2025. \\
+\end{longtable}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}

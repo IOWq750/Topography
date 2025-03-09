@@ -4,26 +4,26 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Справка 1 Координаты на топографической карте | Топография с основами геодезии</title>
-  <meta name="description" content="Справка 1 Координаты на топографической карте | Топография с основами геодезии" />
-  <meta name="generator" content="bookdown 0.30 and GitBook 2.6.7" />
+  <title>Справка 1 Координаты на топографической карте | Топография с основами картографии</title>
+  <meta name="description" content="Топография с основами геодезии" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Справка 1 Координаты на топографической карте | Топография с основами геодезии" />
+  <meta property="og:title" content="Справка 1 Координаты на топографической карте | Топография с основами картографии" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="Справка 1 Координаты на топографической карте | Топография с основами геодезии" />
+  <meta property="og:description" content="Топография с основами геодезии" />
   <meta name="github-repo" content="iowq750/topography" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Справка 1 Координаты на топографической карте | Топография с основами геодезии" />
+  <meta name="twitter:title" content="Справка 1 Координаты на топографической карте | Топография с основами картографии" />
   
-  <meta name="twitter:description" content="Справка 1 Координаты на топографической карте | Топография с основами геодезии" />
+  <meta name="twitter:description" content="Топография с основами геодезии" />
   
 
-<meta name="author" content="Карпачевский А.М., Каргашин П.Е." />
+<meta name="author" content="Карпачевский А.М." />
 
 
-<meta name="date" content="2023-07-04" />
+<meta name="date" content="2025-03-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,12 +52,13 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
-<link href="libs/tabwid-1.1.2/tabwid.css" rel="stylesheet" />
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -120,6 +121,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Топография с основами геодезии</a></li>
+<li><a href="./">Топография с основами картографии</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Программное обеспечение для работы</a>
@@ -242,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Топография с основами геодезии</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Топография с основами картографии</a>
           </h1>
         </div>
 
@@ -282,59 +287,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" style="list-style-type: decimal">
 <li>Найти две точки на листе топографической карты, к которым будут привязаны все измерения. Указать их названия в шапке бланка.</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="coordinates.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
-<span id="cb1-2"><a href="coordinates.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
-<span id="cb1-3"><a href="coordinates.html#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
-<span id="cb1-4"><a href="coordinates.html#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">regulartable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="coordinates.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">width</span>(<span class="at">j=</span><span class="sc">~</span>x,<span class="at">width=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">width</span>(<span class="at">j=</span><span class="sc">~</span>y,<span class="at">width=</span><span class="dv">1</span>)</span></code></pre></div>
-<template id="b062ccce-3b03-48fc-ba9e-98cb7c60ff7d"><style>
-.tabwid table{
-  border-spacing:0px !important;
-  border-collapse:collapse;
-  line-height:1;
-  margin-left:auto;
-  margin-right:auto;
-  border-width: 0;
-  border-color: transparent;
-  caption-side: top;
-}
-.tabwid-caption-bottom table{
-  caption-side: bottom;
-}
-.tabwid_left table{
-  margin-left:0;
-}
-.tabwid_right table{
-  margin-right:0;
-}
-.tabwid td, .tabwid th {
-    padding: 0;
-}
-.tabwid a {
-  text-decoration: none;
-}
-.tabwid thead {
-    background-color: transparent;
-}
-.tabwid tfoot {
-    background-color: transparent;
-}
-.tabwid table tr {
-background-color: transparent;
-}
-.katex-display {
-    margin: 0 0 !important;
-}
-</style><div class="tabwid"><style>.cl-1621d1d8{}.cl-15fa5e8c{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-160c327e{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-160c8d32{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-160c8d46{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-160c8d5a{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-160c8d5b{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-160c8d64{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-1621d1d8'><thead><tr style="overflow-wrap:break-word;"><th class="cl-160c8d32"><p class="cl-160c327e"><span class="cl-15fa5e8c">x</span></p></th><th class="cl-160c8d32"><p class="cl-160c327e"><span class="cl-15fa5e8c">y</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">1</span></p></td><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">2</span></p></td><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d5a"><p class="cl-160c327e"><span class="cl-15fa5e8c">3</span></p></td><td class="cl-160c8d5a"><p class="cl-160c327e"><span class="cl-15fa5e8c">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">4</span></p></td><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">14</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">5</span></p></td><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">15</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">6</span></p></td><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">7</span></p></td><td class="cl-160c8d46"><p class="cl-160c327e"><span class="cl-15fa5e8c">17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">8</span></p></td><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">18</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">9</span></p></td><td class="cl-160c8d5b"><p class="cl-160c327e"><span class="cl-15fa5e8c">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-160c8d64"><p class="cl-160c327e"><span class="cl-15fa5e8c">10</span></p></td><td class="cl-160c8d64"><p class="cl-160c327e"><span class="cl-15fa5e8c">20</span></p></td></tr></tbody></table></div></template>
-<div class="flextable-shadow-host" id="d296ebea-de59-44a7-84c7-6b43ea7535bf"></div>
-<script>
-var dest = document.getElementById("d296ebea-de59-44a7-84c7-6b43ea7535bf");
-var template = document.getElementById("b062ccce-3b03-48fc-ba9e-98cb7c60ff7d");
-var fantome = dest.attachShadow({mode: 'open'});
-var templateContent = template.content;
-fantome.appendChild(templateContent);
-</script>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="coordinates.html#cb1-1" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
+<pre><code>## Warning: пакет &#39;flextable&#39; был собран под R версии 4.4.3</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="coordinates.html#cb3-1" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span>
+<span id="cb3-2"><a href="coordinates.html#cb3-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y =</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span>)</span>
+<span id="cb3-3"><a href="coordinates.html#cb3-3" tabindex="-1"></a>df <span class="sc">%&gt;%</span> <span class="fu">regulartable</span>() <span class="sc">%&gt;%</span> <span class="fu">autofit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="coordinates.html#cb3-4" tabindex="-1"></a><span class="fu">width</span>(<span class="at">j=</span><span class="sc">~</span>x,<span class="at">width=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">width</span>(<span class="at">j=</span><span class="sc">~</span>y,<span class="at">width=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="tabwid"><style>.cl-315b2cf2{}.cl-31553d1a{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-31578bba{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-3157a1d6{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3157a1e0{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3157a1e1{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3157a1ea{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-3157a1eb{width:1in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-315b2cf2'><thead><tr style="overflow-wrap:break-word;"><th class="cl-3157a1d6"><p class="cl-31578bba"><span class="cl-31553d1a">x</span></p></th><th class="cl-3157a1d6"><p class="cl-31578bba"><span class="cl-31553d1a">y</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">1</span></p></td><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">11</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">2</span></p></td><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">12</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1e1"><p class="cl-31578bba"><span class="cl-31553d1a">3</span></p></td><td class="cl-3157a1e1"><p class="cl-31578bba"><span class="cl-31553d1a">13</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">4</span></p></td><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">14</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">5</span></p></td><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">15</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">6</span></p></td><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">16</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">7</span></p></td><td class="cl-3157a1e0"><p class="cl-31578bba"><span class="cl-31553d1a">17</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">8</span></p></td><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">18</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">9</span></p></td><td class="cl-3157a1ea"><p class="cl-31578bba"><span class="cl-31553d1a">19</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-3157a1eb"><p class="cl-31578bba"><span class="cl-31553d1a">10</span></p></td><td class="cl-3157a1eb"><p class="cl-31578bba"><span class="cl-31553d1a">20</span></p></td></tr></tbody></table></div>
 <table>
 <thead>
 <tr class="header">
@@ -517,7 +476,7 @@ fantome.appendChild(templateContent);
 <table>
 <tbody>
 <tr class="odd">
-<td><em>Карпачевский А.М., Каргашин П.Е., Прасолова А.И.</em> <strong>Топография с основами геодезии</strong>. М.: Географический факультет МГУ, 2023.</td>
+<td><em>Карпачевский А.М.</em> <strong>Топография с основами картографии</strong>. М.: Географический факультет МГУ, 2025.</td>
 </tr>
 </tbody>
 </table>
@@ -544,42 +503,42 @@ fantome.appendChild(templateContent);
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["topography-course.pdf", "topography-course.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["topography-course.pdf", "topography-course.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
