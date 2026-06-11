@@ -215,10 +215,8 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#practice-georeference" id="toc-practice-georeference" class="nav-link" data-scroll-target="#practice-georeference"><span class="header-section-number">8.4</span> Привязка и дешифрирование космического снимка</a>
   <ul class="collapse">
-  <li><a href="#practice-georeference-data" id="toc-practice-georeference-data" class="nav-link" data-scroll-target="#practice-georeference-data"><span class="header-section-number">8.4.1</span> Исходные данные</a></li>
-  <li><a href="#practice-georeference-gpx" id="toc-practice-georeference-gpx" class="nav-link" data-scroll-target="#practice-georeference-gpx"><span class="header-section-number">8.4.2</span> Сброс данных со спутниковых навигаторов</a></li>
-  <li><a href="#practice-georeference-gcp" id="toc-practice-georeference-gcp" class="nav-link" data-scroll-target="#practice-georeference-gcp"><span class="header-section-number">8.4.3</span> Привязка по наземным опорным точкам</a></li>
-  <li><a href="#practice-georeference-interpretation" id="toc-practice-georeference-interpretation" class="nav-link" data-scroll-target="#practice-georeference-interpretation"><span class="header-section-number">8.4.4</span> Дешифрирование снимка</a></li>
+  <li><a href="#practice-georeference-satino" id="toc-practice-georeference-satino" class="nav-link" data-scroll-target="#practice-georeference-satino"><span class="header-section-number">8.4.1</span> Практика в Сатино</a></li>
+  <li><a href="#practice-georeference-chashnikovo" id="toc-practice-georeference-chashnikovo" class="nav-link" data-scroll-target="#practice-georeference-chashnikovo"><span class="header-section-number">8.4.2</span> Практика в Чашниково</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/IOWq750/Topography/edit/main/practice.qmd" class="toc-action"><i class="bi bi-github"></i>Редактировать страницу</a></li><li><a href="https://github.com/IOWq750/Topography/issues/new" class="toc-action"><i class="bi empty"></i>Сообщить о проблеме</a></li></ul></div></nav>
@@ -666,20 +664,199 @@ ul.task-list li input[type="checkbox"] {
 <section id="practice-georeference" class="level2" data-number="8.4">
 <h2 data-number="8.4" class="anchored" data-anchor-id="practice-georeference"><span class="header-section-number">8.4</span> Привязка и дешифрирование космического снимка</h2>
 <p><a href="#practice">В начало справки ⇡</a></p>
-<section id="practice-georeference-data" class="level3" data-number="8.4.1">
-<h3 data-number="8.4.1" class="anchored" data-anchor-id="practice-georeference-data"><span class="header-section-number">8.4.1</span> Исходные данные</h3>
+<section id="practice-georeference-satino" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="practice-georeference-satino"><span class="header-section-number">8.4.1</span> Практика в Сатино</h3>
+<section id="practice-georeference-satino-data" class="level4" data-number="8.4.1.1">
+<h4 data-number="8.4.1.1" class="anchored" data-anchor-id="practice-georeference-satino-data"><span class="header-section-number">8.4.1.1</span> Исходные данные</h4>
+<p><a href="https://disk.yandex.ru/d/JpbVgjwZcqMyZA" target="_blank">Фрагменты космического снимка 2009 года на участки самостоятельного обследования</a></p>
+<p>Для выполнения работы потребуются:</p>
+<ul>
+<li>космический снимок 2009;</li>
+<li>путевые точки и треки, собранные во время полевых маршрутов;</li>
+<li>перечень объектов, которые необходимо показать по результатам дешифрирования;</li>
+<li>условные обозначения для оформления итоговой схемы;</li>
+<li>при необходимости — дополнительные материалы: полевые фотографии, абрисы и описания объектов.</li>
+</ul>
+<p>Перед началом работы создайте отдельный каталог проекта. Сохраните в нём исходный снимок и полевые материалы, затем создайте проект QGIS и базу пространственных данных формата <strong>GeoPackage</strong>. Используйте одну спроецированную систему координат для проекта, привязанного снимка и всех создаваемых векторных слоёв.</p>
+</section>
+<section id="practice-georeference-satino-reference" class="level4" data-number="8.4.1.2">
+<h4 data-number="8.4.1.2" class="anchored" data-anchor-id="practice-georeference-satino-reference"><span class="header-section-number">8.4.1.2</span> Привязка</h4>
+<p>Добавьте в проект путевые точки и треки, собранные во время полевых маршрутов. Проверьте, что они отображаются в правильной системе координат и соответствуют известным объектам местности. Полевые точки, используемые для привязки, должны быть однозначно различимы на космическом снимке: для этого подходят пересечения дорог и троп, углы строений, мосты, характерные изгибы русел и другие устойчивые объекты.</p>
+<p>Добавьте исходный космический снимок в проект и запустите модуль <strong>Layer – Georeferencer</strong> (<strong>Слои – Привязка растров…</strong>). Откройте снимок в окне привязки. Воспользуйтесь инструментом <strong>Add GCP Points</strong> для добавления наземной опорной точки.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Marking_GCP.png" class="img-fluid figure-img"></p>
+<figcaption>Установка опорных точек</figcaption>
+</figure>
+</div>
+<p>Расставьте не менее трёх опорных точек равномерно по всему снимку. Для каждой точки укажите координаты соответствующего объекта по полевым данным. Не размещайте точки на одной линии или только в одной части снимка: такая конфигурация ухудшает качество привязки.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Three_GCP.png" class="img-fluid figure-img"></p>
+<figcaption>Расставленные опорные точки и таблица невязок</figcaption>
+</figure>
+</div>
+<p>После расчёта преобразования проверьте невязки опорных точек. Точки с заметно большими невязками перепроверьте и при необходимости замените. Зайдите в настройки трансформации и задайте параметры. Для привязки снимка 2009 года используйте линейное преобразование. Целевая система координат должна совпадать с системой координат проекта и полевых данных (UTM 37N). Запустите трансформацию, нажав на кнопку <strong>Start georeferencing</strong> и добавьте привязанный снимок в проект.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Transformation_Settings_Linear.png" class="img-fluid figure-img"></p>
+<figcaption>Настройки трансформации</figcaption>
+</figure>
+</div>
+<p>Оцените результат, сопоставив снимок с полевыми точками, треками и доступной спутниковой подложкой. Сохраните проект после завершения проверки.</p>
+</section>
+<section id="practice-georeference-satino-vectorization" class="level4" data-number="8.4.1.3">
+<h4 data-number="8.4.1.3" class="anchored" data-anchor-id="practice-georeference-satino-vectorization"><span class="header-section-number">8.4.1.3</span> Векторизация</h4>
+<p>Векторизация — это отрисовка объектов по снимку в виде точек, линий и полигонов. Перед началом работы определите, какие объекты были обнаружены во время полевого обследования и какой тип геометрии подходит для каждого из них:</p>
+<ul>
+<li><strong>точками</strong> показывают отдельные небольшие объекты, положение которых важно, но площадь которых нельзя отобразить в масштабе схемы;</li>
+<li><strong>линиями</strong> показывают дороги, тропы, водотоки, просеки и другие протяжённые объекты;</li>
+<li><strong>полигонами</strong> показывают участки леса, луга, застройку, водоёмы и другие площадные объекты.</li>
+</ul>
+<p>Не следует помещать объекты разных типов геометрии в один слой. Например, дороги и участки леса должны находиться в разных слоях.</p>
+<p><strong>Создание базы данных и слоёв</strong></p>
+<p>Создайте одну базу пространственных данных <strong>GeoPackage</strong>, в которой будут храниться все результаты дешифрирования. Для создания первого слоя нажмите кнопку <strong>New GeoPackage Layer</strong> на панели менеджера источников данных или выберите <strong>Слой – Создать слой – Новый слой GeoPackage…</strong>.</p>
+<p>В открывшемся окне:</p>
+<ol type="1">
+<li>В поле <strong>Database</strong> укажите путь к новому файлу базы данных, например <code>satino.gpkg</code>.</li>
+<li>В поле <strong>Table name</strong> задайте короткое понятное имя слоя латинскими символами, например <code>roads</code>, <code>vegetation</code> или <code>objects</code>.</li>
+<li>В поле <strong>Geometry type</strong> выберите тип геометрии: точку, линию или полигон.</li>
+<li>Укажите систему координат <strong>WGS 84 / UTM zone 37N</strong> — ту же, которая использовалась для привязки снимка.</li>
+<li>Добавьте текстовые поля <code>type</code>, <code>source</code> и <code>comment</code>. В них можно хранить тип объекта, источник его определения и примечание.</li>
+<li>Нажмите <strong>OK</strong>.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Create_gpkg.png" class="img-fluid figure-img"></p>
+<figcaption>Окно создания слоя GeoPackage</figcaption>
+</figure>
+</div>
+<p>Для создания следующего слоя снова откройте окно <strong>New GeoPackage Layer</strong>, но в поле <strong>Database</strong> выберите уже созданный файл <code>satino.gpkg</code>. Задайте новое имя таблицы и подходящий тип геометрии. После создания слои появятся на панели <strong>Layers</strong>.</p>
+<blockquote class="blockquote">
+<p>Если панель <strong>Layers</strong> или <strong>Browser</strong> не отображается, включите её через меню <strong>Вид – Панели</strong> (<strong>View – Panels</strong>).</p>
+</blockquote>
+<p><strong>Создание объектов</strong></p>
+<p>Выделите нужный слой на панели <strong>Layers</strong> и включите режим редактирования кнопкой <img src="images/Practice/Edit.png" class="img-fluid">. После этого станет доступна кнопка добавления объекта. Её вид зависит от геометрии выбранного слоя: для точечного слоя это кнопка <img src="images/Practice/New_points.png" class="img-fluid">, для полигонального — <img src="images/Practice/New_polygon.png" class="img-fluid">.</p>
+<p>Для создания точки один раз щёлкните левой кнопкой мыши в нужном месте. Для создания линии или полигона последовательно ставьте вершины левой кнопкой мыши. Завершите линию или полигон щелчком правой кнопки мыши. После завершения объекта откроется форма атрибутов — заполните поля <code>type</code>, <code>source</code> и <code>comment</code>.</p>
+<p>При дешифрировании опирайтесь на форму, размер, цвет, текстуру, тени и взаимное расположение объектов. Обязательно сопоставляйте снимок с полевыми треками, точками, фотографиями и описаниями. Если объект нельзя определить уверенно, укажите это в поле <code>comment</code> и вернитесь к нему после проверки дополнительных материалов.</p>
+<p><strong>Исправление геометрии</strong></p>
+<p>Для исправления уже созданного объекта выделите его слой, включите режим редактирования и нажмите кнопку работы с вершинами <img src="images/Practice/Vertices.png" class="img-fluid">. Щёлкните по объекту: его вершины будут показаны кружками.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Polygon.png" class="img-fluid figure-img"></p>
+<figcaption>Полигон в режиме редактирования вершин</figcaption>
+</figure>
+</div>
+<p>В этом режиме можно:</p>
+<ul>
+<li>перетащить существующую вершину;</li>
+<li>добавить вершину, нажав на знак <code>+</code> в середине ребра;</li>
+<li>удалить выбранную вершину клавишей <strong>Delete</strong>;</li>
+<li>переместить ребро вместе с соседними вершинами.</li>
+</ul>
+<p>Не создавайте избыточное количество вершин. Контур должен передавать форму объекта, но его детализация должна соответствовать разрешению снимка и масштабу итоговой схемы.</p>
+<p><strong>Сопоставление границ соседних объектов</strong></p>
+<p>Если границы двух объектов должны точно совпадать, включите панель <strong>Snapping Toolbar</strong> через меню <strong>Вид – Панели инструментов</strong> (<strong>View – Toolbars</strong>) и активируйте прилипание кнопкой <img src="images/Practice/Snapping.png" class="img-fluid">. Прилипание помогает поставить новую вершину точно на существующую вершину или границу.</p>
+<p>Если значительную часть уже созданной границы необходимо повторить, включите инструмент трассировки <img src="images/Practice/Tracing.png" class="img-fluid">. Начните новый объект на существующей границе, проведите курсор вдоль неё и щёлкните в точке, где трассировку нужно закончить.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Tracing.gif" class="img-fluid figure-img"></p>
+<figcaption>Работа инструмента трассировки</figcaption>
+</figure>
+</div>
+<p><strong>Заполнение и проверка атрибутов</strong></p>
+<p>Чтобы проверить сведения об объектах, щёлкните по слою правой кнопкой мыши и выберите <strong>Open Attribute Table</strong> (<strong>Открыть таблицу атрибутов</strong>). Каждая строка таблицы соответствует одному объекту на карте. В режиме редактирования значения можно исправлять непосредственно в ячейках таблицы.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Vector/Attribute_table.gif" class="img-fluid figure-img"></p>
+<figcaption>Работа с атрибутивной таблицей</figcaption>
+</figure>
+</div>
+<p>Регулярно сохраняйте изменения кнопкой <img src="images/Practice/Save_edits.png" class="img-fluid">, а также сохраняйте сам проект кнопкой <img src="images/Practice/Save_Project.png" class="img-fluid">. Перед завершением векторизации проверьте:</p>
+<ul>
+<li>все ли обнаруженные объекты нанесены;</li>
+<li>заполнены ли атрибуты;</li>
+<li>не выходят ли контуры за границы дешифрируемых объектов;</li>
+<li>нет ли случайных разрывов, наложений и незамкнутых полигонов.</li>
+</ul>
+</section>
+<section id="practice-georeference-satino-design" class="level4" data-number="8.4.1.4">
+<h4 data-number="8.4.1.4" class="anchored" data-anchor-id="practice-georeference-satino-design"><span class="header-section-number">8.4.1.4</span> Оформление</h4>
+<p>После завершения векторизации настройте условные знаки и подписи. Объекты должны хорошо различаться между собой и оставаться читаемыми на фоне космического снимка.</p>
+<p><strong>Настройка символики слоя</strong></p>
+<p>Дважды щёлкните по слою на панели <strong>Layers</strong> и откройте вкладку <strong>Symbology</strong> (<strong>Символика</strong>). Для начала можно использовать тип отображения <strong>Single Symbol</strong> — один условный знак для всех объектов слоя. Щёлкните по образцу символа, чтобы открыть окно его настройки.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Symbol_selector.png" class="img-fluid figure-img"></p>
+<figcaption>Окно выбора параметров условного знака</figcaption>
+</figure>
+</div>
+<p>Для точечных объектов выберите форму маркера, его размер, цвет заливки и цвет обводки. Если нужен специальный топографический знак, выберите тип слоя символа <strong>SVG Marker</strong>, затем подходящее изображение из библиотеки SVG.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Svg_selection.png" class="img-fluid figure-img"></p>
+<figcaption>Выбор SVG-символа</figcaption>
+</figure>
+</div>
+<p>Для линейных объектов настройте цвет, толщину и начертание линии. Дороги разных типов, тропы и водотоки должны отличаться друг от друга. Учитывайте, что слишком тонкие линии могут исчезнуть после экспорта схемы в PDF.</p>
+<p>Для полигонов настройте заливку и обводку. Сплошная непрозрачная заливка закроет космический снимок, поэтому для большинства площадных объектов используйте прозрачную заливку, штриховку или заливку маркерами. Для заливки повторяющимися условными знаками выберите <strong>Point Pattern Fill</strong>, а затем замените простой маркер на <strong>SVG Marker</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/SVG_filling.png" class="img-fluid figure-img"></p>
+<figcaption>Настройка полигональной заливки SVG-символами</figcaption>
+</figure>
+</div>
+<p>Если в одном слое находятся объекты разных типов, выберите вместо <strong>Single Symbol</strong> режим <strong>Categorized</strong> (<strong>Категоризованный</strong>). В поле <strong>Value</strong> укажите атрибут <code>type</code>, нажмите <strong>Classify</strong>, затем настройте символ для каждой появившейся категории.</p>
+<blockquote class="blockquote">
+<p>После изменения символики нажимайте <strong>Apply</strong>, чтобы оценить результат на карте, не закрывая окно свойств слоя.</p>
+</blockquote>
+<p><strong>Настройка подписей</strong></p>
+<p>Подписывайте только те объекты, названия или характеристики которых нужны для понимания схемы. Дважды щёлкните по слою и откройте вкладку <strong>Labels</strong> (<strong>Подписи</strong>). Выберите <strong>Single Labels</strong>, а в поле <strong>Value</strong> укажите атрибут, содержащий текст подписи.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Labels.png" class="img-fluid figure-img"></p>
+<figcaption>Окно настройки подписей</figcaption>
+</figure>
+</div>
+<p>На вкладке <strong>Text</strong> настройте шрифт и размер. На вкладке <strong>Buffer</strong> включите светлый буфер вокруг текста: он помогает читать подписи на неоднородном фоне снимка. На вкладке <strong>Placement</strong> выберите положение подписи относительно точки, линии или полигона. После включения подписей приблизьте разные участки карты и убедитесь, что подписи не перекрывают важные объекты.</p>
+<p><strong>Настройка отображения космического снимка</strong></p>
+<p>Снимок должен оставаться видимым, но не мешать восприятию результатов дешифрирования. Дважды щёлкните по растровому слою и уменьшите его общую непрозрачность во вкладке <strong>Transparency</strong> (<strong>Прозрачность</strong>) или приглушите яркость и насыщенность во вкладке <strong>Symbology</strong>. Проверяйте результат вместе со всеми включёнными векторными слоями.</p>
+<p><strong>Создание итогового макета</strong></p>
+<p>Создайте макет через меню <strong>Проект – Создать макет</strong> (<strong>Project – New Print Layout</strong>). Введите имя макета. В открывшемся окне добавьте карту, название работы, легенду, масштабную линейку, стрелку севера и сведения об исполнителе.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Symbology/Map_elements.png" class="img-fluid figure-img"></p>
+<figcaption>Основные инструменты добавления элементов макета</figcaption>
+</figure>
+</div>
+<p>Сначала выберите инструмент добавления карты и растяните рамку карты на листе. Затем установите нужный охват и масштаб. Добавьте легенду и удалите из неё технические и вспомогательные слои, которые не должны быть показаны читателю. В подписи к карте укажите территорию практики, используемую систему координат и источник космического снимка.</p>
+<p>Перед экспортом проверьте:</p>
+<ul>
+<li>видны ли все результаты дешифрирования;</li>
+<li>различаются ли условные знаки;</li>
+<li>соответствует ли легенда содержанию карты;</li>
+<li>читаются ли подписи;</li>
+<li>присутствуют ли название, масштаб и сведения об исполнителе.</li>
+</ul>
+<p>Экспортируйте готовую схему в PDF через меню <strong>Макет – Экспорт в PDF</strong> (<strong>Layout – Export as PDF</strong>). Сохраните проект QGIS и убедитесь, что рядом с ним сохранена база <code>satino.gpkg</code>.</p>
+</section>
+</section>
+<section id="practice-georeference-chashnikovo" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="practice-georeference-chashnikovo"><span class="header-section-number">8.4.2</span> Практика в Чашниково</h3>
+<section id="practice-georeference-data" class="level4" data-number="8.4.2.1">
+<h4 data-number="8.4.2.1" class="anchored" data-anchor-id="practice-georeference-data"><span class="header-section-number">8.4.2.1</span> Исходные данные</h4>
 <p><a href="https://disk.yandex.ru/i/7a93zQEgNnI4dA" target="_blank">Снимок Keyhole 1973 года для привязки по наземным опорным точкам</a></p>
 <p>Снимки для дешифрирования</p>
 <p><a href="https://disk.yandex.ru/i/bIn38XOCT92FXA" target="_blank">Снимок Digital Globe 2018 года. Участок 1</a></p>
 <p><a href="https://disk.yandex.ru/i/_VykXwJloU-0yA" target="_blank">Снимок Digital Globe 2018 года. Участок 2</a></p>
 <p><a href="https://disk.yandex.ru/i/D0-eTUvb3eX_1w" target="_blank">Снимок Digital Globe 2018 года. Участок 3</a></p>
 </section>
-<section id="practice-georeference-gpx" class="level3" data-number="8.4.2">
-<h3 data-number="8.4.2" class="anchored" data-anchor-id="practice-georeference-gpx"><span class="header-section-number">8.4.2</span> Сброс данных со спутниковых навигаторов</h3>
+<section id="practice-georeference-gpx" class="level4" data-number="8.4.2.2">
+<h4 data-number="8.4.2.2" class="anchored" data-anchor-id="practice-georeference-gpx"><span class="header-section-number">8.4.2.2</span> Сброс данных со спутниковых навигаторов</h4>
 <p>Для сброса данных со спутниковых навигаторов подключите их через интерфейс mini usb к компьютеру. Откроется окно проводника <strong>Garmin</strong>. Зайдите в папку <strong>GPX</strong> и скопируйте путевые точки. Из папки <strong>Current</strong> скопируйте текущий трек.</p>
 </section>
-<section id="practice-georeference-gcp" class="level3" data-number="8.4.3">
-<h3 data-number="8.4.3" class="anchored" data-anchor-id="practice-georeference-gcp"><span class="header-section-number">8.4.3</span> Привязка по наземным опорным точкам</h3>
+<section id="practice-georeference-gcp" class="level4" data-number="8.4.2.3">
+<h4 data-number="8.4.2.3" class="anchored" data-anchor-id="practice-georeference-gcp"><span class="header-section-number">8.4.2.3</span> Привязка по наземным опорным точкам</h4>
 <p>Добавьте снимок в проект, нажав на кнопку <img src="images/Practice/Open_raster.png" class="img-fluid">. Поскольку добавленный снимок на данный момент не привязан, справа от слоя в таблице слоёв вы увидите знак вопроса.</p>
 <blockquote class="blockquote">
 <p>Если вы не видите снимок, то, вероятно, он расположился где-то за пределами вашего экрана. Чтобы увидеть его, нажмите правой кнопкой мыши по слою и выберете <strong>Zoom to Layer</strong> (<strong>Увеличить до слоя</strong>). Обратите внимание на значения координат и масштаб внизу окна. Что они могут означать?</p>
@@ -723,8 +900,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Зайдите в <strong>Модули – Управление и установка модулей…</strong> и вбейте в поиск <strong>MapSwipe Tool</strong>. После этого появится панель шторки.</p>
 <p>Выберите слой, который будет активен в режиме шторки (будет находиться под шторкой) и нажмите на кнопку <img src="images/Practice/Swipe_button.png" class="img-fluid">.</p>
 </section>
-<section id="practice-georeference-interpretation" class="level3" data-number="8.4.4">
-<h3 data-number="8.4.4" class="anchored" data-anchor-id="practice-georeference-interpretation"><span class="header-section-number">8.4.4</span> Дешифрирование снимка</h3>
+<section id="practice-georeference-interpretation" class="level4" data-number="8.4.2.4">
+<h4 data-number="8.4.2.4" class="anchored" data-anchor-id="practice-georeference-interpretation"><span class="header-section-number">8.4.2.4</span> Дешифрирование снимка</h4>
 <p>Для дешифрирования космических снимков необходимо осуществить их привязку. В случае с современными космическими снимками это можно сделать на основе подложки картографических веб-сервисов.</p>
 <p>Для привязки данных дистанционного зондирования в QGIS можно использовать WMS-сервис с мозаикой спутниковых снимков. Для включения мозаики зайдите в меню <strong>Модули – Управление и установка модулей…</strong>. Впишите в строку поиска <strong>QuickMapServices</strong>. Установите модуль.</p>
 <p>Откроется окно модуля. В окне поиска геосервиса введите <strong>Google satelite</strong> или какой-либо еще картографический веб-сервис со спутниковой подложкой. Нажмите <strong>Добавить</strong>.</p>
@@ -743,6 +920,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 
 
+</section>
 </section>
 </section>
 
