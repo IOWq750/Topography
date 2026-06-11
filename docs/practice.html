@@ -719,10 +719,10 @@ ul.task-list li input[type="checkbox"] {
 <p>В открывшемся окне:</p>
 <ol type="1">
 <li>В поле <strong>Database</strong> укажите путь к новому файлу базы данных, например <code>satino.gpkg</code>.</li>
-<li>В поле <strong>Table name</strong> задайте короткое понятное имя слоя латинскими символами, например <code>roads</code>, <code>vegetation</code> или <code>objects</code>.</li>
+<li>В поле <strong>Table name</strong> задайте короткое понятное имя слоя латинскими символами, например <code>roads</code>, <code>vegetation</code> и т.п.</li>
 <li>В поле <strong>Geometry type</strong> выберите тип геометрии: точку, линию или полигон.</li>
 <li>Укажите систему координат <strong>WGS 84 / UTM zone 37N</strong> — ту же, которая использовалась для привязки снимка.</li>
-<li>Добавьте текстовые поля <code>type</code>, <code>source</code> и <code>comment</code>. В них можно хранить тип объекта, источник его определения и примечание.</li>
+<li>Добавьте текстовые поля <code>type</code>, <code>source</code> или иные. В них можно хранить тип объекта, источник его определения и примечание.</li>
 <li>Нажмите <strong>OK</strong>.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -731,20 +731,32 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Окно создания слоя GeoPackage</figcaption>
 </figure>
 </div>
-<p>Для создания следующего слоя снова откройте окно <strong>New GeoPackage Layer</strong>, но в поле <strong>Database</strong> выберите уже созданный файл <code>satino.gpkg</code>. Задайте новое имя таблицы и подходящий тип геометрии. После создания слои появятся на панели <strong>Layers</strong>.</p>
+<p>Для создания следующего слоя снова откройте окно <strong>New GeoPackage Layer</strong>, но в поле <strong>Database</strong> выберите уже созданный файл <code>satino.gpkg</code> (слои следует хранить в одной базе данных). Задайте новое имя таблицы и подходящий тип геометрии. После создания слои появятся на панели <strong>Layers</strong>. То же самое можно сделать через окно Браузера, найдя там файл базы данных, щёлкнув по нему правой кнопкой мыши и выбрав <strong>New – Layer</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/Table_Creation.png" class="img-fluid figure-img"></p>
+<figcaption>Окно создания слоя GeoPackage</figcaption>
+</figure>
+</div>
 <blockquote class="blockquote">
 <p>Если панель <strong>Layers</strong> или <strong>Browser</strong> не отображается, включите её через меню <strong>Вид – Панели</strong> (<strong>View – Panels</strong>).</p>
 </blockquote>
 <p><strong>Создание объектов</strong></p>
 <p>Выделите нужный слой на панели <strong>Layers</strong> и включите режим редактирования кнопкой <img src="images/Practice/Edit.png" class="img-fluid">. После этого станет доступна кнопка добавления объекта. Её вид зависит от геометрии выбранного слоя: для точечного слоя это кнопка <img src="images/Practice/New_points.png" class="img-fluid">, для полигонального — <img src="images/Practice/New_polygon.png" class="img-fluid">.</p>
-<p>Для создания точки один раз щёлкните левой кнопкой мыши в нужном месте. Для создания линии или полигона последовательно ставьте вершины левой кнопкой мыши. Завершите линию или полигон щелчком правой кнопки мыши. После завершения объекта откроется форма атрибутов — заполните поля <code>type</code>, <code>source</code> и <code>comment</code>.</p>
-<p>При дешифрировании опирайтесь на форму, размер, цвет, текстуру, тени и взаимное расположение объектов. Обязательно сопоставляйте снимок с полевыми треками, точками, фотографиями и описаниями. Если объект нельзя определить уверенно, укажите это в поле <code>comment</code> и вернитесь к нему после проверки дополнительных материалов.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Practice/New_Road.gif" class="img-fluid figure-img"></p>
+<figcaption>Окно создания слоя GeoPackage</figcaption>
+</figure>
+</div>
+<p>Для создания точки один раз щёлкните левой кнопкой мыши в нужном месте. Для создания линии или полигона последовательно ставьте вершины левой кнопкой мыши. Завершите линию или полигон щелчком правой кнопки мыши. После завершения объекта откроется форма атрибутов — заполните соответствующие поля.</p>
+<p>При дешифрировании опирайтесь на форму, размер, цвет, текстуру, тени и взаимное расположение объектов</p>
 <p><strong>Исправление геометрии</strong></p>
 <p>Для исправления уже созданного объекта выделите его слой, включите режим редактирования и нажмите кнопку работы с вершинами <img src="images/Practice/Vertices.png" class="img-fluid">. Щёлкните по объекту: его вершины будут показаны кружками.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Practice/Polygon.png" class="img-fluid figure-img"></p>
-<figcaption>Полигон в режиме редактирования вершин</figcaption>
+<p><img src="images/Practice/Edit_Vertices.gif" class="img-fluid figure-img"></p>
+<figcaption>Режим редактирования вершин</figcaption>
 </figure>
 </div>
 <p>В этом режиме можно:</p>
@@ -768,7 +780,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Чтобы проверить сведения об объектах, щёлкните по слою правой кнопкой мыши и выберите <strong>Open Attribute Table</strong> (<strong>Открыть таблицу атрибутов</strong>). Каждая строка таблицы соответствует одному объекту на карте. В режиме редактирования значения можно исправлять непосредственно в ячейках таблицы.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/Vector/Attribute_table.gif" class="img-fluid figure-img"></p>
+<p><img src="images/Practice/Table_Selection.gif" class="img-fluid figure-img"></p>
 <figcaption>Работа с атрибутивной таблицей</figcaption>
 </figure>
 </div>
@@ -829,7 +841,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption>Основные инструменты добавления элементов макета</figcaption>
 </figure>
 </div>
-<p>Сначала выберите инструмент добавления карты и растяните рамку карты на листе. Затем установите нужный охват и масштаб. Добавьте легенду и удалите из неё технические и вспомогательные слои, которые не должны быть показаны читателю. В подписи к карте укажите территорию практики, используемую систему координат и источник космического снимка.</p>
+<p>Сначала выберите инструмент добавления карты и растяните рамку карты на листе. Затем установите нужный охват и масштаб. Добавьте легенду и удалите из неё технические и вспомогательные слои, которые не должны быть показаны читателю.</p>
 <p>Перед экспортом проверьте:</p>
 <ul>
 <li>видны ли все результаты дешифрирования;</li>
@@ -838,7 +850,7 @@ ul.task-list li input[type="checkbox"] {
 <li>читаются ли подписи;</li>
 <li>присутствуют ли название, масштаб и сведения об исполнителе.</li>
 </ul>
-<p>Экспортируйте готовую схему в PDF через меню <strong>Макет – Экспорт в PDF</strong> (<strong>Layout – Export as PDF</strong>). Сохраните проект QGIS и убедитесь, что рядом с ним сохранена база <code>satino.gpkg</code>.</p>
+<p>Экспортируйте готовую схему в PDF через меню <strong>Макет – Экспорт в PDF</strong> (<strong>Layout – Export as PDF</strong>) или <strong>Макет – Экспорт в PNG</strong> (<strong>Layout – Export as PNG</strong>). Сохраните проект QGIS и убедитесь, что рядом с ним сохранена база <code>satino.gpkg</code>.</p>
 </section>
 </section>
 <section id="practice-georeference-chashnikovo" class="level3" data-number="8.4.2">
