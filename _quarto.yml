@@ -1,0 +1,47 @@
+project:
+  type: book
+  output-dir: docs
+
+lang: ru
+
+book:
+  title: "Топография с основами картографии"
+  author: "Карпачевский А.М."
+  description: "Справочные материалы и практические руководства по использованию QGIS в курсе топографии."
+  site-url: https://iowq750.github.io/Topography/
+  repo-url: https://github.com/IOWq750/Topography
+  repo-actions: [edit, issue]
+  search: true
+  downloads: [pdf, epub]
+  favicon: images/favicon.ico
+  output-file: topography-course
+  chapters:
+    - index.qmd
+    - coordinates.qmd
+    - interpretation.qmd
+    - stereo.qmd
+    - georeference.qmd
+    - digitize.qmd
+    - symbols.qmd
+    - practice.qmd
+
+bibliography:
+  - book.bib
+  - packages.bib
+
+format:
+  html:
+    theme: cosmo
+    css: style.css
+    toc: true
+    toc-depth: 3
+    code-copy: true
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: xelatex
+    mainfont: "DejaVu Serif"
+    keep-tex: true
+  epub: default
+
+execute:
+  freeze: auto

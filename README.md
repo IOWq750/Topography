@@ -1,1 +1,25 @@
-Help information and practical guides describing the use of the QGIS in cartography course for students of Geography faculty, Lomonosov Moscow State University.
+# Топография с основами картографии
+
+Справочные материалы и практические руководства по использованию QGIS в курсе
+топографии для студентов географического факультета МГУ имени М.В. Ломоносова.
+
+Проект собран как книга [Quarto](https://quarto.org/).
+
+## Локальная сборка
+
+```powershell
+quarto preview
+```
+
+Полная сборка HTML, PDF и EPUB:
+
+```powershell
+quarto render
+```
+
+HTML-версия создаётся в каталоге `docs/`. При отправке изменений в ветку `main`
+GitHub Actions автоматически собирает книгу и публикует её в ветку `gh-pages`.
+
+Для первой публикации в настройках репозитория выберите:
+`Settings` → `Pages` → `Source` → `Deploy from a branch`, затем ветку
+`gh-pages` и каталог `/ (root)`.
