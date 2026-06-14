@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: docs
+  resources:
+    - georesect/**
 
 lang: ru
 
@@ -24,6 +26,7 @@ book:
     - digitize.qmd
     - symbols.qmd
     - practice.qmd
+    - resections.qmd
 
 bibliography:
   - book.bib

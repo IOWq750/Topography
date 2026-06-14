@@ -5,3 +5,10 @@
 
 /.quarto/
 **/*.quarto_ipynb
+
+# Quarto build outputs added by the GeoResect section are published by CI.
+/docs/georesect/
+/docs/resections.html
+/docs/robots.txt
+/docs/search.json
+/docs/sitemap.xml
