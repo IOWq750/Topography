@@ -18,11 +18,10 @@ quarto render
 ```
 
 HTML-версия создаётся в каталоге `docs/`. При отправке изменений в ветку `main`
-GitHub Actions автоматически собирает книгу и публикует её в ветку `gh-pages`.
+GitHub Actions автоматически собирает книгу и публикует её через GitHub Pages.
 
 Веб-приложение GeoResect хранится в каталоге `georesect/` и публикуется как
 отдельный раздел сайта по адресу `/Topography/georesect/`.
 
 Для первой публикации в настройках репозитория выберите:
-`Settings` → `Pages` → `Source` → `Deploy from a branch`, затем ветку
-`gh-pages` и каталог `/ (root)`.
+`Settings` → `Pages` → `Source` → `GitHub Actions`.
