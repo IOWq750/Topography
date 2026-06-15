@@ -7,7 +7,7 @@ project:
 lang: ru
 
 book:
-  title: "Топография с основами картографии"
+  title: "Топография с основами геодезии"
   author: "Карпачевский А.М."
   description: "Справочные материалы и практические руководства по использованию QGIS в курсе топографии."
   site-url: https://iowq750.github.io/Topography/
