@@ -182,6 +182,7 @@ function renderObservations() {
 function renderCatalog() {
   const query = state.catalogQuery.trim().toLocaleLowerCase("ru");
   const visible = state.points.filter((point) => point.name.toLocaleLowerCase("ru").includes(query));
+  document.querySelector("#catalog-search").value = state.catalogQuery;
   document.querySelector("#point-total").textContent = state.points.length;
   document.querySelector("#coordinate-system").value = state.activeSystem;
   document.querySelector("#catalog-title").textContent = `Каталог реперов · ${coordinateSystems[state.activeSystem].name}`;
@@ -389,9 +390,15 @@ document.addEventListener("click", (event) => {
   }
   if (event.target.closest("#close-catalog") || event.target.id === "scrim") toggleCatalog(false);
   if (event.target.closest("#add-point")) {
-    state.points.push({ id: crypto.randomUUID(), name: `Новый пункт ${state.points.length + 1}`, x: 0, y: 0, h: 0 });
+    const point = { id: crypto.randomUUID(), name: `Новый пункт ${state.points.length + 1}`, x: 0, y: 0, h: 0 };
+    state.points.unshift(point);
+    state.catalogQuery = "";
     saveState();
     renderCatalog(); renderObservations();
+    const nameInput = document.querySelector(`[data-catalog="${point.id}:name"]`);
+    nameInput?.scrollIntoView({ block: "center" });
+    nameInput?.focus();
+    nameInput?.select();
   }
   const id = event.target.dataset.delete;
   if (id && state.points.length > 4) {
