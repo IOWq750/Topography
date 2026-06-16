@@ -1,5 +1,6 @@
 import { addHeightsToSolutions, degreesToDms, diagnoseInfluence, dmsToDegrees, solveAllCombinations } from "./solver.js?v=6";
 import { benchmarkDatabase } from "./benchmarks.js";
+import { downloadReport } from "./report.js?v=2";
 
 const mapRaster = {
   width: 14208,
@@ -33,6 +34,29 @@ const coordinateSystems = {
 const createUtmPoints = () => Array.from({ length: 4 }, (_, index) => ({
   id: crypto.randomUUID(), name: `UTM пункт ${index + 1}`, x: 0, y: 0, h: 0, hrep: 0
 }));
+const utmPointDatabase = [
+  ["Итуруп", 6213015.384, 386545.623, 198.674, 0],
+  ["Лаплас", 6213464.508, 386471.874, 199.332, 0],
+  ["Пруд", 6213054.837, 386016.414, 202.523, 0],
+  ["Вега", 6212865.506, 386160.522, 201.101, 0],
+  ["Фрейя", 6213184.583, 386060.177, 201.557, 0],
+  ["Эридан", 6213048.907, 386167.974, 199.925, 0],
+  ["Бессель", 6212341.838, 385930.704, 221.877, 0],
+  ["Сигма", 6212700.287, 385865.019, 221.576, 0],
+  ["База", 6211774.023, 385680.76, 231.765, 0],
+  ["Лямбда2", 6212203.484, 385755.692, 220.94, 0],
+  ["Осирис", 6213289.155, 386313.066, 199.624, 0],
+  ["Картоха", 6212529.269, 385536.007, 217.819, 0],
+  ["Ольха", 6212284.4, 386347.332, 217.663, 0],
+  ["Аллея", 6211809.445, 385753.326, 231.112, 0],
+  ["Бали", 6212633.126, 386182.79, 202.494, 0],
+  ["Пекарь", 6212749.752, 386150.076, 201.84, 0],
+  ["Гамма", 6212566.997, 386850.024, 198.705, 0],
+  ["Эльзас", 6212785.342, 386826.427, 199.054, 0],
+  ["Время", 6209921.414, 388640.223, 0, 0],
+  ["ЛПУМГ", 6210562.585, 386507.432, 0, 0],
+  ["Метеостанция", 6211991.04, 385692.823, 0, 0]
+].map(([name, x, y, h, hrep]) => ({ id: crypto.randomUUID(), name, x, y, h, hrep }));
 const createWorkspace = (points, selectedIds, directions = initialDirections) => ({
   points,
   selectedIds,
@@ -43,7 +67,7 @@ const createWorkspace = (points, selectedIds, directions = initialDirections) =>
   instrumentHeight: 0,
   verticals: Array.from({ length: 4 }, () => ({ sign: 1, degrees: 0, minutes: 0, seconds: 0, targetHeight: 0 }))
 });
-const initialUtmPoints = createUtmPoints();
+const initialUtmPoints = structuredClone(utmPointDatabase);
 const defaultState = {
   activeSystem: "msk40",
   catalogs: {
@@ -53,6 +77,10 @@ const defaultState = {
   result: null,
   catalogQuery: ""
 };
+const isLegacyUtmPlaceholder = (workspace) =>
+  workspace?.points?.length === 4 && workspace.points.every((point) =>
+    point.name?.startsWith("UTM ") && point.x === 0 && point.y === 0 && point.h === 0
+  );
 const loadWorkspace = (workspace) => Object.assign(state, structuredClone(workspace), { result: null, catalogQuery: "" });
 const storeWorkspace = () => {
   state.catalogs[state.activeSystem] = structuredClone({
@@ -72,6 +100,9 @@ function loadState() {
         result: null,
         catalogQuery: ""
       };
+      if (isLegacyUtmPlaceholder(loaded.catalogs.utm37n)) {
+        loaded.catalogs.utm37n = structuredClone(defaultState.catalogs.utm37n);
+      }
       return { ...loaded, ...structuredClone(loaded.catalogs[loaded.activeSystem]) };
     }
     if (!saved?.points?.length || saved.selectedIds?.length !== 4 || saved.directions?.length !== 4) {
@@ -113,7 +144,7 @@ app.innerHTML = `
       </section>
 
       <section class="control-block result-block" id="results">
-        <div class="block-title"><div><span>02</span><h2>Результат</h2></div><div class="quality" id="quality">Не рассчитано</div></div>
+        <div class="block-title"><div><span>02</span><h2>Результат</h2></div><div class="result-actions"><div class="quality" id="quality">Не рассчитано</div><button class="ghost report-button" id="download-report" disabled>Отчёт Word</button></div></div>
         <div class="summary-cards" id="summary-cards"></div>
         <div class="diagnostics" id="diagnostics"></div>
         <div class="solutions" id="solutions"></div>
@@ -246,6 +277,7 @@ function renderResults() {
   const diagnostics = document.querySelector("#diagnostics");
   const solutions = document.querySelector("#solutions");
   const quality = document.querySelector("#quality");
+  document.querySelector("#download-report").disabled = !state.result?.summary;
   if (!state.result?.summary) {
     quality.className = "quality";
     quality.textContent = "Не рассчитано";
@@ -348,6 +380,27 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("click", (event) => {
+  if (event.target.closest("#download-report") && state.result?.summary) {
+    const button = document.querySelector("#download-report");
+    button.disabled = true;
+    button.textContent = "Создание…";
+    downloadReport({
+      state,
+      rows: getRows(),
+      systemName: coordinateSystems[state.activeSystem].name,
+      measurements: state.directions,
+      directions: getDirections(),
+      verticals: state.verticals,
+      influence: diagnoseInfluence(state.result, getRows()),
+      svg: document.querySelector("#scheme")
+    }).catch((error) => {
+      console.error(error);
+      document.querySelector("#validation").textContent = "Не удалось создать Word-отчёт.";
+    }).finally(() => {
+      button.disabled = false;
+      button.textContent = "Отчёт Word";
+    });
+  }
   if (event.target.closest("#calculate")) {
     const validation = document.querySelector("#validation");
     if (new Set(state.selectedIds).size !== 4) { validation.textContent = "Выберите четыре разных пункта."; return; }
