@@ -72,7 +72,7 @@ const defaultState = {
   activeSystem: "msk40",
   catalogs: {
     msk40: createWorkspace(structuredClone(initialPoints), initialSelectedPoints.map(({ id }) => id)),
-    utm37n: createWorkspace(initialUtmPoints, initialUtmPoints.map(({ id }) => id))
+    utm37n: createWorkspace(initialUtmPoints, initialUtmPoints.slice(0, 4).map(({ id }) => id))
   },
   result: null,
   catalogQuery: ""
@@ -81,6 +81,11 @@ const isLegacyUtmPlaceholder = (workspace) =>
   workspace?.points?.length === 4 && workspace.points.every((point) =>
     point.name?.startsWith("UTM ") && point.x === 0 && point.y === 0 && point.h === 0
   );
+const shouldUseDefaultUtmCatalog = (workspace) =>
+  !workspace?.points?.some((point) => point.name === "Итуруп") ||
+  workspace?.selectedIds?.length !== 4 ||
+  workspace?.directions?.length !== 4 ||
+  isLegacyUtmPlaceholder(workspace);
 const loadWorkspace = (workspace) => Object.assign(state, structuredClone(workspace), { result: null, catalogQuery: "" });
 const storeWorkspace = () => {
   state.catalogs[state.activeSystem] = structuredClone({
@@ -100,7 +105,7 @@ function loadState() {
         result: null,
         catalogQuery: ""
       };
-      if (isLegacyUtmPlaceholder(loaded.catalogs.utm37n)) {
+      if (shouldUseDefaultUtmCatalog(loaded.catalogs.utm37n)) {
         loaded.catalogs.utm37n = structuredClone(defaultState.catalogs.utm37n);
       }
       return { ...loaded, ...structuredClone(loaded.catalogs[loaded.activeSystem]) };
@@ -303,14 +308,18 @@ function toggleCatalog(open) {
   document.querySelector("#catalog").classList.toggle("open", open);
   document.querySelector("#scrim").classList.toggle("open", open);
 }
+function switchCoordinateSystem(systemId) {
+  if (!coordinateSystems[systemId] || systemId === state.activeSystem) return;
+  storeWorkspace();
+  state.activeSystem = systemId;
+  loadWorkspace(state.catalogs[state.activeSystem]);
+  saveState();
+  renderAll();
+}
 
 document.addEventListener("change", (event) => {
   if (event.target.id === "coordinate-system") {
-    storeWorkspace();
-    state.activeSystem = event.target.value;
-    loadWorkspace(state.catalogs[state.activeSystem]);
-    saveState();
-    renderAll();
+    switchCoordinateSystem(event.target.value);
   }
   if (event.target.id === "vertical-enabled") {
     state.verticalEnabled = event.target.checked;
@@ -353,6 +362,9 @@ document.addEventListener("change", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.id === "coordinate-system") {
+    switchCoordinateSystem(event.target.value);
+  }
   if (event.target.id === "instrument-height") {
     state.instrumentHeight = Number(event.target.value);
     state.result = null;
