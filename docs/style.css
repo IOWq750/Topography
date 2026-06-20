@@ -28,3 +28,32 @@ kbd {
   margin: 3px;
   font-family: "Menlo", "Monaco", "Consolas", "Courier New", monospace;
 }
+.coordinate-trainer-embed {
+  width: 100%;
+  height: min(900px, calc(100vh - 80px));
+  min-height: 680px;
+  margin: 1rem 0 2rem;
+  border: 1px solid #c8b895;
+  background: #ebe1ce;
+  box-shadow: 0 8px 24px rgba(36, 28, 15, 0.12);
+}
+
+.coordinate-trainer-embed iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.coordinate-trainer-embed > p {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .coordinate-trainer-embed {
+    height: 900px;
+    min-height: 0;
+  }
+}

@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тренажер измерений по топографической карте</title>
+    <link rel="stylesheet" href="styles.css?v=6">
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <div>
+            <h1>Тренажер измерений по карте</h1>
+            <p>Линейка и транспортир поверх скана, без подсказки координат курсора</p>
+          </div>
+        </div>
+        <div class="toolbar" aria-label="Инструменты">
+          <button class="tool-button active" type="button" data-action="toggle-ruler" title="Линейка">
+            <span class="icon">⌁</span>
+            <span>Линейка</span>
+          </button>
+          <button class="tool-button active" type="button" data-action="toggle-protractor" title="Транспортир">
+            <span class="icon">◠</span>
+            <span>Транспортир</span>
+          </button>
+          <button class="tool-button" type="button" data-action="add-pin" title="Добавить учебную точку">
+            <span class="icon">＋</span>
+            <span>Точка</span>
+          </button>
+          <button class="icon-button" type="button" data-action="reset-view" title="Вписать карту">⛶</button>
+          <button class="icon-button" type="button" data-action="reset-tools" title="Сбросить инструменты">↺</button>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <aside class="panel">
+          <section>
+            <h2>Карта</h2>
+            <label class="control">
+              <span>Масштаб просмотра</span>
+              <input id="zoom" type="range" min="0.18" max="2.8" step="0.01" value="0.36">
+            </label>
+          </section>
+
+          <section>
+            <h2>Линейка</h2>
+            <label class="control">
+              <span>Длина на карте</span>
+              <input id="rulerLength" type="range" min="200" max="8000" step="100" value="2400">
+            </label>
+            <label class="control">
+              <span>Прозрачность</span>
+              <input id="rulerOpacity" type="range" min="0.25" max="0.9" step="0.01" value="0.72">
+            </label>
+            <div class="readout">
+              <span>Длина линейки</span>
+              <strong id="rulerCalibration">1 см = 100 м</strong>
+            </div>
+            <div class="readout">
+              <span>Угол линейки</span>
+              <strong id="rulerAngle">0°</strong>
+            </div>
+          </section>
+
+          <section>
+            <h2>Транспортир</h2>
+            <label class="control">
+              <span>Размер</span>
+              <input id="protractorSize" type="range" min="260" max="620" step="10" value="430">
+            </label>
+            <label class="control checkbox">
+              <input id="mirrorProtractor" type="checkbox">
+              <span>Развернуть шкалу</span>
+            </label>
+            <div class="readout">
+              <span>Поворот</span>
+              <strong id="protractorAngle">0°</strong>
+            </div>
+          </section>
+
+          <section>
+            <h2>Учебные точки</h2>
+            <p class="hint">Нажмите “Точка”, затем поставьте метку на карте. Координаты не раскрываются: задача ученика измерить их инструментами.</p>
+            <button class="wide-button" type="button" data-action="clear-pins">Очистить точки</button>
+          </section>
+        </aside>
+
+        <section class="stage" id="stage" aria-label="Рабочее поле карты">
+          <div class="map-layer" id="mapLayer">
+            <img id="mapImage" src="assets/map.jpg" alt="Скан топографической карты У-34-37-В-в-4">
+          </div>
+          <div class="pin-layer" id="pinLayer" aria-hidden="true"></div>
+
+          <div class="instrument ruler" id="ruler" data-tool="ruler" aria-label="Интерактивная линейка">
+            <div class="drag-zone" data-drag="move"></div>
+            <div class="ruler-scale" id="rulerScale"></div>
+            <div class="ruler-edge"></div>
+            <button class="handle move" type="button" data-drag="move" title="Переместить">✥</button>
+            <button class="handle rotate" type="button" data-drag="rotate" title="Повернуть">↻</button>
+          </div>
+
+          <div class="instrument protractor" id="protractor" data-tool="protractor" aria-label="Интерактивный транспортир">
+            <canvas id="protractorCanvas" width="860" height="430"></canvas>
+            <div class="protractor-baseline"></div>
+            <div class="protractor-vertex" aria-hidden="true"></div>
+            <button class="handle move" type="button" data-drag="move" title="Переместить">✥</button>
+            <button class="handle rotate" type="button" data-drag="rotate" title="Повернуть">↻</button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js?v=6"></script>
+  </body>
+</html>

@@ -22,6 +22,28 @@ title: "Координаты на топографической карте"
 
 [Онлайн-вьюер](https://autode.sk/31q2BNi){target="_blank"}
 
+## Интерактивный тренажер {#coordinates-trainer}
+[В начало справки ⇡](#coordinates)
+
+Тренажер позволяет работать со сканом карты привычными ручными
+инструментами: масштабной линейкой и транспортиром. Координаты курсора не
+показываются, поэтому измерения выполняются так же, как на бумажном листе.
+
+[Открыть тренажер в отдельной вкладке](coordinate-trainer/index.html){.btn .btn-primary target="_blank"}
+
+::: {.content-visible when-format="html"}
+::: {.column-page}
+<div class="coordinate-trainer-embed">
+  <iframe
+    src="coordinate-trainer/index.html"
+    title="Тренажер измерений по топографической карте"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</div>
+:::
+:::
+
 ## Цель работы {#coordinates-task}
 [В начало справки ⇡](#coordinates)
 
