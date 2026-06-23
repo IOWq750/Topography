@@ -55,7 +55,8 @@ const utmPointDatabase = [
   ["Эльзас", 6212785.342, 386826.427, 199.054, 0],
   ["Время", 6209921.414, 388640.223, 0, 0],
   ["ЛПУМГ", 6210562.585, 386507.432, 0, 0],
-  ["Метеостанция", 6211991.04, 385692.823, 0, 0]
+  ["Метеостанция", 6211991.04, 385692.823, 0, 0],
+  ["Липа", 6212088.254, 385861.533, 0, 0]
 ].map(([name, x, y, h, hrep]) => ({ id: crypto.randomUUID(), name, x, y, h, hrep }));
 const createWorkspace = (points, selectedIds, directions = initialDirections) => ({
   points,
@@ -83,6 +84,7 @@ const isLegacyUtmPlaceholder = (workspace) =>
   );
 const shouldUseDefaultUtmCatalog = (workspace) =>
   !workspace?.points?.some((point) => point.name === "Итуруп") ||
+  !workspace?.points?.some((point) => point.name === "Липа") ||
   workspace?.selectedIds?.length !== 4 ||
   workspace?.directions?.length !== 4 ||
   isLegacyUtmPlaceholder(workspace);
