@@ -276,7 +276,7 @@ function renderScheme() {
     const end = { x: station.x + Math.cos(endAngle) * radius, y: station.y + Math.sin(endAngle) * radius };
     const middle = startAngle + (sweep ? 1 : -1) * angles[index] * Math.PI / 360;
     const label = { x: station.x + Math.cos(middle) * (radius + 12), y: station.y + Math.sin(middle) * (radius + 12) };
-    return `<path d="M${start.x},${start.y} A${radius},${radius} 0 ${angles[index] > 180 ? 1 : 0} ${sweep} ${end.x},${end.y}" class="angle-arc"/><text x="${label.x}" y="${label.y}" class="angle-label">${["AB","BC","CD","DA"][index]}</text>`;
+    return `<path d="M${start.x},${start.y} A${radius},${radius} 0 ${angles[index] > 180 ? 1 : 0} ${sweep} ${end.x},${end.y}" class="angle-arc"/><text x="${label.x}" y="${label.y}" class="angle-label"><tspan x="${label.x}" dy="0">${["AB","BC","CD","DA"][index]}</tspan><tspan x="${label.x}" dy="12">${dmsText(angles[index])}</tspan></text>`;
   }).join("") : "";
   document.querySelector("#map-state").textContent = solution ? "Результат расчёта" : "Предварительное положение";
   document.querySelector("#map-coordinates").textContent = solution ? `X ${format(solution.meanX)} · Y ${format(solution.meanY)}${Number.isFinite(solution.meanH) ? ` · H ${format(solution.meanH)}` : ""}` : "X — · Y —";
