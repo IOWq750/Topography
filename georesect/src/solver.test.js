@@ -38,6 +38,23 @@ test("adjacent angles AB, BC, CD, DA produce the expected station", () => {
   assert.ok(Math.abs(result.summary.meanY - 1307474.021) < 0.002);
 });
 
+test("UTM 37N default observations converge around the demo station", () => {
+  const station = { x: 6213000, y: 386250 };
+  const points = [
+    { name: "Laplas", x: 6213464.508, y: 386471.874 },
+    { name: "Iturup", x: 6213015.384, y: 386545.623 },
+    { name: "Vega", x: 6212865.506, y: 386160.522 },
+    { name: "Prud", x: 6213054.837, y: 386016.414 }
+  ];
+  const directions = [0, 61.48940786517386, 188.1039195526301, 257.67995095692874];
+  const result = solveAllCombinations(points.map((point, index) => ({ point, direction: directions[index] })));
+
+  assert.equal(result.summary.count, 4);
+  assert.ok(Math.abs(result.summary.meanX - station.x) < 0.002);
+  assert.ok(Math.abs(result.summary.meanY - station.y) < 0.002);
+  assert.ok(result.summary.rms < 0.002);
+});
+
 test("station height is calculated from elevation angle and instrument/target heights", () => {
   const station = { x: 0, y: 0 };
   const point = { x: 100, y: 0, h: 110 };

@@ -14,18 +14,17 @@ const mapRaster = {
 };
 const initialPoints = benchmarkDatabase.map((point) => ({ id: crypto.randomUUID(), ...point }));
 const demoStation = { x: 508500, y: 1306850 };
-const initialSelectedPoints = initialPoints.slice(0, 4).sort((a, b) =>
-  wrapBearing(a) - wrapBearing(b)
-);
-function wrapBearing(point) {
-  return ((Math.atan2(point.y - demoStation.y, point.x - demoStation.x) * 180 / Math.PI) % 360 + 360) % 360;
-}
-const initialReadings = initialSelectedPoints.map((point) =>
-  ((Math.atan2(point.y - demoStation.y, point.x - demoStation.x) * 180 / Math.PI - 12) % 360 + 360) % 360
-);
 const wrapDegrees = (value) => ((value % 360) + 360) % 360;
 const readingsToAngles = (readings) => readings.map((reading, index) => wrapDegrees(readings[(index + 1) % readings.length] - reading));
-const initialDirections = readingsToAngles(initialReadings).map(degreesToDms);
+const createDemoSetup = (points, station, orientation = 12) => {
+  const bearing = (point) => wrapDegrees(Math.atan2(point.y - station.y, point.x - station.x) * 180 / Math.PI);
+  const selectedPoints = points.slice(0, 4).sort((a, b) => bearing(a) - bearing(b));
+  const readings = selectedPoints.map((point) => wrapDegrees(bearing(point) - orientation));
+  return { selectedPoints, directions: readingsToAngles(readings).map(degreesToDms) };
+};
+const initialDemoSetup = createDemoSetup(initialPoints, demoStation);
+const initialSelectedPoints = initialDemoSetup.selectedPoints;
+const initialDirections = initialDemoSetup.directions;
 const STORAGE_KEY = "georesect-state-v2";
 const coordinateSystems = {
   msk40: { name: "МСК-40", mapEnabled: true },
@@ -69,11 +68,12 @@ const createWorkspace = (points, selectedIds, directions = initialDirections) =>
   verticals: Array.from({ length: 4 }, () => ({ sign: 1, degrees: 0, minutes: 0, seconds: 0, targetHeight: 0 }))
 });
 const initialUtmPoints = structuredClone(utmPointDatabase);
+const initialUtmSetup = createDemoSetup(initialUtmPoints, { x: 6213000, y: 386250 });
 const defaultState = {
   activeSystem: "msk40",
   catalogs: {
     msk40: createWorkspace(structuredClone(initialPoints), initialSelectedPoints.map(({ id }) => id)),
-    utm37n: createWorkspace(initialUtmPoints, initialUtmPoints.slice(0, 4).map(({ id }) => id))
+    utm37n: createWorkspace(initialUtmPoints, initialUtmSetup.selectedPoints.map(({ id }) => id), initialUtmSetup.directions)
   },
   result: null,
   catalogQuery: ""
@@ -82,12 +82,23 @@ const isLegacyUtmPlaceholder = (workspace) =>
   workspace?.points?.length === 4 && workspace.points.every((point) =>
     point.name?.startsWith("UTM ") && point.x === 0 && point.y === 0 && point.h === 0
   );
+const sameDms = (left, right) => ["degrees", "minutes", "seconds"].every((field) => Number(left?.[field]) === Number(right?.[field]));
+const samePointCoordinates = (left, right) =>
+  Math.abs(Number(left?.x) - right.x) < 1e-9 && Math.abs(Number(left?.y) - right.y) < 1e-9;
+const isLegacyUtmMskDemo = (workspace) => {
+  const selectedPoints = workspace?.selectedIds?.map((id) => workspace.points?.find((point) => point.id === id)) || [];
+  return selectedPoints.length === 4 &&
+    selectedPoints.every((point, index) => samePointCoordinates(point, utmPointDatabase[index])) &&
+    workspace.directions?.length === 4 &&
+    workspace.directions.every((direction, index) => sameDms(direction, initialDirections[index]));
+};
 const shouldUseDefaultUtmCatalog = (workspace) =>
   !workspace?.points?.some((point) => point.name === "Итуруп") ||
   !workspace?.points?.some((point) => point.name === "Липа") ||
   workspace?.selectedIds?.length !== 4 ||
   workspace?.directions?.length !== 4 ||
-  isLegacyUtmPlaceholder(workspace);
+  isLegacyUtmPlaceholder(workspace) ||
+  isLegacyUtmMskDemo(workspace);
 const loadWorkspace = (workspace) => Object.assign(state, structuredClone(workspace), { result: null, catalogQuery: "" });
 const storeWorkspace = () => {
   state.catalogs[state.activeSystem] = structuredClone({
