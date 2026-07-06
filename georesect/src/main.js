@@ -242,13 +242,78 @@ function renderCatalog() {
     <tr><td><input data-catalog="${point.id}:name" value="${point.name}"></td><td><input data-catalog="${point.id}:x" type="number" value="${point.x}"></td><td><input data-catalog="${point.id}:y" type="number" value="${point.y}"></td><td><input data-catalog="${point.id}:h" type="number" value="${point.h}"></td><td><button class="delete" data-delete="${point.id}" aria-label="Удалить">×</button></td></tr>`).join("");
 }
 
+const FAR_DIRECTION_RATIO = 5;
+const FAR_DIRECTION_DISPLAY_FACTOR = 2.6;
+
+function createSchemeLayout(rows, stationCoordinates) {
+  const stationSource = stationCoordinates || {
+    x: rows.reduce((sum, { point }) => sum + point.x, 0) / (rows.length || 1),
+    y: rows.reduce((sum, { point }) => sum + point.y, 0) / (rows.length || 1)
+  };
+  const distances = rows
+    .map(({ point }, index) => ({ index, distance: Math.hypot(point.x - stationSource.x, point.y - stationSource.y) }))
+    .filter(({ distance }) => distance > 0)
+    .sort((a, b) => b.distance - a.distance);
+  const farCount = distances.length >= 4 && distances[1].distance / distances[2].distance >= FAR_DIRECTION_RATIO
+    ? 2
+    : distances.length >= 2 && distances[0].distance / distances[1].distance >= FAR_DIRECTION_RATIO
+      ? 1
+      : 0;
+  const farIndexes = new Set(distances.slice(0, farCount).map(({ index }) => index));
+  const baseDistance = farCount
+    ? Math.max(...distances.slice(farCount).map(({ distance }) => distance), 1)
+    : 0;
+  const displayRows = rows.map((row, index) => {
+    if (!farIndexes.has(index)) return { ...row, displayPoint: row.point, broken: false };
+    const dx = row.point.x - stationSource.x;
+    const dy = row.point.y - stationSource.y;
+    const distance = Math.hypot(dx, dy) || 1;
+    const displayDistance = Math.min(distance, baseDistance * FAR_DIRECTION_DISPLAY_FACTOR);
+    return {
+      ...row,
+      displayPoint: {
+        x: stationSource.x + dx / distance * displayDistance,
+        y: stationSource.y + dy / distance * displayDistance
+      },
+      broken: true
+    };
+  });
+  return { displayRows, stationSource };
+}
+
+function rayMarkup(station, point, broken) {
+  if (!broken) {
+    return `<line x1="${station.x}" y1="${station.y}" x2="${point.x}" y2="${point.y}" class="ray"/>`;
+  }
+  const dx = point.x - station.x;
+  const dy = point.y - station.y;
+  const length = Math.hypot(dx, dy);
+  if (length < 80) {
+    return `<line x1="${station.x}" y1="${station.y}" x2="${point.x}" y2="${point.y}" class="ray"/>`;
+  }
+  const unit = { x: dx / length, y: dy / length };
+  const normal = { x: -unit.y, y: unit.x };
+  const gapCenter = length * 0.55;
+  const gap = 26;
+  const firstEnd = { x: station.x + unit.x * (gapCenter - gap), y: station.y + unit.y * (gapCenter - gap) };
+  const secondStart = { x: station.x + unit.x * (gapCenter + gap), y: station.y + unit.y * (gapCenter + gap) };
+  const breakMarks = [-7, 7].map((offset) => {
+    const center = { x: station.x + unit.x * gapCenter + unit.x * offset, y: station.y + unit.y * gapCenter + unit.y * offset };
+    const a = { x: center.x + normal.x * 9 - unit.x * 5, y: center.y + normal.y * 9 - unit.y * 5 };
+    const b = { x: center.x - normal.x * 9 + unit.x * 5, y: center.y - normal.y * 9 + unit.y * 5 };
+    return `<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}" class="ray-break"/>`;
+  }).join("");
+  return `<g><line x1="${station.x}" y1="${station.y}" x2="${firstEnd.x}" y2="${firstEnd.y}" class="ray"/><line x1="${secondStart.x}" y1="${secondStart.y}" x2="${point.x}" y2="${point.y}" class="ray"/>${breakMarks}</g>`;
+}
+
 function renderScheme() {
   const rows = getRows().filter(({ point }) => point);
   const solution = state.result?.summary;
   const stationCoordinates = solution
     ? { x: solution.meanX, y: solution.meanY }
     : null;
-  const all = rows.map(({ point }) => point).concat(stationCoordinates ? [stationCoordinates] : []);
+  const { displayRows, stationSource } = createSchemeLayout(rows, stationCoordinates);
+  const all = displayRows.map(({ displayPoint }) => displayPoint).concat([stationCoordinates || stationSource]);
   const xs = all.map(({ x }) => x), ys = all.map(({ y }) => y);
   const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
   const scaleY = 700 / (maxY - minY || 1);
@@ -265,8 +330,8 @@ function renderScheme() {
     e: 100 + scaleY * (mapRaster.world.c - minY),
     f: 580 - scaleX * (mapRaster.world.f - minX)
   };
-  const station = project(stationCoordinates || { x: (minX + maxX) / 2, y: (minY + maxY) / 2 });
-  const projectedPoints = rows.map(({ point }) => project(point));
+  const station = project(stationCoordinates || stationSource);
+  const projectedPoints = displayRows.map(({ displayPoint }) => project(displayPoint));
   const angles = state.inputMode === "angles" ? getMeasurements() : [];
   const sweep = state.traversal === "clockwise" ? 1 : 0;
   const arcMarkup = solution && state.inputMode === "angles" ? projectedPoints.map((point, index) => {
@@ -286,9 +351,9 @@ function renderScheme() {
     <defs><pattern id="grid" width="45" height="45" patternUnits="userSpaceOnUse"><path d="M45 0H0V45" fill="none" stroke="#dfe4e2" stroke-width="1"/></pattern></defs>
     ${coordinateSystems[state.activeSystem].mapEnabled ? `<image href="${rasterLevel.href}" width="${rasterLevel.width}" height="${rasterLevel.height}" preserveAspectRatio="none" transform="matrix(${rasterMatrix.a} ${rasterMatrix.b} ${rasterMatrix.c} ${rasterMatrix.d} ${rasterMatrix.e} ${rasterMatrix.f})" class="map-raster"/>` : ""}
     <rect width="900" height="680" fill="url(#grid)" class="map-grid"/>
-    ${rows.map(({ point }) => { const p = project(point); return `<line x1="${station.x}" y1="${station.y}" x2="${p.x}" y2="${p.y}" class="ray"/>`; }).join("")}
+    ${displayRows.map(({ displayPoint, broken }) => rayMarkup(station, project(displayPoint), broken)).join("")}
     ${arcMarkup}
-    ${rows.map(({ point }, index) => { const p = project(point); return `<g><circle cx="${p.x}" cy="${p.y}" r="8" class="control-dot"/><text x="${p.x + 16}" y="${p.y - 9}" class="point-label">${String.fromCharCode(65 + index)} · ${point.name}</text><text x="${p.x + 16}" y="${p.y + 10}" class="coord-label">${format(point.x, 1)} / ${format(point.y, 1)}</text></g>`; }).join("")}
+    ${displayRows.map(({ point, displayPoint }, index) => { const p = project(displayPoint); return `<g><circle cx="${p.x}" cy="${p.y}" r="8" class="control-dot"/><text x="${p.x + 16}" y="${p.y - 9}" class="point-label">${String.fromCharCode(65 + index)} · ${point.name}</text><text x="${p.x + 16}" y="${p.y + 10}" class="coord-label">${format(point.x, 1)} / ${format(point.y, 1)}</text></g>`; }).join("")}
     <g><circle cx="${station.x}" cy="${station.y}" r="16" class="station-ring"/><circle cx="${station.x}" cy="${station.y}" r="5" class="station-dot"/><text x="${station.x + 23}" y="${station.y + 4}" class="station-label">P</text></g>`;
 }
 
