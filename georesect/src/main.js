@@ -332,9 +332,9 @@ function renderScheme() {
   };
   const station = project(stationCoordinates || stationSource);
   const projectedPoints = displayRows.map(({ displayPoint }) => project(displayPoint));
-  const angles = state.inputMode === "angles" ? getMeasurements() : [];
+  const angles = state.inputMode === "angles" ? getMeasurements() : readingsToAngles(getDirections());
   const sweep = state.traversal === "clockwise" ? 1 : 0;
-  const arcMarkup = solution && state.inputMode === "angles" ? projectedPoints.map((point, index) => {
+  const arcMarkup = solution ? projectedPoints.map((point, index) => {
     const next = projectedPoints[(index + 1) % projectedPoints.length];
     const radius = 38 + index * 13;
     const startAngle = Math.atan2(point.y - station.y, point.x - station.x);
