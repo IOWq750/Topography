@@ -332,18 +332,31 @@ function renderScheme() {
   };
   const station = project(stationCoordinates || stationSource);
   const projectedPoints = displayRows.map(({ displayPoint }) => project(displayPoint));
-  const angles = state.inputMode === "angles" ? getMeasurements() : readingsToAngles(getDirections());
+  const directionValues = getDirections().map(wrapDegrees);
   const sweep = state.traversal === "clockwise" ? 1 : 0;
-  const arcMarkup = solution ? projectedPoints.map((point, index) => {
-    const next = projectedPoints[(index + 1) % projectedPoints.length];
+  const angleOrder = projectedPoints
+    .map((point, index) => ({ point, index, angle: Math.atan2(point.y - station.y, point.x - station.x) }))
+    .sort((a, b) => a.angle - b.angle);
+  const adjacentAngles = (sweep ? angleOrder : [...angleOrder].reverse()).map((item, index, items) => ({
+    from: item,
+    to: items[(index + 1) % items.length]
+  }));
+  const arcMarkup = solution ? adjacentAngles.map(({ from, to }, index) => {
     const radius = 38 + index * 13;
-    const startAngle = Math.atan2(point.y - station.y, point.x - station.x);
-    const endAngle = Math.atan2(next.y - station.y, next.x - station.x);
+    const startAngle = from.angle;
+    const endAngle = to.angle;
+    const angle = sweep
+      ? wrapDegrees(directionValues[to.index] - directionValues[from.index])
+      : wrapDegrees(directionValues[from.index] - directionValues[to.index]);
+    const visualAngle = sweep
+      ? wrapDegrees((endAngle - startAngle) * 180 / Math.PI)
+      : wrapDegrees((startAngle - endAngle) * 180 / Math.PI);
+    if (visualAngle > 180) return "";
     const start = { x: station.x + Math.cos(startAngle) * radius, y: station.y + Math.sin(startAngle) * radius };
     const end = { x: station.x + Math.cos(endAngle) * radius, y: station.y + Math.sin(endAngle) * radius };
-    const middle = startAngle + (sweep ? 1 : -1) * angles[index] * Math.PI / 360;
+    const middle = startAngle + (sweep ? 1 : -1) * visualAngle * Math.PI / 360;
     const label = { x: station.x + Math.cos(middle) * (radius + 12), y: station.y + Math.sin(middle) * (radius + 12) };
-    return `<path d="M${start.x},${start.y} A${radius},${radius} 0 ${angles[index] > 180 ? 1 : 0} ${sweep} ${end.x},${end.y}" class="angle-arc"/><text x="${label.x}" y="${label.y}" class="angle-label"><tspan x="${label.x}" dy="0">${["AB","BC","CD","DA"][index]}</tspan><tspan x="${label.x}" dy="12">${dmsText(angles[index])}</tspan></text>`;
+    return `<path d="M${start.x},${start.y} A${radius},${radius} 0 ${visualAngle > 180 ? 1 : 0} ${sweep} ${end.x},${end.y}" class="angle-arc"/><text x="${label.x}" y="${label.y}" class="angle-label"><tspan x="${label.x}" dy="0">${String.fromCharCode(65 + from.index)}${String.fromCharCode(65 + to.index)}</tspan><tspan x="${label.x}" dy="12">${dmsText(angle)}</tspan></text>`;
   }).join("") : "";
   document.querySelector("#map-state").textContent = solution ? "Результат расчёта" : "Предварительное положение";
   document.querySelector("#map-coordinates").textContent = solution ? `X ${format(solution.meanX)} · Y ${format(solution.meanY)}${Number.isFinite(solution.meanH) ? ` · H ${format(solution.meanH)}` : ""}` : "X — · Y —";
