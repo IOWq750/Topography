@@ -130,7 +130,7 @@ async function schemePng(svg) {
   clone.setAttribute("height", "680");
   const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
   style.textContent = `
-    .map-grid{opacity:.35}.ray{stroke:#c95b47;stroke-width:1.5;stroke-dasharray:6 5}
+    .map-grid{opacity:.35}.ray{stroke:#c95b47;stroke-width:1.5;stroke-dasharray:6 5}.ray-break{stroke:#c95b47;stroke-width:2.8;stroke-linecap:round}
     .angle-arc{fill:none;stroke:#267b6a;stroke-width:2}.angle-label{font:bold 11px Arial;fill:#176b5b;text-anchor:middle;paint-order:stroke;stroke:#fff;stroke-width:3px}
     .control-dot{fill:#263d38;stroke:#fff;stroke-width:3}.station-ring{fill:#fff;stroke:#c95b47;stroke-width:2}
     .station-dot{fill:#c95b47}.point-label,.station-label{font:bold 13px Arial;fill:#22342f;paint-order:stroke;stroke:#fff;stroke-width:3px}
